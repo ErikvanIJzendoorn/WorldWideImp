@@ -1,0 +1,16 @@
+.cat_item {
+	margin-top: 40px;
+}
+
+header {
+	height: 75px;
+	background-color: lightgray;
+}
+
+.header-item {
+	text-align: center;
+}
+
+.row {
+	margin: 0px !important;
+}
