@@ -1,30 +1,28 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Productpagina</title>
-	<meta charset="UTF-8">
-  <!-- Latest compiled and minified CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <!-- jQuery library -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <!-- Latest compiled JavaScript -->
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <!-- CSS style sheet -->
-  <link rel="stylesheet" type="text/css" href="style.css">
-  <!-- ROBOTO font -->
-  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-  <!-- FONT AWESOME -->   
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous"> 
-</head>
-<body>
-	<div class="jumbotron wrapper">
-		<img src="WWI-logo.png" id="logo-img">
-    <div class="fas fa-shopping-cart cart">
-    </div>
-    <div>
-      <a href="#" class="log-in">Inloggen</a>  
-    </div>
-	</div>
+<?php require "index.php";
+
+require "../db/connect.php";
+//header("Location: landing/index.php");
+
+$stmt = getProduct();
+
+while($row = $stmt->fetch()) {
+  $naam = $row['naam'];
+  $categorie = $row['categorie'];
+  $herkomst = $row['herkomst'];
+  $verpakking = $row['verpakking'];
+  $kleur = $row['kleur'];
+  $prijs = $row['prijs'];
+  $btw = $row['btw'];
+  $voorraad = $row['voorraad'];
+  $ItemID = $row['itemID'];
+  $categorieID = $row['categorieID'];
+  $kleurID = $row['kleurID'];
+  $verpakkingID = $row['verpakkingID'];
+}
+$herkomst = str_replace(array('"', "{", "}", "[", "]", "-", ":", ","), "", $herkomst);
+$herkomst = explode(" ", $herkomst);
+
+?>
 
   <div class="navbar navbar-nav ml-auto" id="topNavbar">
 		<a href="#" class="navbar-item">Category1</a>
@@ -43,7 +41,7 @@
   <div class="content">
     <div class="product-name">
       <p>
-        Product.name
+        <?=$naam; ?>
       </p>
     </div>
     <div class="picture">
@@ -51,20 +49,17 @@
     </div>
     <div class="product-description">
       <p>
-       product.category
+        <?=$naam; ?>
       </p>
       <br>
-      <p>
-        product.description 
-      </p>
       <p class="product-price">
-        €{{product.price}}
+        <?="€" . $prijs; ?>
       </p>
       <div id="bestelamnt">
         <input type="number" name="amount" value="1">
       </div> 
       <p id="available">
-        availability.number
+        <?="De voorraad is: " . $voorraad; ?>
       </p>
       <button id="bestelbtn">
         Bestel

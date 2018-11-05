@@ -131,13 +131,13 @@ body {
 	font-size: 1.3em;
 	color: #fff;
 	border: none;
-	border-radius: 10px;
+	border-radius: 5px;
 	height: 45px;
 	width: 90%;
 	position: absolute;
 	top: 325px;
 	outline: none;
-	
+	box-shadow: 3px 4px #e8e8e8;
 }
 
 #bestelbtn:active{
@@ -145,6 +145,7 @@ body {
 	position: absolute;
 	top: 326px;
 	outline: none;
+	box-shadow: 2px 2px #e8e8e8;	
 }
 
 #bestelamnt {
