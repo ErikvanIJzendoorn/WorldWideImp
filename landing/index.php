@@ -34,8 +34,7 @@
 				while($row = $stmt->fetch()) {
 					$id = $row['id'];
 					$naam = $row['naam'];
-					$foto = $row['foto'];
-					$cat = array($id, $naam, $foto);
+					$cat = array($id, $naam);
 			?>
 				<div class="col-md-3 offset-1 cat_item">
 					<img src="https://via.placeholder.com/150" alt="test"><br>
