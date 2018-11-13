@@ -2,8 +2,6 @@
 <html>
 <head>
 <title>Productpagina</title>
-<!-- Database Connection -->
-
 
 <!-- Metadata insert -->
 <?php require '../meta.html'; ?>
