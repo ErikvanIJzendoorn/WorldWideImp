@@ -1,9 +1,8 @@
 <?php require "index.php";
 
 require "../db/connect.php";
-//header("Location: landing/index.php");
 
-$stmt = getProduct();
+$stmt = getProductsByCategory();
 
 while($row = $stmt->fetch()) {
   $naam = $row['naam'];

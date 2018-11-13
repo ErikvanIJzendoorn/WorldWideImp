@@ -46,8 +46,7 @@ function getProductsByCategory($category) {
         $pdo = connect();
         $stmt = $pdo->prepare("SELECT StockItemName naam, UnitPrice prijs FROM StockItems SI "
                 . "JOIN StockItemStockGroups SISG ON SI.StockItemID = SISG.StockItemID "
-                . "JOIN StockGroups SG ON SISG.StockGroupID = SG.StockGroupID "
-                . "WHERE StockGroupName = ?");
+                . "WHERE StockGroupID = ?");
         
         $stmt->execute(array($category));
         return $stmt;
