@@ -7,7 +7,8 @@
 	<?php require "../db/connect.php" ?>
 </head>
 <body>
-<nav class="navbar navbar-expand navbar-dark bg-dark sticky-top">
+	<?php require '../nav.php'; ?>
+<!-- <nav class="navbar navbar-expand navbar-dark bg-dark sticky-top">
   <div class="navbar-collapse">
     <ul class="navbar-nav mr-auto">
 		<li class="nav-item active">
@@ -25,7 +26,7 @@
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </form>
   </div>
-</nav>
+</nav> -->
     <div class="container">
     	<div class="row">
 			<?php 
@@ -37,7 +38,7 @@
 					$cat = array($id, $naam);
 			?>
 				<div class="col-md-3 offset-1 cat_item">
-					<a href="../producten/index.php" style="color: black; text-decoration: none;">
+					<a href="../product/index.php" style="color: black; text-decoration: none;">
 						<img src="https://via.placeholder.com/150" alt="test"><br>
 						<div style="text-align: center; max-width: 150px;">
 							<span><?php print($cat[1]); ?></span>

@@ -1,6 +1,6 @@
 <nav>
     <div class="jumbotron wrapper">
-        <img src="WWI-logo.png" id="logo-img">
+        <img src="../img/WWI-logo.png" id="logo-img">
         <div class="fas fa-shopping-cart cart">
         </div>
         <div class="fas fa-sign-in-alt cart">
