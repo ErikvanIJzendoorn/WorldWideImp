@@ -26,8 +26,10 @@ body {
 }
 
 .log-in {
-	position: absolute;
+        font-size: 1.0em;
+        position: relative;
 	float: right;
+        top: 0;
 }
 
 .try {
@@ -198,4 +200,13 @@ body {
 	height: 300px;
 	width: 45%;
 	border: 2px dotted black;
+}
+
+.picture1 {
+        display: inline-block;
+        position: relative;
+        float: none;
+        left: 20px;
+        padding: 95px;
+        font-size: 1.2em;
 }

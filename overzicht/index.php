@@ -25,3 +25,27 @@
       <a href="#" class="log-in">Inloggen</a>  
     </div>
 	</div>
+    <div class="picture1">
+       <img src="https://via.placeholder.com/300" alt="Productimg">
+    </div>
+    <div class="product-description">
+        <p>
+        <!-- Productnaam -->
+        <?=$naamCategorie; ?>
+        </p>
+        <br>
+        <p class="product-price">
+        <!-- Productprijs -->
+        <?="€" . $prijsCategorie; ?>
+        </p>
+        <div id="bestelamnt">
+            <input type="number" name="amount" value="1">
+        </div> 
+    </div>
+</body>
+   
+    <?php
+    for($picture1 = 0; $picture1 <29; $picture1++){
+        print('<div class="picture1"><img src="https://via.placeholder.com/300" alt="Productimg"></div>');
+    }
+    ?>
