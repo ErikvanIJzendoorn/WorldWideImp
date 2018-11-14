@@ -48,7 +48,8 @@ if(!function_exists("getCategory")){
 	}
 }
 
-function getProductsByCategory($category) {
+if(!function_exists('getProductsByCategory')){
+    function getProductsByCategory($category) {
     try {
         $pdo = connect();
         $stmt = $pdo->prepare("SELECT SI.StockItemID id, StockItemName naam, UnitPrice prijs FROM StockItems SI "
@@ -60,6 +61,7 @@ function getProductsByCategory($category) {
     } catch (PDOException $e) {
         return $e;
     }
+}
 }
 	
 ?>
