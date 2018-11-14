@@ -4,10 +4,12 @@
 	<title>World Wide Importers</title>
 	<link rel="stylesheet" href="landing.css">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<?php require"../main/meta.html"; ?>
 	<?php require "../db/connect.php" ?>
+	<?php require "../main/header.php"; ?>
 </head>
 <body>
-<nav class="navbar navbar-expand navbar-dark bg-dark sticky-top">
+<!-- <nav class="navbar navbar-expand navbar-dark bg-dark sticky-top">
   <div class="navbar-collapse">
     <ul class="navbar-nav mr-auto">
 		<li class="nav-item active">
@@ -25,7 +27,7 @@
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </form>
   </div>
-</nav>
+</nav> -->
     <div class="container">
     	<div class="row">
 			<?php 

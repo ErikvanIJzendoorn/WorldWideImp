@@ -2,15 +2,83 @@
 	margin-top: 40px;
 }
 
-header {
-	height: 75px;
-	background-color: lightgray;
-}
 
-.header-item {
+.wrapper {
+	padding: 30px;
+	background: #eee;
+	margin-bottom: 0;
+	height: 200px;
 	text-align: center;
+  box-shadow: 0px 10px 82px #d8d8d8;
 }
 
-.row {
-	margin: 0px !important;
+.cart {
+	font-size: 2.5em;
+	position: relative;
+	float: right;
+	top: 0;	
+}
+
+#logo-img {
+	padding:17px;
+}
+
+.log-in {
+	position: absolute;
+	float: right;
+}
+
+.try {
+	height: 2000px;
+}
+
+.navbar {
+	display: block;
+	position: absolute;
+	float: none;
+	width: 100%;
+	background: #00bcf2;
+	border-radius: 0;
+	z-index: 1;
+  align-items: center;
+  box-shadow:0px 12px 35px rgba(0, 0, 0, 0.15);
+}
+
+.navbar a{
+  display: inline-block;
+  position: relative;
+  float: none;
+  left: 20px;
+  color: white;
+  font-size: 1.2em;
+  text-align: center;
+  padding: 15px;
+  text-decoration: none;
+}
+
+.navbar a:hover {
+	background: #cccccc;
+	height: 100%;
+	padding: 15px;
+}
+
+.navbar-item {
+	width: 10%;
+}
+
+.search {
+	position: relative;
+	float: right;
+	font-size: 2em;
+	text-align: center;
+	padding: 12px;
+}
+
+.sticky {
+	position: fixed;
+	top: 0;
+	width: 100%;
+}
+.sticky + .content {
+  padding-top: 60px;
 }
