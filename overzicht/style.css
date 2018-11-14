@@ -209,4 +209,5 @@ body {
         left: 20px;
         padding: 95px;
         font-size: 1.2em;
+        border: 1px dotted black;
 }

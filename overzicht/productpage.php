@@ -6,9 +6,8 @@ $stmt = getProductsByCategory(filter_input(INPUT_GET, 'category', FILTER_SANITIZ
 
 $producten = array();
 while($row = $stmt->fetch()) {
-    $producten[$row["naam"]] = $row["prijs"];
+    $producten[$row["id"]] = array("naam" => $row["naam"], "prijs" => $row["prijs"]);
 }
-    print(count($producten));
 ?>
 
   <div class="navbar navbar-nav ml-auto" id="topNavbar">
@@ -26,12 +25,13 @@ while($row = $stmt->fetch()) {
   </div>
 
     <?php
-    foreach ($producten as $naam => $prijs){
+    foreach ($producten as $id => $gegevens){
+        echo "<a href='../product/index.php?product=$id' style='color: black; text-decoration: none;'>";
         echo '<div class="picture1">';
         echo '<img src="https://via.placeholder.com/300" alt="Productimg"><p>';
-        echo $naam;
+        echo $gegevens["naam"];
         echo '</p><p>€ ';
-        echo $prijs;
+        echo $gegevens["prijs"];
         echo '</p></div>';
     }
     ?>
