@@ -1,12 +1,4 @@
 <nav>
-    <div class="jumbotron wrapper">
-        <img src="../img/WWI-logo.png" id="logo-img">
-        <div class="fas fa-shopping-cart cart">
-        </div>
-        <div class="fas fa-sign-in-alt cart">
-        </div>
-    </div>
-
     <div class="navbar navbar-nav ml-auto" id="topNavbar">
         <?php 
         require '../db/connect.php';

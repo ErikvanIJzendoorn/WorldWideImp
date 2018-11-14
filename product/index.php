@@ -4,13 +4,14 @@
 <title>Productpagina</title>
 
 <!-- Metadata insert -->
-<?php require '../meta.html'; ?>
+<?php require '../main/meta.html'; ?>
 
 </head>
 <body>
 
 <!-- Navbar insert -->
-<?php require "../nav.php"; ?>
+<?php require "../main/header.php"; ?>
+<?php require "../main/nav.php"; ?>
 
 <?php require "product.php"; ?>
 <div class="content">

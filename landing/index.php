@@ -5,9 +5,10 @@
 	<link rel="stylesheet" href="landing.css">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 	<?php require "../db/connect.php" ?>
+	<?php require "../main/header.php"; ?>
+	<?php require '../main/nav.php'; ?>
 </head>
 <body>
-	<?php require '../nav.php'; ?>
 <!-- <nav class="navbar navbar-expand navbar-dark bg-dark sticky-top">
   <div class="navbar-collapse">
     <ul class="navbar-nav mr-auto">
