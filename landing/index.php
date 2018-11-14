@@ -51,5 +51,6 @@
 			?>
 		</div>
     </div>
+    <?php require "../main/footer.php"; ?>
   </body>
 </html>
