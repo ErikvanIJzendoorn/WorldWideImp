@@ -12,16 +12,12 @@ while($row = $stmt->fetch()) {
     $producten[$row["id"]] = array("naam" => $row["naam"], "prijs" => $row["prijs"]);
 }
 
-$numberOfProducts = 30;
+$numberOfProducts = 9;
 $numberOfPages = ceil(count($producten) / $numberOfProducts);
 $pages = array();
 for ($i = 0; $i < $numberOfPages; $i++) {
     $pages[$i] = array_slice($producten, $i * $numberOfProducts, $numberOfProducts);
 }
-
-echo "<script>";
-echo "console.log('Aantal producten: ". count($producten) . "')";
-echo "</script>";
 ?>
 <!--
   <div class="navbar navbar-nav ml-auto" id="topNavbar">
@@ -50,6 +46,9 @@ echo "</script>";
     }
     ?>
     
+
+</div>
+<div class="page-nav">
     <ul>
         <?php 
         for ($i = 0; $i < $numberOfPages; $i++) {

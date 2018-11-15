@@ -18,3 +18,12 @@
 .outer-div a {
     width: 32%;
 }
+
+.page-nav {
+ 
+    background: red;
+}
+
+.page-nav ul     {
+    list-style: none;
+}
