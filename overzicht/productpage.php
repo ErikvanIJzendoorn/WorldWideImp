@@ -2,12 +2,26 @@
 
 require "../db/connect.php";
 
-$stmt = getProductsByCategory(filter_input(INPUT_GET, 'category', FILTER_SANITIZE_NUMBER_INT));
+$categoryID = filter_input(INPUT_GET, 'category', FILTER_SANITIZE_NUMBER_INT);
+$pageNumber = filter_input(INPUT_GET, 'pageNumber', FILTER_SANITIZE_NUMBER_INT);
+
+$stmt = getProductsByCategory($categoryID);
 
 $producten = array();
 while($row = $stmt->fetch()) {
     $producten[$row["id"]] = array("naam" => $row["naam"], "prijs" => $row["prijs"]);
 }
+
+$numberOfProducts = 30;
+$numberOfPages = ceil(count($producten) / $numberOfProducts);
+$pages = array();
+for ($i = 0; $i < $numberOfPages; $i++) {
+    $pages[$i] = array_slice($producten, $i * $numberOfProducts, $numberOfProducts);
+}
+
+echo "<script>";
+echo "console.log('Aantal producten: ". count($producten) . "')";
+echo "</script>";
 ?>
 <!--
   <div class="navbar navbar-nav ml-auto" id="topNavbar">
@@ -25,7 +39,7 @@ while($row = $stmt->fetch()) {
   </div>-->
 <div class="outer-div">
     <?php
-    foreach ($producten as $id => $gegevens){
+    foreach ($pages[$pageNumber] as $id => $gegevens){
         echo "<a href='../product/index.php?product=$id' style='color: black; text-decoration: none;'>";
         echo '<div class="image-border">';
         echo '<img src="https://via.placeholder.com/300" alt="Productimg"><p>';
@@ -35,6 +49,16 @@ while($row = $stmt->fetch()) {
         echo '</p></div>';
     }
     ?>
+    
+    <ul>
+        <?php 
+        for ($i = 0; $i < $numberOfPages; $i++) {
+            echo "<li><a href='../overzicht/productpage.php?category=$categoryID&pageNumber=$i' style='color: black; text-decoration: none;'>";
+            echo $i + 1;
+            echo "</li>";
+        }
+        ?>        
+    </ul>
 </div>
 
 <script src="controller.js"></script>
