@@ -3,15 +3,17 @@
 <head>
 <title>Productpagina</title>
 
-<!-- Metadata insert -->
-<?php require '../main/meta.html'; ?>
+
+    <!--header&navbar-->
+    <?php require "../main/header.php"; ?>
+    <?php require "../main/nav.php"; ?>
+    <!-- meta -->
+    <?php require"../main/meta.html"; ?>
+    <!-- database -->
+    <?php require "../db/connect.php" ?>
 
 </head>
 <body>
-
-<!-- Navbar insert -->
-<?php require "../main/header.php"; ?>
-<?php require "../main/nav.php"; ?>
 
 <?php require "product.php"; ?>
 <div class="content">
