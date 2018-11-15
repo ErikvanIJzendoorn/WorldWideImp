@@ -51,7 +51,8 @@
                 $item = array(
                     'id' => $ItemID,
                     'naam' => $naam, 
-                    'prijs' => $prijs
+                    'prijs' => $prijs,
+                    'aantal' => 0
                 );
 
                 $_SESSION['item'] = $item;

@@ -6,12 +6,15 @@
 	<?php require '../main/meta.html'; ?>
 </head>
 <body>
-
+	<?php 
+		session_start(); 
+		$cart = $_SESSION['cart'];
+	?>
 	<!--header&navbar-->
 	<?php require "../main/header.php"; ?>
 	<?php require "../main/nav.php"; ?>
 	<!--cart-->
-	<?php require "../product/cart.php"; ?>
+	<?php //require "../product/cart.php"; ?>
 
 	<div class="content">
 		<div class="name">
@@ -27,18 +30,22 @@
 			</thead>
 			<tbody>
 				<?php
-					foreach ($item as $key => $value) {
-						print("<tr><td>" . $item['naam'] . "</td><td>" . $item['aantal'] . "</td><td>" . $item['prijs'] . "</td><tr>");
+					foreach ($cart['items'] as $key => $value) {
+						print("<tr><td>" . $value['naam'] . "</td><td>" . $value['aantal'] . "</td><td>" . $value['prijs'] . "</td><tr>");
 					}	
 				?>
 			</tbody>
 			<tfoot>
 				<!--totaalbedrag-->
 				<tr>
-					<td></td>
-					<td></td>
-					<td>totaal: <?php ?></td>
-				</tr>				
+					<td>verzendkosten: <?=$cart['vkosten'];?></td>
+				</tr>		
+				<tr>
+					<td>btw: <?=$cart['btw'];?></td>
+				</tr>		
+				<tr>
+					<td>totaal: <?=$cart['tprijs'];?></td>
+				</tr>
 			</tfoot>
 		</table>
 	</div>
