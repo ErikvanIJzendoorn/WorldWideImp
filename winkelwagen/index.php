@@ -4,6 +4,7 @@
 	<title>Winkelwagen</title>
 	<!--Metadata-->
 	<?php require '../main/meta.html'; ?>
+	<link href="../winkelwagen/cart.css" type="text/css" rel="stylesheet">
 </head>
 <body>
 	<?php 
@@ -23,9 +24,9 @@
 		<table>
 			<thead>
 				<tr>
-					<th>Productnaam</th>
-					<th>Aantal</th>
-					<th>Prijs</th>
+					<td>Productnaam</td>
+					<td>Aantal</td>
+					<td>Prijs (per stuk)</td>
 				</tr>
 			</thead>
 			<tbody>
@@ -44,7 +45,7 @@
 					<td>btw: <?=$cart['btw'];?></td>
 				</tr>		
 				<tr>
-					<td>totaal: <?=$cart['tprijs'];?></td>
+					<td>totaal (exclusief BTW): <?=$cart['tprijs'];?></td>
 				</tr>
 			</tfoot>
 		</table>
