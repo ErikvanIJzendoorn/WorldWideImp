@@ -4,30 +4,15 @@
 	<title>World Wide Importers</title>
 	<link rel="stylesheet" href="landing.css">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-	<?php require"../main/meta.html"; ?>
-	<?php require "../db/connect.php" ?>
+
+		<!--header&navbar-->
 	<?php require "../main/header.php"; ?>
+	<!-- meta -->
+	<?php require"../main/meta.html"; ?>
+	<!-- database -->
+	<?php require "../db/connect.php" ?>
 </head>
 <body>
-<!-- <nav class="navbar navbar-expand navbar-dark bg-dark sticky-top">
-  <div class="navbar-collapse">
-    <ul class="navbar-nav mr-auto">
-		<li class="nav-item active">
-			<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-		</li>
-    </ul>
-    <ul class="navbar-nav mr-auto">
-    	<li class="nav-item active">
-			<a class="navbar-brand" href="#">WorldWideImporters</a>
-		</li>
-    </ul>
-
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
-  </div>
-</nav> -->
     <div class="container">
     	<div class="row">
 			<?php 
