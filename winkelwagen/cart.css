@@ -1,0 +1,17 @@
+table {
+	position: absolute;
+	margin-left: 30%;
+	width: 40%
+}
+
+thead {
+	background-color: #00bcf2;
+	color: white;
+}
+
+tbody {
+	background-color: #cccccc;
+}
+td {
+	border: 1px solid black;
+}
