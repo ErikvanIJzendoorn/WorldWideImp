@@ -22,7 +22,7 @@
     			<input class="col-md-3" type="password" name="pass" placeholder="example123@" required>
     		</div>
     		<div class="item row">
-    			<a class="col-md-1 offset-md-5" href="register.php">Registreren</a>
+    			<a class="col-md-1 offset-md-5" href="registratie.php">Registreren</a>
     			<button class="col-md-1 offset-md-1" type="submit">Inloggen</button>
     		</div>
     	</form>
