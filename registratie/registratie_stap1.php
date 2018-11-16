@@ -1,27 +1,63 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+    <title></title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
 </head>
 <body>
-  <!-- database connection-->
-  <?php
-  require '../db/connect.php'
-  ?>
-  
-  <!--registration form -->
-  <form action="validation.php" method="post">
-        First name <input type="text" name="firstname" placeholder="firstname"/><br>
-        Last name <input type="text" name="lastname" placeholder="last name"/><br>
-        Hometown <input type="text" name="hometown" placeholder="hometown"/><br>
-        Postal code <input type="text" name="postalcode" placeholder="postalcode" /><br>
-        Street name and house number <input type="text" name="streetname" placeholder="address"><br>
-        Phone number <input type="number" name="phone" placeholder='phonenumber'/><br>
-        Gender : <select name="gender">
-            <option>Male</option>
-            <option>Female</option>
-        </select>
-        <input type='submit' name="submit" value="submit">
+    <!-- database connection-->
+    <!--header&navbar-->
+    <?php require "../main/header.php"; ?>
+    <?php require "../main/nav.php"; ?>
+    <!-- meta -->
+    <?php require"../main/meta.html"; ?>
+
+    <!--registration form -->
+    <form class="container" style="margin-top: 100px; margin-bottom: -80px;" action="register.php" method="post">
+        <div class="form-row">
+            <div class="form-group col-md-4 offset-md-1">
+                <label for="inputEmail4">Emailadres</label>
+                <input type="email" name="user" class="form-control" placeholder="example@test.nl" required>
+            </div>
+
+            <div class="form-group col-md-4 offset-md-1">
+                <label for="inputEmail4">Voornaam</label>
+                <input type="text" name="voornaam" class="form-control" required>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-4 offset-md-1">
+                <label for="inputPassword4">Wachtwoord</label>
+                <input type="password" name="pass" class="form-control" placeholder="example123@" required>
+            </div>
+
+            <div class="form-group col-md-4 offset-md-1">
+                <label for="inputEmail4">Achternaam</label>
+                <input type="text" name="achternaam" class="form-control" required>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-4 offset-md-6">
+                <label for="inputAddress">Adres</label>
+                <input type="text" name="adres" class="form-control" required>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-2 offset-md-6">
+                <label for="inputCity">Stad</label>
+                <input type="text" name="plaats" class="form-control" required>
+            </div>
+            <div class="form-group col-md-2">
+                <label for="inputZip">Postcode</label>
+                <input type="text" name="postcode" class="form-control" required>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary offset-md-9 col-md-1">Verzenden</button>
     </form>
+
+    <?php 
+        require '../main/footer.php';
+    ?>
 </body>
 </html>
