@@ -9,18 +9,19 @@ function connect(){
 
 // Get a single product from the DB
 if(!function_exists("getProduct")){
-function getProduct($productID) {
-	try{
-		$pdo = connect();
-		$stmt = $pdo->prepare("
-			SELECT StockItemName naam, SG.StockGroupName categorie, CustomFields herkomst, PackageTypeName verpakking, ColorName kleur, UnitPrice prijs, TaxRate btw, QuantityOnHand voorraad, S.StockItemID itemID, SG.StockGroupID categorieID, C.ColorID kleurID, P.PackageTypeID verpakkingID FROM StockItems S LEFT JOIN Colors C ON S.ColorID = C.ColorID LEFT JOIN PackageTypes P ON S.UnitPackageID = P.PackageTypeID LEFT JOIN StockItemHoldings H ON S.StockItemID = H.StockItemID LEFT JOIN StockItemStockGroups SS ON S.StockItemID = SS.StockItemID LEFT JOIN StockGroups SG ON SS.StockGroupID = SG.StockGroupID WHERE S.StockItemID = ?
-		");
+    function getProduct($productID) {
+            try{
+                    $pdo = connect();
+                    $stmt = $pdo->prepare("
+                            SELECT StockItemName naam, SG.StockGroupName categorie, CustomFields herkomst, PackageTypeName verpakking, ColorName kleur, UnitPrice prijs, TaxRate btw, QuantityOnHand voorraad, S.StockItemID itemID, SG.StockGroupID categorieID, C.ColorID kleurID, P.PackageTypeID verpakkingID FROM StockItems S LEFT JOIN Colors C ON S.ColorID = C.ColorID LEFT JOIN PackageTypes P ON S.UnitPackageID = P.PackageTypeID LEFT JOIN StockItemHoldings H ON S.StockItemID = H.StockItemID LEFT JOIN StockItemStockGroups SS ON S.StockItemID = SS.StockItemID LEFT JOIN StockGroups SG ON SS.StockGroupID = SG.StockGroupID WHERE S.StockItemID = ?
+                    ");
 
-		$stmt->execute(array($productID));
-		return $stmt;
-	}catch (PDOException $e)
-    {
-        return $e;
+                    $stmt->execute(array($productID));
+                    return $stmt;
+            }catch (PDOException $e)
+        {
+            return $e;
+        }
     }
 }
 
@@ -63,8 +64,10 @@ function Register(){
     try {
             $pdo = connect();
             $stmt = $pdo->prepare("INSERT INTO ");
-    } catch (Exception $e) {
+            
+            $stmt->execute();
+            return $stmt;
+    } catch (PDOException $e) {
         return $e;
     }
 }
-?>

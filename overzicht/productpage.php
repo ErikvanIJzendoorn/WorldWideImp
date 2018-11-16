@@ -1,7 +1,5 @@
 <?php require "index.php";
 
-require "../db/connect.php";
-
 $categoryID = filter_input(INPUT_GET, 'category', FILTER_SANITIZE_NUMBER_INT);
 $pageNumber = filter_input(INPUT_GET, 'pageNumber', FILTER_SANITIZE_NUMBER_INT);
 
@@ -48,18 +46,19 @@ for ($i = 0; $i < $numberOfPages; $i++) {
     
 
 </div>
-<div class="page-nav">
-    <ul>
-        <?php 
-        for ($i = 0; $i < $numberOfPages; $i++) {
-            echo "<li><a href='../overzicht/productpage.php?category=$categoryID&pageNumber=$i' style='color: black; text-decoration: none;'>";
-            echo $i + 1;
-            echo "</li>";
-        }
-        ?>        
-    </ul>
+<div class="bottom">
+    <div class="page-nav">
+        <a href="../overzicht/productpage.php?category=<?=$categoryID;?>&pageNumber=<?php if($pageNumber > 0) {$pageNumber--;} echo $pageNumber;?>">&laquo;</a>
+            <?php 
+            for ($i = 0; $i < $numberOfPages; $i++) {
+                echo "<a href='../overzicht/productpage.php?category=$categoryID&pageNumber=$i' style='color: black; text-decoration: none;'>";
+                echo $i + 1;
+            }
+            ?>
+        <a href="../overzicht/productpage.php?category=<?=$categoryID;?>&pageNumber=<?php if($pageNumber < $numberOfPages) {$pageNumber++;} echo $pageNumber;?>">&raquo;</a>
+    </div>
 </div>
-
+    
 <script src="controller.js"></script>
 </body>
 </html> 

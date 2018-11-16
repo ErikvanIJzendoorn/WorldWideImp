@@ -9,8 +9,6 @@
     <?php require "../main/nav.php"; ?>
     <!-- meta -->
     <?php require"../main/meta.html"; ?>
-    <!-- database -->
-    <?php require "../db/connect.php" ?>
 
 </head>
 <body>
