@@ -1,0 +1,13 @@
+.ideal {
+        width: 500px;
+        height: 200px;
+        border: dotted 2px lightgrey; 
+        font-size: 1.7em;
+        margin-left: 500px;
+        text-align: center;
+}
+
+.ideal p{
+        color: blue;
+}
+        
