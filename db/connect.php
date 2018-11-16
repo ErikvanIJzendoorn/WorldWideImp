@@ -41,13 +41,8 @@ function getCategory(){
     }
 }
 
-function Register(){
-    try {
-            $pdo = connect();
-            $stmt = $pdo->prepare("INSERT INTO ");
-    } catch (Exception $e) {
-        return $e;
-    }
+function Register($user, $pass, $voornaam, $achternaam, $adres, $plaats, $postcode){
+   
 }
 
 function Login($user, $pass){
