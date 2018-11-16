@@ -5,13 +5,13 @@ body {
 	INDEX
 \*-----------------*/
 
-
 .wrapper {
 	padding: 30px;
 	background: #eee;
 	margin-bottom: 0;
 	height: 200px;
 	text-align: center;
+  box-shadow: 0px 10px 82px #d8d8d8;
 }
 
 .cart {
@@ -50,12 +50,13 @@ body {
   display: inline-block;
   position: relative;
   float: none;
-  left: 20px;
+  left: 15px;
   color: white;
-  font-size: 1.2em;
+  font-size: 1em;
   text-align: center;
   padding: 15px;
   text-decoration: none;
+  width: 10.7%;
 }
 
 .navbar a:hover {
@@ -131,13 +132,13 @@ body {
 	font-size: 1.3em;
 	color: #fff;
 	border: none;
-	border-radius: 5px;
+	border-radius: 10px;
 	height: 45px;
 	width: 90%;
 	position: absolute;
 	top: 325px;
 	outline: none;
-	box-shadow: 3px 4px #e8e8e8;
+	
 }
 
 #bestelbtn:active{
@@ -145,7 +146,6 @@ body {
 	position: absolute;
 	top: 326px;
 	outline: none;
-	box-shadow: 2px 2px #e8e8e8;	
 }
 
 #bestelamnt {
@@ -172,7 +172,7 @@ body {
 	height: 50px;
 	text-align: center;
 	font-size: 2em;
-	margin-bottom: 20px;
+	margin: 20px 0;
 }
 
 .product-description {
@@ -182,6 +182,7 @@ body {
 	width: 45%;
 	height: 300px;
 	padding: 5px 15px;
+	margin-right: 200px;
 }
 
 .product-description p{
@@ -195,7 +196,8 @@ body {
 }
 
 .picture {
-	height: 300px;
-	width: 45%;
+	height: 400px;
+	width: 400px;
 	border: 2px dotted black;
+	margin-left: 100px;
 }
