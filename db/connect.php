@@ -49,4 +49,18 @@ function Register(){
         return $e;
     }
 }
+
+function Login($user, $pass){
+    try {
+            $pdo = connect();
+            $stmt = $pdo->prepare("SELECT CustomerEmail, CustomerPassword FROM clogin WHERE CustomerEmail = :user AND CustomerPassword = :pass");
+            $stmt->bindValue(':user', $user);
+            $stmt->bindValue(':pass', $pass);
+
+            $stmt->execute();
+			return $stmt;
+    } catch (Exception $e) {
+        return $e;
+    }
+}
 ?>
