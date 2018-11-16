@@ -1,14 +1,11 @@
 <?php 
-if(!function_exists('connect')) {
-	function connect(){
-		$db ="mysql:host=localhost;dbname=wideworldimporters;port=3306";
-		$user = "root";
-		$pass = "";
-		$pdo = new PDO($db, $user, $pass);
-		return $pdo;
-	}
+function connect(){
+	$db ="mysql:host=localhost;dbname=wideworldimporters;port=3306";
+	$user = "root";
+	$pass = "";
+	$pdo = new PDO($db, $user, $pass);
+	return $pdo;
 }
-
 
 // Get a single product from the DB
 if(!function_exists("getProduct")){
@@ -25,27 +22,24 @@ function getProduct($productID) {
     {
         return $e;
     }
-	}
 }
 
-if(!function_exists("getCategory")){
-	function getCategory(){
-		try {
-			$pdo = connect();
-			$stmt = $pdo->prepare("
-				SELECT SG.StockGroupName naam, SG.StockGroupID id
-				FROM StockGroups SG
-				JOIN stockitemstockgroups USING(StockGroupID)
-				JOIN StockItems S USING(StockItemID)
-				GROUP BY SG.StockGroupID");
+function getCategory(){
+	try {
+		$pdo = connect();
+		$stmt = $pdo->prepare("
+			SELECT SG.StockGroupName naam, SG.StockGroupID id
+			FROM StockGroups SG
+			JOIN stockitemstockgroups USING(StockGroupID)
+			JOIN StockItems S USING(StockItemID)
+			GROUP BY SG.StockGroupID");
 
-				$stmt->execute();
-				return $stmt;
-		}catch (PDOException $e)
-	    {
-	        return $e;
-	    }
-	}
+			$stmt->execute();
+			return $stmt;
+	}catch (PDOException $e)
+    {
+        return $e;
+    }
 }
 
 if(!function_exists('getProductsByCategory')){
@@ -64,4 +58,13 @@ if(!function_exists('getProductsByCategory')){
 }
 }
 	
+
+function Register(){
+    try {
+            $pdo = connect();
+            $stmt = $pdo->prepare("INSERT INTO ");
+    } catch (Exception $e) {
+        return $e;
+    }
+}
 ?>
