@@ -37,7 +37,6 @@
 				?>
 			</tbody>
 			<tfoot>
-				<!--totaalbedrag-->
 				<tr>
 					<td>Verzendkosten: <?=$cart['vkosten'];?></td>
 					<td>BTW: <?=$cart['btw'];?></td>
@@ -45,6 +44,12 @@
 				</tr>
 			</tfoot>
 		</table>
+		<button id="winkelbtn" type="submit">
+			Verder winkelen
+		</button>
+		<button id="betaalbtn" type="submit">
+			Afrekenen
+		</button>
 	</div>
 </body>
 </html>
