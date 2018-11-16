@@ -40,5 +40,13 @@ function getCategory(){
         return $e;
     }
 }
-	
+
+function Register(){
+    try {
+            $pdo = connect();
+            $stmt = $pdo->prepare("INSERT INTO ");
+    } catch (Exception $e) {
+        return $e;
+    }
+}
 ?>
