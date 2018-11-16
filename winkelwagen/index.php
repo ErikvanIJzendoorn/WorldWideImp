@@ -24,9 +24,9 @@
 		<table>
 			<thead>
 				<tr>
-					<td>Productnaam</td>
-					<td>Aantal</td>
-					<td>Prijs (per stuk)</td>
+					<th>Productnaam</th>
+					<th>Aantal</th>
+					<th>Prijs (per stuk)</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -39,13 +39,9 @@
 			<tfoot>
 				<!--totaalbedrag-->
 				<tr>
-					<td>verzendkosten: <?=$cart['vkosten'];?></td>
-				</tr>		
-				<tr>
-					<td>btw: <?=$cart['btw'];?></td>
-				</tr>		
-				<tr>
-					<td>totaal (exclusief BTW): <?=$cart['tprijs'];?></td>
+					<td>Verzendkosten: <?=$cart['vkosten'];?></td>
+					<td>BTW: <?=$cart['btw'];?></td>
+					<td>Totaal (exclusief BTW): <?=$cart['tprijs'];?></td>
 				</tr>
 			</tfoot>
 		</table>
