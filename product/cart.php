@@ -10,10 +10,15 @@ array_push($items, $item);
 // calculate sub, btw, totaal
 foreach ($items as $key => $value) {
 	$items[0]['prijs'] = $items[0]['prijs'] / 1.12;
+	$items[0]['prijs'] = round($items[0]['prijs'], 2);
+	for ($i=0; $i < $items[0]['aantal']; $i++) { 
+		
 
-	$sub = $sub + $items[0]['prijs'];
-	$sub = round($sub, 2);
+		$sub = $sub + $items[0]['prijs'];
+		$sub = round($sub, 2);
+	}
 }
+
 $btw = ($sub / 121) * 21;
 $btw = round($btw, 2);
 
@@ -29,6 +34,8 @@ $cart = array(
 );
 
 $_SESSION['cart'] = $cart;
+
+header("Location: ../winkelwagen/index.php");
 /*
 
 cart = array
