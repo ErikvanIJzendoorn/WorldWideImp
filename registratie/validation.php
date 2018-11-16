@@ -10,7 +10,7 @@ function AttemptLogin() {
         $stmt = Login($user, $pass);
 
         if($row = $stmt->fetch()) {
-            echo "Welkom $user";
+            header("Location: ../betalen/index.php");
         } else {
             echo "Combinatie niet gevonden!";
         }
