@@ -44,12 +44,16 @@
 				</tr>
 			</tfoot>
 		</table>
-		<button id="winkelbtn" type="submit">
-			Verder winkelen
-		</button>
-		<button id="betaalbtn" type="submit">
-			Afrekenen
-		</button>
+		<a href="../landing/index.php">
+			<button id="winkelbtn" type="submit">
+				Verder winkelen
+			</button>
+		</a>
+		<a href="../betalen/index.php">
+			<button id="betaalbtn" type="submit">
+				Afrekenen
+			</button>
+		</a>
 	</div>
 </body>
 </html>
