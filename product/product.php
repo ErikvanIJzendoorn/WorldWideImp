@@ -1,6 +1,6 @@
 <?php
 
-$stmt = getProduct();
+$stmt = getProduct(filter_input(INPUT_GET, 'product', FILTER_SANITIZE_STRING));
 
 while($row = $stmt->fetch()) {
 	$naam = $row['naam'];

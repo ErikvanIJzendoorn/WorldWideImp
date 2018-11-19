@@ -22,9 +22,10 @@
 					$id = $row['id'];
 					$naam = $row['naam'];
 					$cat = array($id, $naam);
+                                
 			?>
 				<div class="col-md-3 offset-1 cat_item">
-					<a href="../product/index.php" style="color: black; text-decoration: none;">
+					<a href="../overzicht/productpage.php?category=<?php echo $id;?>&pageNumber=0" style="color: black; text-decoration: none;">
 						<img src="https://via.placeholder.com/150" alt="test"><br>
 						<div style="text-align: center; max-width: 150px;">
 							<span><?php print($cat[1]); ?></span>

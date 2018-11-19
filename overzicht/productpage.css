@@ -1,0 +1,41 @@
+.image-border {
+    display: inline-block;
+    padding: 10px;
+    margin: 15px;
+}
+
+.image-border p {
+    height: 35px;
+    width: 90%;
+}
+
+.outer-div {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.outer-div a {
+    width: 32%;
+}
+
+.bottom {
+    display: flex;
+    justify-content: center;
+}
+
+.page-nav a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    transition: background-color .3s;
+    
+}
+
+.page-nav a.active {
+    background-color: dodgerblue;
+    color: white;
+}
+
+.page-nav a:hover:not(.active) {background-color: #ddd;}
