@@ -35,7 +35,7 @@ body {
 }
 
 .navbar {
-		height: 75px;
+		/*height: 75px;*/
 	display: block;
 	position: absolute;
 	float: none;
@@ -49,7 +49,7 @@ body {
 
 .navbar a{
 	vertical-align: middle;
-	height: 75px;
+	/*height: 75px;*/
   display: inline-block;
   position: relative;
   float: none;
@@ -63,7 +63,7 @@ body {
 }
 
 .navbar a:hover {
-	background: #03a9f4;
+	/*background: #03a9f4;*/
 	height: 100%;
 }
 
