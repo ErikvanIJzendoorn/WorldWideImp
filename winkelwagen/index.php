@@ -49,7 +49,7 @@
 				Verder winkelen
 			</button>
 		</a>
-		<a href="../betalen/index.php">
+		<a href="../registratie/login.php">
 			<button id="betaalbtn" type="submit">
 				Afrekenen
 			</button>

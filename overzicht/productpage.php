@@ -3,6 +3,8 @@
 $categoryID = filter_input(INPUT_GET, 'category', FILTER_SANITIZE_NUMBER_INT);
 $pageNumber = filter_input(INPUT_GET, 'pageNumber', FILTER_SANITIZE_NUMBER_INT);
 
+$categoryID = $_GET['category'];
+
 $stmt = getProductsByCategory($categoryID);
 
 $producten = array();
@@ -34,7 +36,7 @@ for ($i = 0; $i < $numberOfPages; $i++) {
 <div class="outer-div">
     <?php
     foreach ($pages[$pageNumber] as $id => $gegevens){
-        echo "<a href='../product/index.php?product=$id' style='color: black; text-decoration: none;'>";
+        echo "<a href='../product/index.php?product=" . ($id + 1) ."' style='color: black; text-decoration: none;'>";
         echo '<div class="image-border">';
         echo '<img src="https://via.placeholder.com/300" alt="Productimg"><p>';
         echo $gegevens["naam"];
