@@ -24,7 +24,8 @@ th {
 }
 
 tfoot {
-	background-color: #00dcf2;
+	background-color: #00bcf2;
+	color: white;
 }
 
 #winkelbtn {
@@ -37,10 +38,13 @@ tfoot {
 	width: 45%;
 	height: 45px;
 	margin-top: 23%;
+	outline: none;
 }
 
 #winkelbtn:active {
-
+	position: relative;
+	background-color: #acacac;
+	outline: none;
 }
 
 #betaalbtn {
