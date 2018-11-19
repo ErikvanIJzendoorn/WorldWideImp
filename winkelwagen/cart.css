@@ -9,9 +9,55 @@ thead {
 	color: white;
 }
 
-tbody {
-	background-color: #cccccc;
+tbody:nth-child(even) {
+	background-color: #f2f2f2;
 }
-td {
+
+td, th {
 	border: 1px solid black;
+	height: 30px;
+	padding-left: 4px;
+}
+
+th {
+	height: 40px;
+}
+
+tfoot {
+	background-color: #00dcf2;
+}
+
+#winkelbtn {
+	position: relative;
+	background-color: #cccccc;
+	font-size: 1.3em;
+	font-weight: bold;
+	border-radius: 10px;
+	border: none;
+	width: 45%;
+	height: 45px;
+	margin-top: 23%;
+}
+
+#winkelbtn:active {
+
+}
+
+#betaalbtn {
+	position: relative;
+	background-color: #01bf01;
+	font-size: 1.3em;
+	color: white;
+	font-weight: bold;
+	border-radius: 10px;
+	border: none;
+	width: 45%;
+	height: 45px;
+	outline: none
+}
+
+#betaalbtn:active {
+	position: relative;
+	background-color: #068206;
+	outline: none;
 }

@@ -58,16 +58,20 @@ if(!function_exists('getProductsByCategory')){
     }
 }
 }
-	
+function Register($user, $pass, $voornaam, $achternaam, $adres, $plaats, $postcode){
+   
+}
 
-function Register(){
+function Login($user, $pass){
     try {
             $pdo = connect();
-            $stmt = $pdo->prepare("INSERT INTO ");
-            
+            $stmt = $pdo->prepare("SELECT CustomerEmail, CustomerPassword FROM clogin WHERE CustomerEmail = :user AND CustomerPassword = :pass");
+            $stmt->bindValue(':user', $user);
+            $stmt->bindValue(':pass', $pass);
+
             $stmt->execute();
-            return $stmt;
-    } catch (PDOException $e) {
+			return $stmt;
+    } catch (Exception $e) {
         return $e;
     }
 }

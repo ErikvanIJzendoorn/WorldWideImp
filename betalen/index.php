@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>Betaalpagina</title>
+        <link rel="stylesheet" href="betalen.css">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
 	<!-- database -->
@@ -12,9 +13,14 @@
 </head>
 <body>
 
-<div>
-	<a href="betalen.php?methode=ideal">IDEAL</a>
-</div>
+
+    <a href="betalen.php?methode=ideal">    
+<div class="ideal">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e9/IDEAL_Logo.png" alt="ideal logo" height="100" width="100">
+        <p>Online betalen via uw eigen bank</p>
+        </div>
+        </a>
+
 
 </body>
 </html>
