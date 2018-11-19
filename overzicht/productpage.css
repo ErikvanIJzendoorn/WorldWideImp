@@ -13,6 +13,8 @@
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    position: relative;
+    top: 100px;
 }
 
 .outer-div a {
@@ -22,6 +24,9 @@
 .bottom {
     display: flex;
     justify-content: center;
+    position: relative;
+    top: 70px;
+    font-size: 1.2em;
 }
 
 .page-nav a {

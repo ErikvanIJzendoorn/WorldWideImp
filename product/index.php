@@ -63,5 +63,8 @@
 <div class="try"></div>
 
 <script src="controller.js"></script>
+
+    <?php require "../main/footer.php"; ?>
+
 </body>
 </html> 
