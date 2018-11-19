@@ -33,6 +33,7 @@ tfoot {
 	background-color: #cccccc;
 	font-size: 1.3em;
 	font-weight: bold;
+	color: black;
 	border-radius: 10px;
 	border: none;
 	width: 45%;
@@ -43,6 +44,7 @@ tfoot {
 
 #winkelbtn:active {
 	position: relative;
+	color: black;
 	background-color: #acacac;
 	outline: none;
 }
