@@ -15,8 +15,6 @@
 	<?php require "../main/header.php"; ?>
 	<?php require "../main/nav.php"; ?>
 	<!--cart-->
-	<?php //require "../product/cart.php"; ?>
-
 	<div class="content">
 		<div class="name">
 			Winkelwagen
@@ -54,6 +52,7 @@
 				Afrekenen
 			</button>
 		</a>
+		<?php require "../main/footer.php"; ?>
 	</div>
 </body>
 </html>
