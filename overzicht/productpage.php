@@ -1,29 +1,23 @@
 <?php require "index.php";
 
-require "../db/connect.php";
-//header("Location: landing/index.php");
+$categoryID = filter_input(INPUT_GET, 'category', FILTER_SANITIZE_NUMBER_INT);
+$pageNumber = filter_input(INPUT_GET, 'pageNumber', FILTER_SANITIZE_NUMBER_INT);
 
-$stmt = getProduct();
+$stmt = getProductsByCategory($categoryID);
 
+$producten = array();
 while($row = $stmt->fetch()) {
-  $naam = $row['naam'];
-  $categorie = $row['categorie'];
-  $herkomst = $row['herkomst'];
-  $verpakking = $row['verpakking'];
-  $kleur = $row['kleur'];
-  $prijs = $row['prijs'];
-  $btw = $row['btw'];
-  $voorraad = $row['voorraad'];
-  $ItemID = $row['itemID'];
-  $categorieID = $row['categorieID'];
-  $kleurID = $row['kleurID'];
-  $verpakkingID = $row['verpakkingID'];
+    $producten[$row["id"]] = array("naam" => $row["naam"], "prijs" => $row["prijs"]);
 }
-$herkomst = str_replace(array('"', "{", "}", "[", "]", "-", ":", ","), "", $herkomst);
-$herkomst = explode(" ", $herkomst);
 
+$numberOfProducts = 9;
+$numberOfPages = ceil(count($producten) / $numberOfProducts);
+$pages = array();
+for ($i = 0; $i < $numberOfPages; $i++) {
+    $pages[$i] = array_slice($producten, $i * $numberOfProducts, $numberOfProducts);
+}
 ?>
-
+<!--
   <div class="navbar navbar-nav ml-auto" id="topNavbar">
 		<a href="#" class="navbar-item">Category1</a>
 		<a href="#" class="navbar-item">Category2</a>
@@ -34,41 +28,37 @@ $herkomst = explode(" ", $herkomst);
     <a href="#" class="navbar-item">Category7</a>
     <a href="#" class="navbar-item">Category8</a>
     <a href="#" class="navbar-item">Category9</a>
-  <div class="fas fa-search search"></div>
-	</div>
-
-  
-  <div class="content">
-    <div class="product-name">
-      <p>
-        <?=$naam; ?>
-      </p>
-    </div>
-    <div class="picture">
-      <img src="#" />
-    </div>
-    <div class="product-description">
-      <p>
-        <?=$naam; ?>
-      </p>
-      <br>
-      <p class="product-price">
-        <?="€" . $prijs; ?>
-      </p>
-      <div id="bestelamnt">
-        <input type="number" name="amount" value="1">
-      </div> 
-      <p id="available">
-        <?="De voorraad is: " . $voorraad; ?>
-      </p>
-      <button id="bestelbtn">
-        Bestel
-      </button>
-    </div>
+    <div class="fas fa-search search"></div>
       
-  </div>
-<div class="try"></div>
+  </div>-->
+<div class="outer-div">
+    <?php
+    foreach ($pages[$pageNumber] as $id => $gegevens){
+        echo "<a href='../product/index.php?product=$id' style='color: black; text-decoration: none;'>";
+        echo '<div class="image-border">';
+        echo '<img src="https://via.placeholder.com/300" alt="Productimg"><p>';
+        echo $gegevens["naam"];
+        echo '</p><p>€ ';
+        echo $gegevens["prijs"];
+        echo '</p></div>';
+    }
+    ?>
+    
 
+</div>
+<div class="bottom">
+    <div class="page-nav">
+        <a href="../overzicht/productpage.php?category=<?=$categoryID;?>&pageNumber=<?php if($pageNumber > 0) {$pageNumber--;} echo $pageNumber;?>">&laquo;</a>
+            <?php 
+            for ($i = 0; $i < $numberOfPages; $i++) {
+                echo "<a href='../overzicht/productpage.php?category=$categoryID&pageNumber=$i' style='color: black; text-decoration: none;'>";
+                echo $i + 1;
+            }
+            ?>
+        <a href="../overzicht/productpage.php?category=<?=$categoryID;?>&pageNumber=<?php if($pageNumber < $numberOfPages) {$pageNumber++;} echo $pageNumber;?>">&raquo;</a>
+    </div>
+</div>
+    
 <script src="controller.js"></script>
 </body>
 </html> 
