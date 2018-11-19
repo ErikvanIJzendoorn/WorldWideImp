@@ -60,5 +60,7 @@ for ($i = 0; $i < $numberOfPages; $i++) {
 </div>
     
 <script src="controller.js"></script>
+    <?php require "../main/footer.php"; ?>
+
 </body>
 </html> 

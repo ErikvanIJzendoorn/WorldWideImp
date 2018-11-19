@@ -31,10 +31,11 @@ body {
 }
 
 .try {
-	height: 2000px;
+	height: 400px;
 }
 
 .navbar {
+		height: 75px;
 	display: block;
 	position: absolute;
 	float: none;
@@ -47,6 +48,8 @@ body {
 }
 
 .navbar a{
+	vertical-align: middle;
+	height: 75px;
   display: inline-block;
   position: relative;
   float: none;
@@ -60,9 +63,8 @@ body {
 }
 
 .navbar a:hover {
-	background: #cccccc;
+	background: #03a9f4;
 	height: 100%;
-	padding: 15px;
 }
 
 .navbar-item {
