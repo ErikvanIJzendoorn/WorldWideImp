@@ -14,7 +14,7 @@ $numberOfProducts = 9;
 $numberOfPages = ceil(count($producten) / $numberOfProducts);
 $pages = array();
 for ($i = 0; $i < $numberOfPages; $i++) {
-    $pages[$i] = array_slice($producten, $i * $numberOfProducts, $numberOfProducts);
+    $pages[$i] = array_slice($producten, $i * $numberOfProducts, $numberOfProducts, true);
 }
 ?>
 <!--
@@ -34,7 +34,7 @@ for ($i = 0; $i < $numberOfPages; $i++) {
 <div class="outer-div">
     <?php
     foreach ($pages[$pageNumber] as $id => $gegevens){
-        echo "<a href='../product/index.php?product=$id' style='color: black; text-decoration: none;'>";
+        echo "<a href='../product/index.php?product=$id&category=$categoryID' style='color: black; text-decoration: none;'>";
         echo '<div class="image-border">';
         echo '<img src="https://via.placeholder.com/300" alt="Productimg"><p>';
         echo $gegevens["naam"];
