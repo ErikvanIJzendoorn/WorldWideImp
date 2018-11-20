@@ -52,9 +52,7 @@
 				Afrekenen
 			</button>
 		</a>
-		<?php require "../main/footer.php"; ?>
 	</div>
-
 	<?php require "../main/footer.php"; ?>
 </body>
 </html>
