@@ -15,8 +15,6 @@
 	<?php require "../main/header.php"; ?>
 	<?php require "../main/nav.php"; ?>
 	<!--cart-->
-	<?php //require "../product/cart.php"; ?>
-
 	<div class="content">
 		<div class="name">
 			Winkelwagen
@@ -44,14 +42,17 @@
 				</tr>
 			</tfoot>
 		</table>
-		<button id="winkelbtn" type="submit">
-			Verder winkelen
-		</button>
-		<button id="betaalbtn" type="submit">
-			Afrekenen
-		</button>
+		<a href="../landing/index.php">
+			<button id="winkelbtn" type="submit">
+				Verder winkelen
+			</button>
+		</a>
+		<a href="../registratie/login.php">
+			<button id="betaalbtn" type="submit">
+				Afrekenen
+			</button>
+		</a>
 	</div>
-
 	<?php require "../main/footer.php"; ?>
 </body>
 </html>

@@ -3,6 +3,8 @@
 $categoryID = filter_input(INPUT_GET, 'category', FILTER_SANITIZE_NUMBER_INT);
 $pageNumber = filter_input(INPUT_GET, 'pageNumber', FILTER_SANITIZE_NUMBER_INT);
 
+$categoryID = $_GET['category'];
+
 $stmt = getProductsByCategory($categoryID);
 
 $producten = array();
