@@ -45,29 +45,79 @@ function getCategory(){
 
 if(!function_exists('getProductsByCategory')){
     function getProductsByCategory($category) {
+        try {
+            $pdo = connect();
+            $stmt = $pdo->prepare("SELECT SI.StockItemID id, StockItemName naam, UnitPrice prijs FROM StockItems SI "
+                    . "JOIN StockItemStockGroups SISG ON SI.StockItemID = SISG.StockItemID "
+                    . "WHERE StockGroupID = ?");
+            
+            $stmt->execute(array($category));
+            return $stmt;
+        } catch (PDOException $e) {
+            return $e;
+        }
+    }
+}
+
+function Register($naam, $email, $address, $zip, $city, $method, $bank, $ccname, $cciban, $ccnumber){
     try {
-        $pdo = connect();
-        $stmt = $pdo->prepare("SELECT SI.StockItemID id, StockItemName naam, UnitPrice prijs FROM StockItems SI "
-                . "JOIN StockItemStockGroups SISG ON SI.StockItemID = SISG.StockItemID "
-                . "WHERE StockGroupID = ?");
-        
-        $stmt->execute(array($category));
-        return $stmt;
-    } catch (PDOException $e) {
+            $pdo = connect();
+        $stmt = $pdo->prepare("INSERT INTO customers (CustomerName, Email, DeliveryAddressLine1, DeliveryPostalCode, DeliveryCity, PaymentMethod, Bank, ccName, ccIban, ccNumber)
+                VALUES (:naam, :email, :address, :zip , :city, :method, :bank, :ccname, :cciban, :ccnumber)");
+            $stmt->bindValue(':naam', $naam);
+            $stmt->bindValue(':email', $email);
+            $stmt->bindValue(':address', $address);
+            $stmt->bindValue(':zip', $zip);
+            $stmt->bindValue(':city', $city);
+            $stmt->bindValue(':method', $method);
+            $stmt->bindValue(':bank', $bank);
+            $stmt->bindValue(':ccname', $ccname);
+            $stmt->bindValue(':cciban', $cciban);
+            $stmt->bindValue(':ccnumber', $ccnumber);
+
+            $stmt->execute();
+
+    } catch (Exception $e) {
         return $e;
     }
 }
-}
-function Register($user, $pass, $voornaam, $achternaam, $adres, $plaats, $postcode){
-   
-}
 
-function Login($user, $pass){
+function RegisterLogin($user, $pass){
     try {
             $pdo = connect();
-            $stmt = $pdo->prepare("SELECT CustomerEmail, CustomerPassword FROM clogin WHERE CustomerEmail = :user AND CustomerPassword = :pass");
+        $stmt = $pdo->prepare("INSERT INTO clogin (CustomerID, CustomerEmail, CustomerPassword)
+                VALUES (:id, :user, :pass)");
+
+            $fetch = GetLastID();
+            $id = $fetch->fetch(PDO::FETCH_ASSOC);
+            $stmt->bindValue(':id', $id['id']);
             $stmt->bindValue(':user', $user);
             $stmt->bindValue(':pass', $pass);
+
+            $stmt->execute();
+
+    } catch (Exception $e) {
+        return $e;
+    }
+}
+
+function GetLastID(){
+    try {
+            $pdo = connect();
+            $stmt = $pdo->prepare("SELECT MAX(CustomerID) AS id FROM customers");
+
+            $stmt->execute();
+            return $stmt;
+    } catch (Exception $e) {
+        return $e;
+    }
+}
+
+function Login($user){
+    try {
+            $pdo = connect();
+            $stmt = $pdo->prepare("SELECT CustomerEmail, CustomerPassword FROM clogin WHERE CustomerEmail = :user");
+            $stmt->bindValue(':user', $user);
 
             $stmt->execute();
 			return $stmt;

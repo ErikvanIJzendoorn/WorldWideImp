@@ -42,7 +42,7 @@
         </div>
         <div class="col-md-8 order-md-1">
           <h4 class="mb-3">Personal Information</h4>
-          <form class="needs-validation" action="register.php" method="post" novalidate>
+          <form class="needs-validation" action="gast_val.php" method="post" novalidate>
             <div class="row">
               <div class="col-md-6 mb-3">
                 <label for="firstName">First name</label>
@@ -61,16 +61,11 @@
             </div>
 
             <div class="mb-3">
-              <label for="email">Email ( used for login )</label>
+              <label for="email">Email</label>
               <input type="email" class="form-control" name="email" placeholder="you@example.com" required>
               <div class="invalid-feedback">
                 Please enter a valid email address for shipping updates.
               </div>
-            </div>
-
-            <div class="mb-3">
-              <label for="pass">Password</label>
-              <input type="password" class="form-control" name="pass" placeholder="abc123" required>
             </div>
 
             <div class="row">
