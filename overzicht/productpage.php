@@ -3,8 +3,6 @@
 $categoryID = filter_input(INPUT_GET, 'category', FILTER_SANITIZE_NUMBER_INT);
 $pageNumber = filter_input(INPUT_GET, 'pageNumber', FILTER_SANITIZE_NUMBER_INT);
 
-$categoryID = $_GET['category'];
-
 $stmt = getProductsByCategory($categoryID);
 
 $producten = array();
@@ -19,20 +17,7 @@ for ($i = 0; $i < $numberOfPages; $i++) {
     $pages[$i] = array_slice($producten, $i * $numberOfProducts, $numberOfProducts, true);
 }
 ?>
-<!--
-  <div class="navbar navbar-nav ml-auto" id="topNavbar">
-		<a href="#" class="navbar-item">Category1</a>
-		<a href="#" class="navbar-item">Category2</a>
-    <a href="#" class="navbar-item">Category3</a>
-    <a href="#" class="navbar-item">Category4</a>
-    <a href="#" class="navbar-item">Category5</a>
-    <a href="#" class="navbar-item">Category6</a>
-    <a href="#" class="navbar-item">Category7</a>
-    <a href="#" class="navbar-item">Category8</a>
-    <a href="#" class="navbar-item">Category9</a>
-    <div class="fas fa-search search"></div>
-      
-  </div>-->
+
 <div class="outer-div">
     <?php
     foreach ($pages[$pageNumber] as $id => $gegevens){
@@ -45,9 +30,8 @@ for ($i = 0; $i < $numberOfPages; $i++) {
         echo '</p></div>';
     }
     ?>
-    
-
 </div>
+
 <div class="bottom">
     <div class="page-nav">
         <a href="../overzicht/productpage.php?category=<?=$categoryID;?>&pageNumber=<?php if($pageNumber > 0) {$pageNumber--;} echo $pageNumber;?>">&laquo;</a>
@@ -62,7 +46,7 @@ for ($i = 0; $i < $numberOfPages; $i++) {
 </div>
     
 <script src="controller.js"></script>
-    <?php require "../main/footer.php"; ?>
+<?php require "../main/footer.php"; ?>
 
 </body>
 </html> 
