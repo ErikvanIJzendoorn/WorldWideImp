@@ -8,6 +8,6 @@
   </a>  
 	<a href="../registratie/login.php" class="log-in">
 		<div class="fas fa-user cart">
-    	</div>
+  	</div>
 	</a>
 </div>

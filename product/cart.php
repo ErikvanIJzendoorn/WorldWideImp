@@ -1,5 +1,4 @@
 <?php 
-session_start();
 $item = $_SESSION['item'];
 $aantal = $_GET['aantal'];
 $item['aantal'] = $_GET['aantal'];

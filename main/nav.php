@@ -1,5 +1,5 @@
     <?php require '../search/search.php' ?>
-
+<?php session_start(); ?>
 <nav>
     <div class="navbar navbar-nav ml-auto" id="topNavbar">
         <?php 
