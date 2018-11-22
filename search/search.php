@@ -12,7 +12,7 @@
 <!-- Search box. -->
 <div class="outer-search">
    <input type="text" id="search" placeholder="Search" autocomplete="off" />
-   <!-- <input type="submit" value="Search" id="search-btn"> -->
+   <input type="submit" value="Search" id="search-btn">
    <br>
    <br/>
 <div>

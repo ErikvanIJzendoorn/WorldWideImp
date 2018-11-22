@@ -47,6 +47,7 @@
             </button>
 
             <?php 
+            session_start();
                 $item = array(
                     'id' => $ItemID,
                     'naam' => $naam, 
