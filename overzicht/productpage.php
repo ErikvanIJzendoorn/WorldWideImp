@@ -30,7 +30,7 @@ function sortAlpha($array, $numberOfPages, $numberOfProducts) {
     for ($i = 1; $i < $size; $i++) {
         $combined = $combined + $array[$i];
     }
-    sort($combined);
+    asort($combined);
     return splitIntoPages($combined, $numberOfPages, $numberOfProducts);
 }
 
@@ -40,7 +40,7 @@ function sortRAlpha($array, $numberOfPages, $nubmerOfProducts) {
     for ($i = 1; $i < $size; $i++) {
         $combined = $combined + $array[$i];
     }
-    sort($combined);
+    asort($combined);
     return splitIntoPages(array_reverse($combined), $numberOfPages, $nubmerOfProducts);
 }
 
