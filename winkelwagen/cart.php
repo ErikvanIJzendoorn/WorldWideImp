@@ -29,19 +29,43 @@ session_start();
 	}
 
 	function checkIfExists() {
+		$gevonden = FALSE;
 		$items = $_SESSION['cart'];
+		var_dump($items);
+		// check if empty
 		if (!empty($items)) {
+			// if not empty
 			foreach ($items as $key => $value) {
-				if(in_array($_GET['id'], $value)) {
-					$items[$key]['aantal'] = $items[$key]['aantal'] += $_GET['aantal'];
-					$_SESSION['cart'] = $items;
-					header("Location: index.php");
-				} else {
-					addToCart();
+				// check if item exists
+				if($_GET['id'] == $value['id']) {
+					// Current item exists
+					echo 'found it <br>';
+					$gevonden = TRUE;
 					break;
+				} else  {
+					// current item doesn't exist
+					echo "this isn't it <br>";
+					//addToCart();
+					$gevonden = FALSE;
 				}
 			}
+
+			if($gevonden) {
+				echo "It was found, now change it <br>";
+				$items[$key]['aantal'] = $items[$key]['aantal'] += $_GET['aantal'];
+				$_SESSION['cart'] = $items;
+				echo "1";
+				header("Location: index.php");
+							
+			} else {
+				echo "it wasn't found, now add it <br>";
+				addToCart();
+			}
+
+
 		} else {
+			// if empty
+			echo "4";
 			addToCart();
 		}
 	}

@@ -42,7 +42,8 @@
                                     $naam = $row['naam'];
                                     $unit = $row['prijs'];
                                     $aantal = $value['aantal'];
-                                    if(isset($_GET['aantal']) && $_GET['id'] == $value['id']) {
+                                    $voorraad = $row['voorraad'];
+                                    if(isset($_GET['aantal']) && $_GET['id'] == $value['id'] && $_GET['aantal'] != "") {
                                         $aantal = $_GET['aantal'];
                                         $value['aantal'] = $aantal;
                                         $_SESSION['cart'][$i]['aantal'] = $aantal;
@@ -69,7 +70,7 @@
                                             </div>
                                         </td>
                                         <td class="col-sm-1 col-md-1" style="text-align: center">
-                                            <input type="number" class="form-control" name="aantal" value="<?=$aantal?>">
+                                            <input type="number" min="1" max="<?=$voorraad?>" class="form-control" name="aantal" value="<?=$aantal?>">
                                             <input type="hidden" name="id" value="<?=$id?>">
                                         </td>
                                         <td class="col-sm-1 col-md-1 text-center"><strong><?php printf('$%.2f', $unit);?></strong></td>
