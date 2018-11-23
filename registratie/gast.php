@@ -6,7 +6,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="../../../../favicon.ico">
-    <title>Checkout example for Bootstrap</title>
+    <title>Guest login</title>
     <!-- Bootstrap core CSS -->
     <link href="bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../main/style.css">
@@ -41,7 +41,7 @@
           </ul>
         </div>
         <div class="col-md-8 order-md-1">
-          <h4 class="mb-3">Personal Information</h4>
+          <h4 class="mb-3">Personal Information - Guest</h4>
           <form class="needs-validation" action="gast_val.php" method="post" novalidate>
             <div class="row">
               <div class="col-md-6 mb-3">
