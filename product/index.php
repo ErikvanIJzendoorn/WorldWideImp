@@ -25,7 +25,7 @@
        <img src="https://via.placeholder.com/397" alt="Productimg">
     </div>
     <div class="product-description">
-        <form action="cart.php?func=add" method="get">
+        <form action="../winkelwagen/cart.php?func=add" method="get">
             <p>
             <!-- Productnaam -->
             <?=$naam; ?>

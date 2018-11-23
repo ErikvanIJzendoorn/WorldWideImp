@@ -2,7 +2,7 @@
 	<a href="../landing/index.php">
 		<img src="../img/logo.png" id="logo-img">
 	</a>
-	<a href="../product/cart.php">
+	<a href="../winkelwagen/cart.php">
     <div class="fas fa-shopping-cart cart">
     </div>
   </a>  
