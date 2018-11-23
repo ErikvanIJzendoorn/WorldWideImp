@@ -17,7 +17,17 @@
     	<form action="validation.php" method="post" class="form">
 			<div class="item row">
     			<span class="col-md-2 offset-md-3">Email:</span>
-    			<input class="col-md-3" type="email" name="user" placeholder="example@gmail.com" required>
+    			<?php 
+                    if(isset($_GET['try']) && isset($_GET['user'])) {
+                        ?>
+                            <input class="col-md-3" type="email" name="user" value="<?=$_GET['user'];?>" required>
+                        <?php
+                    } else {
+                        ?>
+                            <input class="col-md-3" type="email" name="user" placeholder="example@gmail.com" required>
+                        <?php
+                    }
+                ?>
     		</div>
     		<div class="item row">
     			<span class="col-md-2 offset-md-3">Password:</span>
