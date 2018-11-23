@@ -1,58 +1,117 @@
-<?php 
+<?php
 session_start();
-$item = $_SESSION['item'];
-$aantal = $_GET['aantal'];
-$item['aantal'] = $_GET['aantal'];
-$verzendkosten = 0;
-$sub = 0;
-$items = [];
-array_push($items, $item);
-// calculate sub, btw, totaal
-foreach ($items as $key => $value) {
-	$items[0]['prijs'] = $items[0]['prijs'] / 1.12;
-	$items[0]['prijs'] = round($items[0]['prijs'], 2);
-	for ($i=0; $i < $items[0]['aantal']; $i++) { 
-		
+	//$_SESSION['cart'] = '';
+	if($_GET['func'] == 'add') {
+		checkIfExists();
+	} else if ($_GET['func'] == 'del') {
+		delete();
+	} else if ($_GET['func'] == 'empty') {
+		leeg();
+	} else if ($_GET['func'] == 'show') {
+		showCart($_SESSION['cart']);
+	} 
 
-		$sub = $sub + $items[0]['prijs'];
-		$sub = round($sub, 2);
+	function addToCart() {
+		if(isset($_SESSION['cart']) && !empty($_SESSION['cart'])){
+			$items = $_SESSION['cart'];
+			$item = array('id' => $_GET['id'], 'aantal' => $_GET['aantal']);
+			array_push($items, $item);
+			$_SESSION['cart'] = $items;
+			header("Location: cart.php?func=show&f=1");
+		}else{
+			$item = array('id' => $_GET['id'], 'aantal' => $_GET['aantal']);
+			$items = array(0 => $item);
+			$_SESSION['cart'] = $items;
+			header("Location: cart.php?func=show&f=2");
+		}
 	}
-}
 
-$btw = ($sub / 121) * 21;
-$btw = round($btw, 2);
+	function checkIfExists() {
+		$items = $_SESSION['cart'];
+		if (!empty($items)) {
+			foreach ($items as $key => $value) {
+				if(in_array($_GET['id'], $value)) {
+					$items[$key]['aantal'] = $items[$key]['aantal'] += $_GET['aantal'];
+					$_SESSION['cart'] = $items;
+					header("Location: cart.php?func=show");
+				} else {
+					addToCart();
+					break;
+				}
+			}
+		} else {
+			addToCart();
+		}
+	}
 
-$tprijs = $sub;
+	
 
-// Create cart array
+	function showCart($items) {
+		require "../db/connect.php";
+		$totaal = 0;
+		?> <table> 
+			<tr>
+				<th>Naam</th>
+				<th>Aantal</th>
+				<th>Prijs</th>
+			</tr>
+			<?php
+		if ($_SESSION['cart'] != null) {
+			foreach ($items as $key => $value) {
+				$stmt = getProduct($value['id']);
+				if ($row = $stmt->fetch()) {
+					$id = $value['id'];
+					$naam = $row['naam'];
+					$prijs = $row['prijs'];
+					$aantal = $value['aantal'];
+					$totaal = ($totaal + $prijs);
+				?>	  	
 
-$cart = array(
-	'items' => $items,
-	'tprijs' => $tprijs,
-	'btw' => $btw,
-	'vkosten' => $verzendkosten
-);
-
-$_SESSION['cart'] = $cart;
-
-header("Location: ../winkelwagen/index.php");
-/*
-
-cart = array
-cart heeft items, tprijs, btw, vkosten
+					<tr>
+						<td><?php echo $naam; ?></td>
+						<td><?php echo $aantal; ?></td>
+						<td><?php echo $prijs; ?></td>
+						<td><a href="cart.php?func=del&id=<?php echo $key; ?>">Remove</a></td>
+					</tr>
+					
+				<?php 
+				}
+			} 
 
 
-tprijs = totaalprijs
-btw = btw
-vkosten = verzendkosten
+			?>
+				<tr>
+					<td></td>
+					<td></td>
+					<td><?=$totaal;?></td>
+					<td><a href="cart.php?func=empty">Empty</a></td>
+				</tr>
+				<tr>
+					<td><a href="../registratie/login.php">Payment</a></td>
+					<td><a href="../overzicht/productpage.php?category=1&pageNumber=0">Continue shopping</a></td>
+				</tr>
+			<?php
+		} else {
+			?>
+				<tr>
+					<td>Your shoppingcart is empty</td>
+				</tr>
+			<?php
+		}
+		?> </table> <?php
+	}
 
-items = array
-items heeft:
+	function delete(){
+		$items = $_SESSION['cart'];
+		if(isset($_GET['id'])) {
+			unset($items[$_GET['id']]);
+		}
+		$_SESSION['cart'] = $items;
+		header("Location: cart.php?func=show");
+	}
 
-- id
-- naam
-- aantal
-- prijs
-
-*/
+	function leeg() {
+		$_SESSION['cart'] = null;
+		header("Location: cart.php?func=show");
+	}
 ?>

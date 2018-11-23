@@ -25,7 +25,7 @@
        <img src="https://via.placeholder.com/397" alt="Productimg">
     </div>
     <div class="product-description">
-        <form action="cart.php" method="get">
+        <form action="cart.php?func=add" method="get">
             <p>
             <!-- Productnaam -->
             <?=$naam; ?>
@@ -42,21 +42,14 @@
             <!-- Product voorraad -->
             <?="De voorraad is: " . $voorraad; ?>
             </p>
+
+            <input type="hidden" name="func" value="add">
+            <?php echo '<input type="hidden" name="id" value="' . $ItemID . '">'; ?>
+            <?php echo '<input type="hidden" name="page" value="' . $ItemID . '">'; ?>
+            <?php echo '<input type="hidden" name="cat" value="' . $ItemID . '">'; ?>
             <button id="bestelbtn" type="submit">
             Bestel
             </button>
-
-            <?php 
-            session_start();
-                $item = array(
-                    'id' => $ItemID,
-                    'naam' => $naam, 
-                    'prijs' => $prijs,
-                    'aantal' => 0
-                );
-
-                $_SESSION['item'] = $item;
-            ?>
         </form>
     </div>
 </div>
