@@ -14,7 +14,7 @@ function AttemptLogin() {
             if(password_verify($pass, $row['CustomerPassword'])) {
                  header("Location: ../betalen/index.php");
             } else {
-                echo "Combinatie niet gevonden!";
+                header("Location: login.php?try=fail");
             }
         }
     }
