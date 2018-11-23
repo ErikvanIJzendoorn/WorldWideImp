@@ -94,7 +94,7 @@
                                     <td>   </td>
                                     <td>   </td>
                                     <td><h5>Subtotal</h5></td>
-                                    <td class="text-right"><h5><strong><?php echo $Subtotal; ?></strong></h5></td>
+                                    <td class="text-right"><h5><strong><?php echo "$" . $Subtotal; ?></strong></h5></td>
                                 </tr>
                                 <tr>
                                     <td>   </td>
@@ -102,7 +102,7 @@
                                     <td>   </td>
                                     <td>   </td>
                                     <td><h5>Shipping costs</h5></td>
-                                    <td class="text-right"><h5><strong><?php echo $vkosten; ?></strong></h5></td>
+                                    <td class="text-right"><h5><strong><?php echo "$" . $vkosten; ?></strong></h5></td>
                                 </tr>
                                 <tr>
                                     <td>   </td>
@@ -110,7 +110,7 @@
                                     <td>   </td>
                                     <td>   </td>
                                     <td><h5>BTW</h5></td>
-                                    <td class="text-right"><h5><strong> <?=$totaalBtw;?></strong></h5></td>
+                                    <td class="text-right"><h5><strong> $<?=$totaalBtw;?></strong></h5></td>
                                 </tr>
                                 <tr>
                                     <td>   </td>
