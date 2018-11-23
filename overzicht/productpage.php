@@ -53,15 +53,12 @@ if ($sort == 1) {
 
 <div class="outer-div">
     <div id="sortBar">
-        <form method="get" action="../overzicht/productpage.php" id="sortForm">      
-            <input type="hidden" name="category" value="<?=$categoryID?>">
-            <input type="hidden" name="pageNumber" value="0">      
-            <select name="sort" form="sortForm">
-                <option value="0" <?php if (isset($sort) && $sort === "0") {echo "selected";}?>>Unsorted</option>
-                <option value="1" <?php if (isset($sort) && $sort === "1") {echo "selected";}?>>A to Z</option>
-                <option value="2" <?php if (isset($sort) && $sort === "2") {echo "selected";}?>>Z to A</option>
+        <form id="sortForm">  
+            <select id="sort" name="sort" form="sortForm">
+                <option value="<?=$categoryID;?>,<?=$pageNumber;?>,0" <?php if (isset($sort) && $sort === "0") {echo "selected";}?>>Unsorted</option>
+                <option value="<?=$categoryID;?>,<?=$pageNumber;?>,1" <?php if (isset($sort) && $sort === "1") {echo "selected";}?>>A to Z</option>
+                <option value="<?=$categoryID;?>,<?=$pageNumber;?>,2" <?php if (isset($sort) && $sort === "2") {echo "selected";}?>>Z to A</option>
             </select>
-            <input type="submit" value="Confirm">
         </form>
     </div>
     <?php
