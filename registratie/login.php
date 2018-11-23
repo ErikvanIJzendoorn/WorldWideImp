@@ -22,9 +22,12 @@
     			<input class="col-md-3" type="password" name="pass" placeholder="example123@" required>
     		</div>
     		<div class="item row">
-    			<a class="col-md-1 offset-md-5" href="registratie.php">Registreren</a>
-    			<button class="col-md-1 offset-md-1" type="submit">Inloggen</button>
+    			<a class="col-md-1 offset-md-5 btn btn-primary" href="registratie.php">Registreren</a>
+    			<button class="col-md-1 offset-md-1 btn btn-primary" type="submit">Inloggen</button>
     		</div>
+            <div class="item row">
+                <a class="col-md-1 offset-md-3 btn btn-link" href="gast.php">Doorgaan als gast</a>
+            </div>
     	</form>
     </div>
 
