@@ -2,6 +2,7 @@
 
 $categoryID = filter_input(INPUT_GET, 'category', FILTER_SANITIZE_NUMBER_INT);
 $pageNumber = filter_input(INPUT_GET, 'pageNumber', FILTER_SANITIZE_NUMBER_INT);
+$sort = filter_input(INPUT_GET, 'sort', FILTER_SANITIZE_NUMBER_INT);
 
 $stmt = getProductsByCategory($categoryID);
 
@@ -12,13 +13,44 @@ while($row = $stmt->fetch()) {
 
 $numberOfProducts = 9;
 $numberOfPages = ceil(count($producten) / $numberOfProducts);
-$pages = array();
-for ($i = 0; $i < $numberOfPages; $i++) {
-    $pages[$i] = array_slice($producten, $i * $numberOfProducts, $numberOfProducts, true);
+
+function splitIntoPages($producten, $numberOfPages, $numberOfProducts) {
+    $pages = array();
+    for ($i = 0; $i < $numberOfPages; $i++) {
+        $pages[$i] = array_slice($producten, $i * $numberOfProducts, $numberOfProducts, true);
+    }
+    return $pages;
+}
+
+$pages = splitIntoPages($producten, $numberOfPages, $numberOfProducts);
+
+function sortAlpha($array, $numberOfPages, $numberOfProducts) {
+    $combined = $array[0];
+    $size = count($array);
+    for ($i = 1; $i < $size; $i++) {
+        $combined = $combined + $array[$i];
+    }
+    sort($combined);
+    return splitIntoPages($combined, $numberOfPages, $numberOfProducts);
+}
+
+if ($sort == 1) {
+    $pages = sortAlpha($pages, $numberOfPages, $numberOfProducts);
 }
 ?>
 
 <div class="outer-div">
+    <div id="sortBar">
+        <form method="get" action="../overzicht/productpage.php" id="sortForm">      
+            <input type="hidden" name="category" value="<?=$categoryID?>">
+            <input type="hidden" name="pageNumber" value="0">      
+            <select name="sort" form="sortForm">
+                <option value="0">Not sorted</option>
+                <option value="1">Alphabetically</option>
+            </select>
+            <input type="submit" value="Confirm">
+        </form>
+    </div>
     <?php
     foreach ($pages[$pageNumber] as $id => $gegevens){
         echo "<a href='../product/index.php?product=$id&category=$categoryID' style='color: black; text-decoration: none;'>";
@@ -34,14 +66,14 @@ for ($i = 0; $i < $numberOfPages; $i++) {
 
 <div class="bottom">
     <div class="page-nav">
-        <a href="../overzicht/productpage.php?category=<?=$categoryID;?>&pageNumber=<?php if($pageNumber > 0) {$pageNumber--;} echo $pageNumber;?>">&laquo;</a>
+        <a href="../overzicht/productpage.php?category=<?=$categoryID;?>&pageNumber=<?php if($pageNumber > 0) {$pageNumber--;} echo $pageNumber;?>$sort=<?=$sort;?>">&laquo;</a>
             <?php 
             for ($i = 0; $i < $numberOfPages; $i++) {
-                echo "<a href='../overzicht/productpage.php?category=$categoryID&pageNumber=$i' style='color: black; text-decoration: none;'>";
+                echo "<a href='../overzicht/productpage.php?category=$categoryID&pageNumber=$i&sort=$sort' style='color: black; text-decoration: none;'>";
                 echo $i + 1;
             }
             ?>
-        <a href="../overzicht/productpage.php?category=<?=$categoryID;?>&pageNumber=<?php if($pageNumber < $numberOfPages) {$pageNumber++;} echo $pageNumber;?>">&raquo;</a>
+        <a href="../overzicht/productpage.php?category=<?=$categoryID;?>&pageNumber=<?php if($pageNumber < $numberOfPages) {$pageNumber++;} echo $pageNumber;?>&sort=<?=$sort;?>">&raquo;</a>
     </div>
 </div>
     
