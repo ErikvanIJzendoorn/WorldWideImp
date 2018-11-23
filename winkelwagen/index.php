@@ -8,10 +8,10 @@
         <?php require '../main/meta.html'; ?>
     </head>
     <body>
-        <?php //require '../main/header.php' ?>
-        <?php //require '../main/nav.php'?>
+        <?php require '../main/header.php' ?>
+        <?php require '../main/nav.php'?>
         <link href="../winkelwagen/cart.css" type="text/css" rel="stylesheet">
-        <div class="container">
+        <div class="container" style="margin-top: 70px;">
             <div class="row">
                 <div class="col-sm-12 col-md-10 col-md-offset-1">
                     <table class="table table-hover">
@@ -27,7 +27,6 @@
                         <tbody> 
                         <?php
                         require 'cart.php';
-                        require '../db/connect.php';
                         $cart = $_SESSION['cart'];
                         $totaal = 0;
                         $Subtotal = 0;
