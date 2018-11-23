@@ -34,20 +34,20 @@ function sortAlpha($array, $numberOfPages, $numberOfProducts) {
     return splitIntoPages($combined, $numberOfPages, $numberOfProducts);
 }
 
-function sortRAlpha($array, $numberOfPages, $nubmerOfProducts) {
+function sortRAlpha($array, $numberOfPages, $numberOfProducts) {
     $combined = $array[0];
     $size = count($array);
     for ($i = 1; $i < $size; $i++) {
         $combined = $combined + $array[$i];
     }
     asort($combined);
-    return splitIntoPages(array_reverse($combined), $numberOfPages, $nubmerOfProducts);
+    return splitIntoPages(array_reverse($combined), $numberOfPages, $numberOfProducts);
 }
 
 if ($sort == 1) {
     $pages = sortAlpha($pages, $numberOfPages, $numberOfProducts);
 } else if ($sort == 2) {
-    $pages = sortRAlpha($pages, $numberOfPages, $nubmerOfProducts);
+    $pages = sortRAlpha($pages, $numberOfPages, $numberOfProducts);
 }
 ?>
 
