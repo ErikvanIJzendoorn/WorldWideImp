@@ -45,7 +45,6 @@ session_start();
 				} else  {
 					// current item doesn't exist
 					echo "this isn't it <br>";
-					//addToCart();
 					$gevonden = FALSE;
 				}
 			}
