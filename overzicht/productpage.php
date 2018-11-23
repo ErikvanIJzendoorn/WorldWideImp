@@ -15,6 +15,10 @@ while($row = $stmt->fetch()) {
 
 $numberOfPages = ceil(count($producten) / $numberOfProducts);
 
+if ($pageNumber >= $numberOfPages) {
+    $pageNumber = $numberOfPages - 1;
+}
+
 function splitIntoPages($producten, $numberOfPages, $numberOfProducts) {
     $pages = array();
     for ($i = 0; $i < $numberOfPages; $i++) {
