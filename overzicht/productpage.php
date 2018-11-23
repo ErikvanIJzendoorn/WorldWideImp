@@ -57,9 +57,9 @@ if ($sort == 1) {
             <input type="hidden" name="category" value="<?=$categoryID?>">
             <input type="hidden" name="pageNumber" value="0">      
             <select name="sort" form="sortForm">
-                <option value="0">Not sorted</option>
-                <option value="1">Alphabetical &darr;</option>
-                <option value="2">Alphabetical &uarr;</option>
+                <option value="0" <?php if (isset($sort) && $sort == "0") echo "selected";?>>Not sorted</option>
+                <option value="1" <?php if (isset($sort) && $sort == "1") echo "selected";?>>Alphabetical &darr;</option>
+                <option value="2" <?php if (isset($sort) && $sort == "2") echo "selected";?>>Alphabetical &uarr;</option>
             </select>
             <input type="submit" value="Confirm">
         </form>
