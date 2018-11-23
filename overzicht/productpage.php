@@ -44,10 +44,43 @@ function sortRAlpha($array, $numberOfPages, $numberOfProducts) {
     return splitIntoPages(array_reverse($combined, true), $numberOfPages, $numberOfProducts);
 }
 
-if ($sort == 1) {
-    $pages = sortAlpha($pages, $numberOfPages, $numberOfProducts);
-} else if ($sort == 2) {
-    $pages = sortRAlpha($pages, $numberOfPages, $numberOfProducts);
+function sortPrice($array, $numberOfPages, $numberOfProducts) {
+    $combined = $array[0];
+    $size = count($array);
+    for ($i = 1; $i < $size; $i++) {
+        $combined = $combined + $array[$i];
+    }
+    uasort($combined, function ($x, $y) {
+        return $x['prijs'] <=> $y['prijs'];
+    });
+    return splitIntoPages($combined, $numberOfPages, $numberOfProducts);
+}
+
+function sortRPrice($array, $numberOfPages, $numberOfProducts) {
+    $combined = $array[0];
+    $size = count($array);
+    for ($i = 1; $i < $size; $i++) {
+        $combined = $combined + $array[$i];
+    }
+    uasort($combined, function ($x, $y) {
+        return $x['prijs'] <=> $y['prijs'];
+    });
+    return splitIntoPages(array_reverse($combined, true), $numberOfPages, $numberOfProducts);
+}
+
+switch ($sort) {
+    case 1:
+        $pages = sortAlpha($pages, $numberOfPages, $numberOfProducts);
+        break;
+    case 2:
+        $pages = sortRAlpha($pages, $numberOfPages, $numberOfProducts);
+        break;
+    case 3:
+        $pages = sortPrice($pages, $numberOfPages, $numberOfProducts);
+        break;
+    case 4:
+        $pages = sortRPrice($pages, $numberOfPages, $numberOfProducts);
+        break;
 }
 ?>
 
@@ -58,6 +91,8 @@ if ($sort == 1) {
                 <option value="<?=$categoryID;?>,<?=$pageNumber;?>,0" <?php if (isset($sort) && $sort === "0") {echo "selected";}?>>Unsorted</option>
                 <option value="<?=$categoryID;?>,<?=$pageNumber;?>,1" <?php if (isset($sort) && $sort === "1") {echo "selected";}?>>A to Z</option>
                 <option value="<?=$categoryID;?>,<?=$pageNumber;?>,2" <?php if (isset($sort) && $sort === "2") {echo "selected";}?>>Z to A</option>
+                <option value="<?=$categoryID;?>,<?=$pageNumber;?>,3" <?php if (isset($sort) && $sort === "3") {echo "selected";}?>>Price Ascending</option>
+                <option value="<?=$categoryID;?>,<?=$pageNumber;?>,4" <?php if (isset($sort) && $sort === "4") {echo "selected";}?>>Price Descending</option>
             </select>
         </form>
     </div>
