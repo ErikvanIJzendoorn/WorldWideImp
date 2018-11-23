@@ -2,8 +2,10 @@
 
 $categoryID = filter_input(INPUT_GET, 'category', FILTER_SANITIZE_NUMBER_INT);
 $pageNumber = filter_input(INPUT_GET, 'pageNumber', FILTER_SANITIZE_NUMBER_INT);
+$numberOfProducts = filter_input(INPUT_GET, 'productAmount', FILTER_SANITIZE_NUMBER_INT);
 $sort = filter_input(INPUT_GET, 'sort', FILTER_SANITIZE_NUMBER_INT);
 
+print($numberOfProducts);
 $stmt = getProductsByCategory($categoryID);
 
 $producten = array();
@@ -11,7 +13,6 @@ while($row = $stmt->fetch()) {
     $producten[$row["id"]] = array("naam" => $row["naam"], "prijs" => $row["prijs"]);
 }
 
-$numberOfProducts = 9;
 $numberOfPages = ceil(count($producten) / $numberOfProducts);
 
 function splitIntoPages($producten, $numberOfPages, $numberOfProducts) {
@@ -85,16 +86,22 @@ switch ($sort) {
 ?>
 
 <div class="outer-div">
-    <div id="sortBar">
-        <form id="sortForm">  
-            <select id="sort" name="sort" form="sortForm">
-                <option value="<?=$categoryID;?>,<?=$pageNumber;?>,0" <?php if (isset($sort) && $sort === "0") {echo "selected";}?>>Unsorted</option>
-                <option value="<?=$categoryID;?>,<?=$pageNumber;?>,1" <?php if (isset($sort) && $sort === "1") {echo "selected";}?>>A to Z</option>
-                <option value="<?=$categoryID;?>,<?=$pageNumber;?>,2" <?php if (isset($sort) && $sort === "2") {echo "selected";}?>>Z to A</option>
-                <option value="<?=$categoryID;?>,<?=$pageNumber;?>,3" <?php if (isset($sort) && $sort === "3") {echo "selected";}?>>Price Ascending</option>
-                <option value="<?=$categoryID;?>,<?=$pageNumber;?>,4" <?php if (isset($sort) && $sort === "4") {echo "selected";}?>>Price Descending</option>
-            </select>
-        </form>
+    <div>
+        <select id="productAmount" name="productAmount">
+            <option value="<?="$categoryID,$pageNumber,$sort"?>,45" <?php if ($numberOfProducts === "45") {echo "selected";}?>>45</option>
+            <option value="<?="$categoryID,$pageNumber,$sort"?>,30" <?php if ($numberOfProducts === "30") {echo "selected";}?>>30</option>
+            <option value="<?="$categoryID,$pageNumber,$sort"?>,15" <?php if ($numberOfProducts === "15") {echo "selected";}?>>15</option>
+            <option value="<?="$categoryID,$pageNumber,$sort"?>,9" <?php if ($numberOfProducts === "9") {echo "selected";}?>>9</option>
+        </select>
+    </div>
+    <div id="sortBar"> 
+        <select id="sort" name="sort">
+            <option value="<?="$categoryID,$numberOfProducts,$pageNumber";?>,0" <?php if ($sort === "0") {echo "selected";}?>>Unsorted</option>
+            <option value="<?="$categoryID,$numberOfProducts,$pageNumber";?>,1" <?php if ($sort === "1") {echo "selected";}?>>A to Z</option>
+            <option value="<?="$categoryID,$numberOfProducts,$pageNumber";?>,2" <?php if ($sort === "2") {echo "selected";}?>>Z to A</option>
+            <option value="<?="$categoryID,$numberOfProducts,$pageNumber";?>,3" <?php if ($sort === "3") {echo "selected";}?>>Price Ascending</option>
+            <option value="<?="$categoryID,$numberOfProducts,$pageNumber";?>,4" <?php if ($sort === "4") {echo "selected";}?>>Price Descending</option>
+        </select>
     </div>
     <?php
     foreach ($pages[$pageNumber] as $id => $gegevens){
@@ -111,14 +118,14 @@ switch ($sort) {
 
 <div class="bottom">
     <div class="page-nav">
-        <a href="../overzicht/productpage.php?category=<?=$categoryID;?>&pageNumber=<?php if($pageNumber > 0) {$pageNumber--;} echo $pageNumber;?>$sort=<?=$sort;?>">&laquo;</a>
+        <a href="../overzicht/productpage.php?category=<?=$categoryID;?>&pageNumber=<?php if($pageNumber > 0) {$pageNumber--;} echo $pageNumber;?>$sort=<?=$sort;?>&productAmount=<?=$numberOfProducts;?>">&laquo;</a>
             <?php 
             for ($i = 0; $i < $numberOfPages; $i++) {
-                echo "<a href='../overzicht/productpage.php?category=$categoryID&pageNumber=$i&sort=$sort' style='color: black; text-decoration: none;'>";
+                echo "<a href='../overzicht/productpage.php?category=$categoryID&pageNumber=$i&sort=$sort&productAmount=$numberOfProducts' style='color: black; text-decoration: none;'>";
                 echo $i + 1;
             }
             ?>
-        <a href="../overzicht/productpage.php?category=<?=$categoryID;?>&pageNumber=<?php if($pageNumber < $numberOfPages) {$pageNumber++;} echo $pageNumber;?>&sort=<?=$sort;?>">&raquo;</a>
+        <a href="../overzicht/productpage.php?category=<?=$categoryID;?>&pageNumber=<?php if($pageNumber < $numberOfPages) {$pageNumber++;} echo $pageNumber;?>&sort=<?=$sort;?>&productAmount=<?=$numberOfProducts;?>">&raquo;</a>
     </div>
 </div>
     
