@@ -41,7 +41,7 @@ function sortRAlpha($array, $numberOfPages, $numberOfProducts) {
         $combined = $combined + $array[$i];
     }
     asort($combined);
-    return splitIntoPages(array_reverse($combined), $numberOfPages, $numberOfProducts);
+    return splitIntoPages(array_reverse($combined, true), $numberOfPages, $numberOfProducts);
 }
 
 if ($sort == 1) {
