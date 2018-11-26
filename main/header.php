@@ -7,7 +7,7 @@
     </div>
   </a>  
 	<a href="../registratie/login.php" class="log-in">
-		<div class="fas fa-sign-in-alt cart">
+		<div class="fas fa-user cart">
     	</div>
 	</a>
 </div>
