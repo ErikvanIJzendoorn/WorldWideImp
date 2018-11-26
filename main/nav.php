@@ -8,7 +8,7 @@
                 $naam = $row['naam'];
                 $cat = array($id, $naam);
         ?>
-            <a href="../overzicht/productpage.php?category=<?=$id?>&pageNumber=0&sort=0&productAmount=30" class="navbar-item"><?php print($cat[1]); ?></a>        
+            <a href="../overzicht/productpage.php?category=<?=$id?>&pageNumber=0&sort=0&productAmount=30&filter=0&filterValue=0" class="navbar-item"><?php print($cat[1]); ?></a>        
         <?php
             }
         ?>

@@ -10,16 +10,20 @@
                 var sort = $(this).val();
                 var params = sort.split(",");
                 window.location = "../overzicht/productpage.php?category=" + params[0] + "&productAmount=" + params[1] +
-                        "&pageNumber=" + params[2] + "&sort=" + params[3];
+                        "&pageNumber=" + params[2] + "&filter=" + params[3] + "&filterValue=" + params[4] + "&sort=" + params[5];
             });
             
             $('#productAmount').on('change', function() {
                 var productAmount = $(this).val();
                 var params = productAmount.split(",");
                 window.location = "../overzicht/productpage.php?category=" + params[0] + "&pageNumber=" + params[1] +
-                        "&sort=" + params[2] + "&productAmount=" + params[3];
-            })
+                        "&sort=" + params[2] + "&filter=" + params[3] + "&filterValue=" + params[4] + "&productAmount=" + params[5];
+            });
         });
+        function priceSlider(categoryID, pageNumber, sort, numberOfProducts, filter, filterValue) {
+            window.location.assign("../overzicht/productpage.php?category=" + categoryID + "&pageNumber=" + pageNumber +
+                        "&sort=" + sort + "&productAmount=" + numberOfProducts + "&filter=" + filter + "&filterValue=" + filterValue);
+        }
     </script>
 </head>
 <body>
