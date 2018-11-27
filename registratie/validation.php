@@ -1,6 +1,5 @@
 <?php 
-require '../db/connect.php';
-
+require '../main/nav.php';
 
 
 function AttemptLogin() {
@@ -16,6 +15,9 @@ function AttemptLogin() {
             } else {
                 header("Location: login.php?try=fail&user=$user");
             }
+
+            $_SESSION['id'] = $row['CustomerID'];
+            $_SESSION['email'] = $row['CustomerEmail'];
         }
     }
 }

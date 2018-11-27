@@ -116,7 +116,7 @@ function GetLastID(){
 function Login($user){
     try {
             $pdo = connect();
-            $stmt = $pdo->prepare("SELECT CustomerEmail, CustomerPassword FROM clogin WHERE CustomerEmail = :user");
+            $stmt = $pdo->prepare("SELECT CustomerID, CustomerEmail, CustomerPassword FROM clogin WHERE CustomerEmail = :user");
             $stmt->bindValue(':user', $user);
 
             $stmt->execute();
@@ -127,13 +127,14 @@ function Login($user){
 }
 
 function OrderList(){
+    var_dump($_SESSION);
     try {
             $pdo = connect();
             $stmt = $pdo->prepare("INSERT INTO orders(CustomerID, OrderDate) VALUES(:id, :datum)");
-            $stmt->bindValue(':id', $id);
-            $stmt->bindValue(':datum', $datum);
+            $stmt->bindValue(':id', $_SESSION['id']);
+            //$stmt->bindValue(':datum', $datum);
 
-            $stmt->execute();
+            //$stmt->execute();
             return $stmt;
     } catch (Exception $e) {
         return $e;

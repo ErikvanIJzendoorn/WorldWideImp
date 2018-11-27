@@ -46,7 +46,7 @@
 							  text: "Your payment was received",
 							  icon: "success",
 							  button: true,
-							}).then((value) => window.location.replace("../winkelwagen/cart.php?func=empty"));
+							}).then((value) => window.location.replace("test.php"));
 					      break;
 					 
 					    default:

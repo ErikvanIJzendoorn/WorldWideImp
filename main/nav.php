@@ -1,8 +1,9 @@
-    <?php require '../search/search.php' ?>
+<?php require '../search/search.php' ?>
 
 <nav>
     <div class="navbar navbar-nav ml-auto" id="topNavbar">
         <?php 
+        session_start();
         require '../db/connect.php';
             $stmt = getCategory();
             while($row = $stmt->fetch()) {
