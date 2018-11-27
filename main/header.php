@@ -1,4 +1,4 @@
-<div class="jumbotron wrapper">
+<div class="jumbotron wrapper banner-image">
 	<a href="../landing/index.php">
 		<img src="../img/logo.png" id="logo-img">
 	</a>
@@ -11,3 +11,4 @@
     	</div>
 	</a>
 </div>
+
