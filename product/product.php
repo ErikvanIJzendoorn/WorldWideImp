@@ -1,6 +1,9 @@
 <?php
 
-$stmt = getProduct(filter_input(INPUT_GET, 'product', FILTER_SANITIZE_STRING));
+$productID = filter_input(INPUT_GET, 'product', FILTER_SANITIZE_NUMBER_INT);
+$categoryID = filter_input(INPUT_GET, 'category', FILTER_SANITIZE_NUMBER_INT);
+
+$stmt = getProduct($productID, $categoryID);
 
 while($row = $stmt->fetch()) {
 	$naam = $row['naam'];
@@ -19,5 +22,3 @@ while($row = $stmt->fetch()) {
 
 $herkomst = str_replace(array('"', "{", "}", "[", "]", "-", ":", ","), "", $herkomst);
 $herkomst = explode(" ", $herkomst);
-
-?>

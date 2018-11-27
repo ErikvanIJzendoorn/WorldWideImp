@@ -1,8 +1,9 @@
-    <?php require '../search/search.php' ?>
+<?php require '../search/search.php' ?>
 
 <nav>
     <div class="navbar navbar-nav ml-auto" id="topNavbar">
         <?php 
+        session_start();
         require '../db/connect.php';
             $stmt = getCategory();
             while($row = $stmt->fetch()) {
@@ -10,7 +11,7 @@
                 $naam = $row['naam'];
                 $cat = array($id, $naam);
         ?>
-            <a href="../overzicht/productpage.php?category=<?=$id?>&pageNumber=0" class="navbar-item"><?php print($cat[1]); ?></a>        
+            <a href="../overzicht/productpage.php?category=<?=$id?>&pageNumber=0&sort=0&productAmount=30&filter=0&filterValue=0" class="navbar-item"><?php print($cat[1]); ?></a>        
         <?php
             }
         ?>

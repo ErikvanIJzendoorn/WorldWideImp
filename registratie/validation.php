@@ -1,18 +1,23 @@
 <?php 
-require '../db/connect.php';
-
+require '../main/nav.php';
 
 
 function AttemptLogin() {
-    if (isset($_POST['user']) && isset($_POST['pass'])) {
+    if (isset($_POST['user'])) {
         $user = $_POST['user'];
         $pass = $_POST['pass'];
-        $stmt = Login($user, $pass);
 
-        if($row = $stmt->fetch()) {
-            header("Location: ../betalen/index.php");
-        } else {
-            echo "Combinatie niet gevonden!";
+        $stmt = Login($user);
+
+        while($row = $stmt->fetch()) {
+            if(password_verify($pass, $row['CustomerPassword'])) {
+                 header("Location: ../betalen/index.php");
+            } else {
+                header("Location: login.php?try=fail&user=$user");
+            }
+
+            $_SESSION['id'] = $row['CustomerID'];
+            $_SESSION['email'] = $row['CustomerEmail'];
         }
     }
 }

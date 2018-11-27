@@ -2,6 +2,8 @@
 
 require '../db/connect.php';
 
+var_dump($_POST);
+
 if(isset($_POST)) {
 	$fname = $_POST['firstName'];
 	$lname = $_POST['lastName'];
@@ -14,16 +16,9 @@ if(isset($_POST)) {
 	$ccname = $_POST['cc-name'];
 	$cciban = $_POST['cc-iban'];
 	$ccnumber = $_POST['cc-number'];
-	$user = $_POST['email'];
-	$pass = $_POST['pass'];
 
 	$name = $fname . " " . $lname;
 	Register($name, $email, $address, $zip, $city, $method, $ccbank, $ccname, $cciban, $ccnumber);
-
-	$hashedpass = password_hash($pass, PASSWORD_BCRYPT);
-	RegisterLogin($user, $hashedpass);
-
-	header("Location: login.php");
 }
 
 ?>
