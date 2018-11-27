@@ -125,3 +125,37 @@ function Login($user){
         return $e;
     }
 }
+
+function OrderList(){
+    try {
+            $pdo = connect();
+            $stmt = $pdo->prepare("INSERT INTO orders(CustomerID, OrderDate) VALUES(:id, :datum)");
+            $stmt->bindValue(':id', $id);
+            $stmt->bindValue(':datum', $datum);
+
+            $stmt->execute();
+            return $stmt;
+    } catch (Exception $e) {
+        return $e;
+    }
+}
+
+function OrderItem() {
+    try {
+            $pdo = connect();
+            $stmt = $pdo->prepare("INSERT INTO orderlines(OrderlineID, stockitemID, OrderID, UnitPrice, TaxRate, Quantity)
+                                    VALUES(:orderline, :itemid, :order, :price, 21, :quantity)");
+            $stmt->bindValue(':orderline', $lineID);
+            $stmt->bindValue(':itemid', $itemID);
+            $stmt->bindValue(':order', $orderID);
+            $stmt->bindValue(':price', $prijs);
+            $stmt->bindValue(':quantity', $aantal);
+
+            $stmt->execute();
+            return $stmt;
+    } catch (Exception $e) {
+        return $e;
+    }
+
+    
+}
