@@ -1,0 +1,48 @@
+#search {
+	border: none;
+	border-bottom: 1px solid black;
+	width: 50%;
+  height: 40px;
+position: relative;
+    left: 25%;
+}
+
+#search:focus {
+	outline: none;
+}
+
+.outer-search {
+	position: absolute;
+	top: 150px;
+
+}
+
+#display {
+	width: 50%;
+	top: 40px;
+  position: absolute;
+  left: 25%;
+  z-index: 2;
+  background: white;
+  display: flex;
+  transition: all 0.3s ease-in-out 0s, visibility 0s linear 0.3s, z-index 0s linear 0.01s;	
+}
+
+#search-btn {
+	position: relative;
+    left: 25%;
+}
+
+td {
+	height: 50px;
+}
+
+td:nth-child(1) {
+	padding: 10px;
+}    
+
+.scroll {
+	max-height: 200px;
+	overflow-y: auto;
+  overflow-x: hidden;
+}
