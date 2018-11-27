@@ -8,15 +8,14 @@
         <?php require '../main/meta.html'; ?>
     </head>
     <body>
-        <?php //require '../main/header.php' 
-            require 'cart.php';
-            require '../db/connect.php';
+        <?php require '../main/header.php' ;
+              require 'cart.php';
         ?>
-        <?php //require '../main/nav.php'?>
+        <?php require '../main/nav.php'?>
         <link href="../winkelwagen/cart.css" type="text/css" rel="stylesheet">
         <div class="container" style="margin-top: 70px;">
             <div class="row">
-                <div class="col-sm-12 col-md-10 col-md-offset-1">
+                <div class="col-sm-12 col-md-10 col-md-offset-1" style="margin-top: 70px;">
                     <table class="table table-hover">
                         <thead>
                             <tr>
