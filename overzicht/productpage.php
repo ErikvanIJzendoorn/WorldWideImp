@@ -68,7 +68,7 @@ function sortRPrice($array, $numberOfPages, $numberOfProducts) {
 
 function filterOnPrice($product) {
     global $filterValue;
-    if ($product['prijs'] >= $filterValue) {
+    if ($product['prijs'] <= $filterValue) {
         return true;
     } else {
         return false;
@@ -107,15 +107,15 @@ switch ($sort) {
 
 <div class="outer-div">
     <div>
-        <input type="range" min="0" max="100" value="<?=$filterValue;?>" onchange="priceSlider(<?=$categoryID;?>, <?=$pageNumber;?>, <?=$sort;?>, <?=$numberOfProducts;?>, 1, this.value);">
+        <input type="range" min="10" max="400" value="<?=$filterValue;?>" onchange="priceSlider(<?=$categoryID;?>, <?=$pageNumber;?>, <?=$sort;?>, <?=$numberOfProducts;?>, 1, this.value);">
         <input type="text" id="sliderValue" value="<?=$filterValue;?>">
     </div>
     <div>
         <select id="productAmount" name="productAmount">
-            <option value="<?="$categoryID,$pageNumber,$sort,$filter,$filterValue";?>,45" <?php if ($numberOfProducts === "45") {echo "selected";}?>>45</option>
-            <option value="<?="$categoryID,$pageNumber,$sort,$filter,$filterValue";?>,30" <?php if ($numberOfProducts === "30") {echo "selected";}?>>30</option>
-            <option value="<?="$categoryID,$pageNumber,$sort,$filter,$filterValue";?>,15" <?php if ($numberOfProducts === "15") {echo "selected";}?>>15</option>
             <option value="<?="$categoryID,$pageNumber,$sort,$filter,$filterValue";?>,9" <?php if ($numberOfProducts === "9") {echo "selected";}?>>9</option>
+            <option value="<?="$categoryID,$pageNumber,$sort,$filter,$filterValue";?>,15" <?php if ($numberOfProducts === "15") {echo "selected";}?>>15</option>
+            <option value="<?="$categoryID,$pageNumber,$sort,$filter,$filterValue";?>,30" <?php if ($numberOfProducts === "30") {echo "selected";}?>>30</option>
+            <option value="<?="$categoryID,$pageNumber,$sort,$filter,$filterValue";?>,45" <?php if ($numberOfProducts === "45") {echo "selected";}?>>45</option>
         </select>
     </div>
     <div id="sortBar"> 
