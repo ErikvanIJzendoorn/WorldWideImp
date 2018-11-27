@@ -1,5 +1,5 @@
 <?php
-session_start();
+	session_start();
 	//$_SESSION['cart'] = '';
 	if(!isset($_GET['func'])){
 
