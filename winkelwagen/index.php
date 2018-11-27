@@ -11,7 +11,6 @@
         <?php require '../main/header.php' ;
               require 'cart.php';
         ?>
-        <?php require '../main/nav.php'?>
         <link href="../winkelwagen/cart.css" type="text/css" rel="stylesheet">
         <div class="container" style="margin-top: 70px;">
             <div class="row">
@@ -37,7 +36,7 @@
                         $i = 0;
                         if ($_SESSION['cart'] != null) {
                             foreach ($_SESSION['cart'] as $key => $value) {
-                                $stmt = getProduct($value['id']);
+                                $stmt = getProduct($value['id'], $value['category']);
                                 if ($row = $stmt->fetch()) {
                                     $id = $value['id'];
                                     $naam = $row['naam'];

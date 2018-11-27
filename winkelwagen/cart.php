@@ -1,5 +1,5 @@
 <?php
-	//$_SESSION['cart'] = '';
+	include '../main/nav.php';
 	if(!isset($_GET['func'])){
 
 	} else {
@@ -15,12 +15,12 @@
 	function addToCart() {
 		if(isset($_SESSION['cart']) && !empty($_SESSION['cart'])){
 			$items = $_SESSION['cart'];
-			$item = array('id' => $_GET['id'], 'aantal' => $_GET['aantal']);
+			$item = array('id' => $_GET['id'], 'aantal' => $_GET['aantal'], 'category' => $_GET['cat']);
 			array_push($items, $item);
 			$_SESSION['cart'] = $items;
 			header("Location: index.php");
 		}else{
-			$item = array('id' => $_GET['id'], 'aantal' => $_GET['aantal']);
+			$item = array('id' => $_GET['id'], 'aantal' => $_GET['aantal'], 'category' => $_GET['cat']);
 			$items = array(0 => $item);
 			$_SESSION['cart'] = $items;
 			header("Location: index.php");

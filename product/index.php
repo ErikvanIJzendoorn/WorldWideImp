@@ -81,7 +81,7 @@
             <input type="hidden" name="func" value="add">
             <?php echo '<input type="hidden" name="id" value="' . $ItemID . '">'; ?>
             <?php echo '<input type="hidden" name="page" value="' . $ItemID . '">'; ?>
-            <?php echo '<input type="hidden" name="cat" value="' . $ItemID . '">'; ?>
+            <?php echo '<input type="hidden" name="cat" value="' . $categorieID . '">'; ?>
             <button id="bestelbtn" type="submit">
             Bestel
             </button>
