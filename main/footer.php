@@ -12,15 +12,15 @@
 		<div id="aboutus">
 			<h4>About us</h4>
 			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas, ducimus repellendus ex reprehenderit animi placeat amet. Tempore quibusdam maxime, esse mollitia non ipsa sunt labore nisi optio animi omnis facere!</p>
-                        <h4>Follow us on</h4>
-                        <ul class="social-icons">
-                            <li><a href="https://nl-nl.facebook.com/login/" class="social-icon"> <i class="fa fa-facebook"></i></a></li>
-                            <li><a href="https://twitter.com/login?lang=nl" class="social-icon"> <i class="fa fa-twitter"></i></a></li>
-                            <li><a href="https://accounts.google.com/ServiceLogin/identifier?hl=nl&passive=true&continue=https%3A%2F%2Fwww.google.nl%2Fsearch%3Fq%3Dyoutube%26rlz%3D1C1EJFA_enNL788NL795%26oq%3Dyoutub%26aqs%3Dchrome.0.0j69i60l2j69i57j69i60l2.2576j1j9%26sourceid%3Dchrome%26ie%3DUTF-8&flowName=GlifWebSignIn&flowEntry=AddSession" class="social-icon"> <i class="fa fa-youtube"></i></a></li>
-                            <li><a href="https://www.linkedin.com/uas/login" class="social-icon"> <i class="fa fa-linkedin"></i></a></li>
-                            <li><a href="https://accounts.google.com/ServiceLogin/identifier?elo=1&flowName=GlifWebSignIn&flowEntry=AddSession" class="social-icon"> <i class="fa fa-google-plus"></i></a></li>
-                        </ul>
-                </div>
+                <h4>Follow us on</h4>
+                <ul class="social-icons">
+                    <li><a href="https://nl-nl.facebook.com/login/" target="_blank" class="social-icon"> <i class="fa fa-facebook"></i></a></li>
+                    <li><a href="https://twitter.com/login?lang=nl" target="_blank" class="social-icon"> <i class="fa fa-twitter"></i></a></li>
+                    <li><a href="https://accounts.google.com/ServiceLogin/identifier?hl=nl&passive=true&continue=https%3A%2F%2Fwww.google.nl%2Fsearch%3Fq%3Dyoutube%26rlz%3D1C1EJFA_enNL788NL795%26oq%3Dyoutub%26aqs%3Dchrome.0.0j69i60l2j69i57j69i60l2.2576j1j9%26sourceid%3Dchrome%26ie%3DUTF-8&flowName=GlifWebSignIn&flowEntry=AddSession" target="_blank" class="social-icon"> <i class="fa fa-youtube"></i></a></li>
+                    <li><a href="https://www.linkedin.com/uas/login" target="_blank" class="social-icon"> <i class="fa fa-linkedin"></i></a></li>
+                    <li><a href="https://accounts.google.com/ServiceLogin/identifier?elo=1&flowName=GlifWebSignIn&flowEntry=AddSession" target="_blank" class="social-icon"> <i class="fa fa-google-plus"></i></a></li>
+                </ul>
+            </div>
 		<div id="contact-info">
 			<h4>Contact Info</h4>
 		 <p> World Wide Importers</p>
