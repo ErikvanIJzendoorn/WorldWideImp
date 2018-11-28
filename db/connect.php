@@ -59,11 +59,11 @@ if(!function_exists('getProductsByCategory')){
     }
 }
 
-function Register($naam, $email, $address, $zip, $city, $method, $bank, $ccname, $cciban, $ccnumber){
+function Register($naam, $email, $address, $zip, $city, $method, $bank, $ccname, $cciban, $ccnumber, $type){
     try {
             $pdo = connect();
-        $stmt = $pdo->prepare("INSERT INTO customers (CustomerName, Email, DeliveryAddressLine1, DeliveryPostalCode, DeliveryCity, PaymentMethod, Bank, ccName, ccIban, ccNumber)
-                VALUES (:naam, :email, :address, :zip , :city, :method, :bank, :ccname, :cciban, :ccnumber)");
+        $stmt = $pdo->prepare("INSERT INTO customers (CustomerName, CustomerType, Email, DeliveryAddressLine1, DeliveryPostalCode, DeliveryCity, PaymentMethod, Bank, ccName, ccIban, ccNumber)
+                VALUES (:naam, :type, :email, :address, :zip , :city, :method, :bank, :ccname, :cciban, :ccnumber)");
             $stmt->bindValue(':naam', $naam);
             $stmt->bindValue(':email', $email);
             $stmt->bindValue(':address', $address);
@@ -74,6 +74,7 @@ function Register($naam, $email, $address, $zip, $city, $method, $bank, $ccname,
             $stmt->bindValue(':ccname', $ccname);
             $stmt->bindValue(':cciban', $cciban);
             $stmt->bindValue(':ccnumber', $ccnumber);
+            $stmt->bindValue(':type', $type);
 
             $stmt->execute();
 
@@ -126,37 +127,58 @@ function Login($user){
     }
 }
 
-function OrderList(){
-    var_dump($_SESSION);
+function CreateOrder(){
+    var_dump($_SESSION['id']);
+    $datum = date("Y/m/d");
     try {
             $pdo = connect();
-            $stmt = $pdo->prepare("INSERT INTO orders(CustomerID, OrderDate) VALUES(:id, :datum)");
+            $stmt = $pdo->prepare("INSERT INTO orders (CustomerID, OrderDate) VALUES(:id, :datum)");
             $stmt->bindValue(':id', $_SESSION['id']);
-            //$stmt->bindValue(':datum', $datum);
-
-            //$stmt->execute();
+            $stmt->bindValue(':datum', $datum);
+            $stmt->execute();
             return $stmt;
     } catch (Exception $e) {
         return $e;
     }
 }
 
-function OrderItem() {
+function GetOrderID(){
     try {
+        $pdo = connect();
+        $stmt = $pdo->prepare("SELECT MAX(OrderID) AS id FROM orders");
+        $stmt->execute();
+        return $stmt;
+    } catch (Exception $e) {
+        return $e;
+    }
+}
+
+function CreateList($item, $aantal, $category) {
+    $stmt = GetOrderID();
+    if($row = $stmt->fetch()) {
+        $order = $row['id'];
+    } else {
+        // geef error
+    }
+
+    $stmt = getProduct($item, $category);
+    if ($row = $stmt->fetch()) { 
+        $prijs = $row['prijs'];
+    }
+    try {                   
             $pdo = connect();
-            $stmt = $pdo->prepare("INSERT INTO orderlines(OrderlineID, stockitemID, OrderID, UnitPrice, TaxRate, Quantity)
-                                    VALUES(:orderline, :itemid, :order, :price, 21, :quantity)");
-            $stmt->bindValue(':orderline', $lineID);
-            $stmt->bindValue(':itemid', $itemID);
-            $stmt->bindValue(':order', $orderID);
+            $stmt = $pdo->prepare("INSERT INTO orderlines( stockitemID, OrderID, UnitPrice, TaxRate, Quantity)
+                                    VALUES(:itemid, :order, :price, 21, :quantity)");
+            $stmt->bindValue(':itemid', $item);
+            $stmt->bindValue(':order', $order);
             $stmt->bindValue(':price', $prijs);
             $stmt->bindValue(':quantity', $aantal);
 
             $stmt->execute();
             return $stmt;
+        
     } catch (Exception $e) {
         return $e;
     }
-
     
 }

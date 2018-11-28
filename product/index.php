@@ -3,10 +3,10 @@
 <head>
 <title>Productpagina</title>
     <!--header&navbar-->
+    <?php require"../main/meta.php"; ?>
     <?php require "../main/header.php"; ?>
     <?php require "../main/nav.php"; ?>
     <!-- meta -->
-    <?php require"../main/meta.html"; ?>
 
 </head>
 <body>

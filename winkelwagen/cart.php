@@ -79,6 +79,9 @@
 
 	function leeg() {
 		$_SESSION['cart'] = null;
+		$_SESSION['id'] = null;
+		$_SESSION['email'] = null;
+		$_SESSION['gast'] = null;
 		header("Location: index.php");
 	}
 ?>
