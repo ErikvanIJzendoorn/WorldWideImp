@@ -12,7 +12,10 @@
 <!-- Search box. -->
 <div class="outer-search">
    <input type="text" id="search" placeholder="Search" autocomplete="off" />
-   <img src="../img/search-icon.png"><input type="submit" value="Search" id="search-btn">
+  
+ <button type="submit" id="search-submit">
+    <i class="fa fa-search"></i>
+ </button>
    <br>
    <br/>
 <div>

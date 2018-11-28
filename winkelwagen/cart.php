@@ -1,6 +1,7 @@
 <?php
-	include '../main/nav.php';
-	if(!isset($_GET['func'])){
+require '../main/meta.php';
+
+if(!isset($_GET['func'])){
 
 	} else {
 		if($_GET['func'] == 'add') {
@@ -82,6 +83,8 @@
 		$_SESSION['id'] = null;
 		$_SESSION['email'] = null;
 		$_SESSION['gast'] = null;
+		var_dump($_SESSION);
+		echo "empty";
 		header("Location: index.php");
 	}
 ?>

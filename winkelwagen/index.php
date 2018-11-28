@@ -4,13 +4,32 @@
         <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
         <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
         <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+        <meta charset="UTF-8">
+        <!-- <link rel="icon" type="image/png" href="../img/favicon-16x16.png" sizes="16x16" /> -->
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <!-- CSS style sheet -->
+        <link rel="stylesheet" type="text/css" href="../main/style.css">
+        <!-- ROBOTO font -->
+        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+        <!-- FONT AWESOME -->   
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous"> 
+        <script type="text/javascript" src="../main/stickyController.js"></script>
+
         <title> Cart </title>
-        <?php require '../main/meta.php'; ?>
     </head>
     <body>
-        <?php require '../main/header.php' ;
-              require 'cart.php';
+        <?php 
+            require 'cart.php';
+            require '../main/nav.php';
+            require '../main/header.php' ;
+            require '../search/search.php'; 
         ?>
+
         <link href="../winkelwagen/cart.css" type="text/css" rel="stylesheet">
         <div class="container" style="margin-top: 70px;">
             <div class="row">
@@ -27,7 +46,7 @@
                         </thead>
                         <tbody> 
                         <?php
-                        if(isset($_SESSION['cart'])) {
+                        if($_SESSION['cart'] != null) {
                             $cart = $_SESSION['cart'];
                         } else {
                             $_SESSION['cart'] = null;
@@ -138,7 +157,7 @@
                     <td></td>
                     <td></td>
                     <td><a class="btn btn-info" href="../registratie/login.php">Payment</a></td>
-                    <td><a class="btn btn-success" href="../overzicht/productpage.php?category=1&pageNumber=0">Continue shopping</a></td>
+                    <td><a class="btn btn-success" href="../landing/index.php">Continue shopping</a></td>
                     <td></td>
                 </tr>
             </tbody>

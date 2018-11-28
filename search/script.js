@@ -45,7 +45,7 @@ $(document).ready(function() {
        }
 
    });
-$("#search-btn").click(function() {
+$("#search-submit").click(function() {
   console.log("hoi");
 });
 
