@@ -22,6 +22,17 @@ function splitIntoPages($producten, $numberOfPages, $numberOfProducts) {
     return $pages;
 }
 
+function findMinPrice($array) {
+    $minPrice = PHP_INT_MAX;
+    foreach ($array as $product) {
+        $actualPrice = $product['prijs'];
+        if ($actualPrice < $minPrice) {
+            $minPrice = $actualPrice;
+        }        
+    }
+    return $minPrice;
+}
+
 function sortAlpha($array, $numberOfPages, $numberOfProducts) {
     $combined = $array[0];
     $size = count($array);
@@ -87,6 +98,8 @@ if ($pageNumber >= $numberOfPages) {
     $pageNumber = $numberOfPages - 1;
 }
 
+$minPrice = findMinPrice($producten);
+
 $pages = splitIntoPages($producten, $numberOfPages, $numberOfProducts);
 
 switch ($sort) {
@@ -107,7 +120,7 @@ switch ($sort) {
 
 <div class="outer-div">
     <div>
-        <input type="range" min="10" max="400" value="<?=$filterValue;?>" onchange="priceSlider(<?=$categoryID;?>, <?=$pageNumber;?>, <?=$sort;?>, <?=$numberOfProducts;?>, 1, this.value);">
+        <input type="range" min="<?=$minPrice;?>" max="400" value="<?=$filterValue;?>" onchange="priceSlider(<?=$categoryID;?>, <?=$pageNumber;?>, <?=$sort;?>, <?=$numberOfProducts;?>, 1, this.value);">
         <input type="text" id="sliderValue" value="<?=$filterValue;?>">
     </div>
     <div>
