@@ -4,10 +4,10 @@
   border-radius: 25px;
   border: none;
   border-bottom: 1px solid #9E9E9E;
-  width: 50%;
+  width: 35%;
   height: 40px;
   position: relative;
-  left: 25%;
+  left: 34%;
   top: 10px;
 }
 
@@ -22,14 +22,22 @@
 }
 
 #display {
-	width: 50%;
+	width: 33%;
 	top: 40px;
   position: absolute;
-  left: 25%;
+  left: 35%;
   z-index: 2;
-  background: white;
+  background: #ffffff61;
   display: flex;
   transition: all 0.3s ease-in-out 0s, visibility 0s linear 0.3s, z-index 0s linear 0.01s;	
+}
+
+#display span {
+	color: black;
+}
+
+#display span:hover {
+	text-decoration: none;
 }
 
 #search-btn {
@@ -52,6 +60,38 @@ td:nth-child(1) {
 }
 
 .search-p-price {
-	position: absolute;
-	right: 15px;
+  position: relative;
+  float: right;
+}
+
+.search-span:hover {
+	font-size: 1.2em;
+}
+
+#search-submit {
+  background: none;
+  border: none;
+  position: relative;
+  top: 150px;
+  left: 30%;	
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555; 
 }
