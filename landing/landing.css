@@ -12,3 +12,11 @@
 	position: relative;
 	bottom: -50px;
 }
+
+#search {
+	top: 150px !important;
+}
+
+#display {
+	top: 190px !important;
+}

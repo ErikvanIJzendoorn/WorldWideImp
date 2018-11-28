@@ -8,6 +8,7 @@
   height: 40px;
   position: relative;
   left: 25%;
+  top: 10px;
 }
 
 #search:focus {
