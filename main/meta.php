@@ -15,4 +15,3 @@
 <?php 
 	session_start();
 ?>
-<script type="text/javascript" src="../main/stickyController.js"></script>
