@@ -3,9 +3,10 @@
 <head>
 <title>Productpagina</title>
     <!--header&navbar-->
-    <?php require"../main/meta.php"; ?>
+    <?php require "../main/meta.php"; ?>
     <?php require "../main/header.php"; ?>
     <?php require "../main/nav.php"; ?>
+    <?php require '../search/search.php'; ?>
     <!-- meta -->
 
 </head>
@@ -30,19 +31,49 @@
       <li data-target="#myCarousel" data-slide-to="2"></li>
     </ol>
 
+    <?php 
+    switch ($categoryID) {
+        case 1:
+            $productimg = "../img/products/Novelty";
+            break;
+        case 2:
+            $productimg = "../img/products/Hoodie";
+            break;
+        case 3:
+            $productimg = "../img/products/Mug";
+            break;
+        case 4:
+            $productimg = "../img/products/T-shirt";
+            break;
+        case 6:
+            $productimg = "../img/products/Mug";
+            break;
+        case 7:
+            $productimg = "../img/products/Usb";
+            break;
+        case 8:
+            $productimg = "../img/products/Slippers";
+            break;
+        case 9:
+            $productimg = "../img/products/Toy";
+            break;
+        case 10:
+            $productimg = "../img/products/Materials";
+            break;
+    }
+    ?>
     <!-- Wrapper for slides -->
     <div class="carousel-inner">
       <div class="item active">
-        <img src="https://picsum.photos/400/400
-" alt="Los Angeles" style="width:100%;">
+        <img src="<?=$productimg;?>1.jpg" height="400" width="400">
       </div>
 
       <div class="item">
-        <img src="https://picsum.photos/400/400" alt="Chicago" style="width:100%;">
+          <img src="<?=$productimg;?>2.jpg" height="400" width="400">
       </div>
     
       <div class="item">
-        <img src="https://picsum.photos/400/400" alt="New york" style="width:100%;">
+        <img src="<?=$productimg;?>3.jpg" height="400" width="400">
       </div>
     </div>
 
@@ -89,10 +120,6 @@
     </div>
 </div>
 <div class="try"></div>
-
-<script src="controller.js"></script>
-
     <?php require "../main/footer.php"; ?>
-
 </body>
 </html> 
