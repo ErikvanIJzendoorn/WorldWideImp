@@ -66,7 +66,7 @@ function regGuest(){
         $lname = $_POST['lastName'];
         $email = $_POST['email'];
         $address = $_POST['address'];
-        $zip = $_POST['zip'];http://localhost/worldWideImp/registratie/gast_val.php
+        $zip = $_POST['zip'];
         $city = $_POST['city']; 
         $method = $_POST['paymentMethod'];
         $ccbank = $_POST['bank'];
