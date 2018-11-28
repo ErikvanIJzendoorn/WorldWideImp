@@ -68,11 +68,11 @@ td:nth-child(1) {
 	font-size: 1.2em;
 }
 
-#search-submit {
+.search-icon {
   background: none;
   border: none;
   position: relative;
-  top: 150px;
+  top: 10px;
   left: 30%;	
 }
 
