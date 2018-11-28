@@ -56,7 +56,7 @@ function regCustomer() {
         $fetch = GetLastID();
         $_SESSION['id'] = $fetch->fetch(PDO::FETCH_ASSOC);
 
-        header("Location: login.php");
+        header("Location: login.php?login=n");
     }
 }
 
@@ -82,7 +82,7 @@ function regGuest(){
 
         $fetch = GetLastID();
         $_SESSION['id'] = $fetch->fetch(PDO::FETCH_ASSOC);
-        header("Location: ../betalen/index.php");
+        header("Location: ../betalen/index.php?login=n");
     }
 }
 

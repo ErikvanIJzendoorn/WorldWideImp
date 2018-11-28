@@ -6,6 +6,7 @@
     <?php require"../main/meta.php"; ?>
     <?php require "../main/header.php"; ?>
     <?php require "../main/nav.php"; ?>
+    <?php require '../search/search.php'; ?>
     <!-- meta -->
 
 </head>
@@ -89,10 +90,6 @@
     </div>
 </div>
 <div class="try"></div>
-
-<script src="controller.js"></script>
-
     <?php require "../main/footer.php"; ?>
-
 </body>
 </html> 
