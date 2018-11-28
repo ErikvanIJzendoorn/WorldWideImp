@@ -4,21 +4,23 @@
 	<title>Betaalopties</title>
 	<link rel="stylesheet" href="betalen.css">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-
-	<!-- database -->
-	<?php require "../db/connect.php" ?>
-
-	<!--header&navbar-->
-	<?php require "../main/header.php"; ?>
+	<?php 
+        require "../main/meta.php"; 
+        require '../main/header.php';
+        require '../main/nav.php';
+        require '../search/search.php';
+    ?>
 </head>
 <body>
-    <div class="container">
+    <div class="container" style="margin-top: 170px;">
     	<div class="col-md-6 offset-md-4">
     		<p class="col-md-9">Welcome to IDEAL, WE ARE LEGIT :)</p>
     		<a class="btn btn-primary col-md-3 offset-md-1" href="betalen.php?paid=y">Pay</a>
     	</div>
     </div>
 </body>
+
+<?php require '../main/footer.php'; ?>
 
 
 <?php 
@@ -46,7 +48,7 @@
 							  text: "Your payment was received",
 							  icon: "success",
 							  button: true,
-							}).then((value) => window.location.replace("test.php"));
+							}).then((value) => window.location.replace("bestellen.php?paid=y"));
 					      break;
 					 
 					    default:

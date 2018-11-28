@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>Productoverzicht</title>
-    <?php require '../main/meta.html'; ?>
+    <?php require '../main/meta.php'; ?>
     <link rel="stylesheet" href="productpage.css">
     <script>
         $(function(){
@@ -29,5 +29,6 @@
 <body>
 <?php require '../main/header.php';?>   
 <?php require '../main/nav.php'; ?>
+<?php require '../search/search.php'; ?>
 </body>
 </html>
