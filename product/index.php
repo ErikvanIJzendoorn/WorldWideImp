@@ -3,7 +3,7 @@
 <head>
 <title>Productpagina</title>
     <!--header&navbar-->
-    <?php require"../main/meta.php"; ?>
+    <?php require "../main/meta.php"; ?>
     <?php require "../main/header.php"; ?>
     <?php require "../main/nav.php"; ?>
     <?php require '../search/search.php'; ?>
