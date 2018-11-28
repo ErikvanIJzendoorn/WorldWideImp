@@ -217,3 +217,10 @@ body {
 	height: 85px;
 	position: relative;
 }
+
+#slogan {
+	font-size: 2em;
+	position: absolute;
+  top: 400px;
+	left: 43%;
+}
