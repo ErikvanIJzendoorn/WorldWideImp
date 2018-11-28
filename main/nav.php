@@ -1,5 +1,3 @@
-
-
 <nav>
     <div class="navbar navbar-nav ml-auto" id="topNavbar">
         <?php 
@@ -16,3 +14,5 @@
         ?>
     </div> 
 </nav>
+
+<script type="text/javascript" src="../main/stickyController.js"></script>

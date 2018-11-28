@@ -5,23 +5,28 @@
     <link rel="stylesheet" href="betalen.css">
 
 	<!-- database -->
-	<?php require "../db/connect.php" ?>
 
 	<!--header&navbar-->
-	<?php require "../main/meta.php"; ?>
+	<?php 
+        require "../main/meta.php"; 
+        require '../main/header.php';
+        require '../main/nav.php';
+        require '../search/search.php';
+    ?>
 </head>
 <body>
 
 
-    <a href="betalen.php?methode=ideal">    
-<div class="ideal">
+<a href="betalen.php?methode=ideal">    
+    <div class="ideal"  style="margin-top: 150px;">
         <img src="https://upload.wikimedia.org/wikipedia/commons/e/e9/IDEAL_Logo.png" alt="ideal logo" height="100" width="100">
         <p>Online betalen via uw eigen bank</p>
-        </div>
-        </a>
+    </div>
+</a>
 
 
 </body>
+<?php require '../main/footer.php'; ?>
 </html>
 
 <!-- 

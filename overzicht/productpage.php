@@ -128,10 +128,41 @@ switch ($sort) {
         </select>
     </div>
     <?php
+    switch ($categoryID) {
+        case 1:
+            $productimg = "../img/products/Novelty";
+            break;
+        case 2:
+            $productimg = "../img/products/Hoodie";
+            break;
+        case 3:
+            $productimg = "../img/products/Mug";
+            break;
+        case 4:
+            $productimg = "../img/products/T-shirt";
+            break;
+        case 6:
+            $productimg = "../img/products/Mug";
+            break;
+        case 7:
+            $productimg = "../img/products/Usb";
+            break;
+        case 8:
+            $productimg = "../img/products/Slippers";
+            break;
+        case 9:
+            $productimg = "../img/products/Toy";
+            break;
+        case 10:
+            $productimg = "../img/products/Materials";
+            break;
+    }
+    
     foreach ($pages[$pageNumber] as $id => $gegevens){
+        $imgindex = rand(1,3);
         echo "<a href='../product/index.php?product=$id&category=$categoryID' style='color: black; text-decoration: none;'>";
         echo '<div class="image-border">';
-        echo '<img src="https://via.placeholder.com/300" alt="Productimg"><p>';
+        echo "<img src='$productimg$imgindex.jpg' alt='Productimg'><p>";
         echo $gegevens["naam"];
         echo '</p><p>€ ';
         echo $gegevens["prijs"];

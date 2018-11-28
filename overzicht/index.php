@@ -29,5 +29,6 @@
 <body>
 <?php require '../main/header.php';?>   
 <?php require '../main/nav.php'; ?>
+<?php require '../search/search.php'; ?>
 </body>
 </html>
