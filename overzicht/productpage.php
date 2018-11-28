@@ -106,37 +106,37 @@ switch ($sort) {
 ?>
 
 <div class="outer-div">
-    <div>
-        <input type="range" min="10" max="400" value="<?=$filterValue;?>" onchange="priceSlider(<?=$categoryID;?>, <?=$pageNumber;?>, <?=$sort;?>, <?=$numberOfProducts;?>, 1, this.value);">
-        <input type="text" id="sliderValue" value="<?=$filterValue;?>">
-    </div>
-    <div>
-        <select id="productAmount" name="productAmount">
-            <option value="<?="$categoryID,$pageNumber,$sort,$filter,$filterValue";?>,9" <?php if ($numberOfProducts === "9") {echo "selected";}?>>9</option>
-            <option value="<?="$categoryID,$pageNumber,$sort,$filter,$filterValue";?>,15" <?php if ($numberOfProducts === "15") {echo "selected";}?>>15</option>
-            <option value="<?="$categoryID,$pageNumber,$sort,$filter,$filterValue";?>,30" <?php if ($numberOfProducts === "30") {echo "selected";}?>>30</option>
-            <option value="<?="$categoryID,$pageNumber,$sort,$filter,$filterValue";?>,45" <?php if ($numberOfProducts === "45") {echo "selected";}?>>45</option>
-        </select>
-    </div>
-    <div id="sortBar"> 
-        <select id="sort" name="sort">
-            <option value="<?="$categoryID,$numberOfProducts,$pageNumber,$filter,$filterValue";?>,0" <?php if ($sort === "0") {echo "selected";}?>>Unsorted</option>
-            <option value="<?="$categoryID,$numberOfProducts,$pageNumber,$filter,$filterValue";?>,1" <?php if ($sort === "1") {echo "selected";}?>>A to Z</option>
-            <option value="<?="$categoryID,$numberOfProducts,$pageNumber,$filter,$filterValue";?>,2" <?php if ($sort === "2") {echo "selected";}?>>Z to A</option>
-            <option value="<?="$categoryID,$numberOfProducts,$pageNumber,$filter,$filterValue";?>,3" <?php if ($sort === "3") {echo "selected";}?>>Price Ascending</option>
-            <option value="<?="$categoryID,$numberOfProducts,$pageNumber,$filter,$filterValue";?>,4" <?php if ($sort === "4") {echo "selected";}?>>Price Descending</option>
-        </select>
+    <div class="filters">
+        <div>
+            <div class="slidecontainer">
+                <input type="range" class="slider" min="10" max="1000" value="<?=$filterValue;?>" onchange="priceSlider(<?=$categoryID;?>, <?=$pageNumber;?>, <?=$sort;?>, <?=$numberOfProducts;?>, 1, this.value);">
+            </div>
+            <input type="text" class="sliderValue" value="<?=$filterValue;?>">
+            <select class="productAmount" name="productAmount">
+                <option value="<?="$categoryID,$pageNumber,$sort,$filter,$filterValue";?>,9" <?php if ($numberOfProducts === "9") {echo "selected";}?>>9</option>
+                <option value="<?="$categoryID,$pageNumber,$sort,$filter,$filterValue";?>,15" <?php if ($numberOfProducts === "15") {echo "selected";}?>>15</option>
+                <option value="<?="$categoryID,$pageNumber,$sort,$filter,$filterValue";?>,30" <?php if ($numberOfProducts === "30") {echo "selected";}?>>30</option>
+                <option value="<?="$categoryID,$pageNumber,$sort,$filter,$filterValue";?>,45" <?php if ($numberOfProducts === "45") {echo "selected";}?>>45</option>
+            </select>
+            <select class="sort" name="sort">
+                <option value="<?="$categoryID,$numberOfProducts,$pageNumber,$filter,$filterValue";?>,0" <?php if ($sort === "0") {echo "selected";}?>>Unsorted</option>
+                <option value="<?="$categoryID,$numberOfProducts,$pageNumber,$filter,$filterValue";?>,1" <?php if ($sort === "1") {echo "selected";}?>>A to Z</option>
+                <option value="<?="$categoryID,$numberOfProducts,$pageNumber,$filter,$filterValue";?>,2" <?php if ($sort === "2") {echo "selected";}?>>Z to A</option>
+                <option value="<?="$categoryID,$numberOfProducts,$pageNumber,$filter,$filterValue";?>,3" <?php if ($sort === "3") {echo "selected";}?>>Price Ascending</option>
+                <option value="<?="$categoryID,$numberOfProducts,$pageNumber,$filter,$filterValue";?>,4" <?php if ($sort === "4") {echo "selected";}?>>Price Descending</option>
+            </select>
+        </div>
     </div>
     <?php
-    foreach ($pages[$pageNumber] as $id => $gegevens){
-        echo "<a href='../product/index.php?product=$id&category=$categoryID' style='color: black; text-decoration: none;'>";
-        echo '<div class="image-border">';
-        echo '<img src="https://via.placeholder.com/300" alt="Productimg"><p>';
-        echo $gegevens["naam"];
-        echo '</p><p>€ ';
-        echo $gegevens["prijs"];
-        echo '</p></div>';
-    }
+        foreach ($pages[$pageNumber] as $id => $gegevens){
+            echo "<a href='../product/index.php?product=$id&category=$categoryID' style='color: black; text-decoration: none;'>";
+            echo '<div class="image-border">';
+            echo '<img src="https://via.placeholder.com/300" alt="Productimg"><p>';
+            echo $gegevens["naam"];
+            echo '</p><p>€ ';
+            echo $gegevens["prijs"];
+            echo '</p></div>';
+        }
     ?>
 </div>
 
@@ -155,6 +155,5 @@ switch ($sort) {
     
 <script src="controller.js"></script>
 <?php require "../main/footer.php"; ?>
-
 </body>
 </html> 
