@@ -4,9 +4,9 @@ require '../db/connect.php';
 
 if($_GET['login'] == 'y'){
     AttemptLogin();
-} else if ($_POST['reg'] == 'guest') {
+} else if ($_GET['reg'] == 'guest') {
     regGuest();
-} else if ($_POST['reg'] == 'customer') {
+} else if ($_GET['reg'] == 'customer') {
     regCustomer();
 } 
 
