@@ -15,6 +15,11 @@
 	outline: none;
 }
 
+#search::placeholder {
+  font-size: 1.2em;
+  color: #757575;
+}
+
 .outer-search {
 	position: absolute;
 	top: 150px;
@@ -74,6 +79,16 @@ td:nth-child(1) {
   position: relative;
   top: 10px;
   left: 30%;	
+}
+
+
+
+.carousel-indicators li {
+  border: 1px solid #00000075;
+}
+
+.carousel-indicators .active {
+  background-color: #00000075;
 }
 
 /* width */
