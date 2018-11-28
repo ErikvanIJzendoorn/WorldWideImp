@@ -157,7 +157,7 @@
                     <td></td>
                     <td></td>
                     <td><a class="btn btn-info" href="../registratie/login.php">Payment</a></td>
-                    <td><a class="btn btn-success" href="../overzicht/productpage.php?category=1&pageNumber=0">Continue shopping</a></td>
+                    <td><a class="btn btn-success" href="../landing/index.php">Continue shopping</a></td>
                     <td></td>
                 </tr>
             </tbody>
