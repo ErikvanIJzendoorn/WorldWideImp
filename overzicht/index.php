@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>Productoverzicht</title>
-    <?php require '../main/meta.html'; ?>
+    <?php require '../main/meta.php'; ?>
     <link rel="stylesheet" href="productpage.css">
     <script>
         $(function(){

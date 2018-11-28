@@ -5,7 +5,7 @@
         <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
         <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
         <title> Cart </title>
-        <?php require '../main/meta.html'; ?>
+        <?php require '../main/meta.php'; ?>
     </head>
     <body>
         <?php require '../main/header.php' ;
@@ -27,7 +27,11 @@
                         </thead>
                         <tbody> 
                         <?php
-                        $cart = $_SESSION['cart'];
+                        if(isset($_SESSION['cart'])) {
+                            $cart = $_SESSION['cart'];
+                        } else {
+                            $_SESSION['cart'] = null;
+                        }
                         $totaal = 0;
                         $Subtotal = 0;
                         $totaalBtw = 0;
