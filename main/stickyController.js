@@ -1,6 +1,8 @@
 $( document ).ready(function() {
 
-window.onscroll = function() {myFunction()};
+window.onscroll = function() {
+	myFunction()
+};
 
 var navbar = document.getElementsByClassName("navbar")[0];
 var sticky = navbar.offsetTop;

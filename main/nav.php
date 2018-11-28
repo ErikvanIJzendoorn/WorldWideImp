@@ -1,4 +1,4 @@
-<?php require '../search/search.php' ?>
+
 
 <nav>
     <div class="navbar navbar-nav ml-auto" id="topNavbar">
