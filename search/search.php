@@ -13,10 +13,8 @@
 <div class="outer-search">
    <input type="text" id="search" placeholder="Search" autocomplete="off" />
   
- <button type="submit" id="search-submit">
-    <i class="fa fa-search"></i>
- </button>
-   <br>
+    <i class="fa fa-search search-icon"></i>
+      <br>
    <br/>
 <div>
    <!-- Suggestions will be displayed in below div. -->
