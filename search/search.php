@@ -11,7 +11,7 @@
 <body>
 <!-- Search box. -->
 <div class="outer-search">
-   <input type="text" id="search" placeholder="Search" autocomplete="off" />
+   <input type="text" id="search" placeholder="Search. . .  " autocomplete="off" />
   
     <i class="fa fa-search search-icon"></i>
       <br>

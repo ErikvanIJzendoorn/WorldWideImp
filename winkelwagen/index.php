@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-        <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-        <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+        
         <meta charset="UTF-8">
         <!-- <link rel="icon" type="image/png" href="../img/favicon-16x16.png" sizes="16x16" /> -->
         <!-- Latest compiled and minified CSS -->
@@ -18,7 +16,7 @@
         <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
         <!-- FONT AWESOME -->   
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous"> 
-        <script type="text/javascript" src="../main/stickyController.js"></script>
+<!--         <script type="text/javascript" src="../main/stickyController.js"></script> -->
 
         <title> Cart </title>
     </head>
