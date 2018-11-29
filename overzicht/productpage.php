@@ -14,6 +14,9 @@ while($row = $stmt->fetch()) {
     $producten[$row["id"]] = array("naam" => $row["naam"], "prijs" => $row["prijs"], "voorraad" => $row["voorraad"]);
 }
 
+$minPrice = findMinPrice($producten);
+$maxPrice = findMaxPrice($producten);
+
 function splitIntoPages($producten, $numberOfPages, $numberOfProducts) {
     $pages = array();
     for ($i = 0; $i < $numberOfPages; $i++) {
@@ -31,6 +34,17 @@ function findMinPrice($array) {
         }        
     }
     return $minPrice;
+}
+
+function findMaxPrice($array) {
+    $maxPrice = PHP_INT_MIN;
+    foreach ($array as $product) {
+        $actualPrice = $product['prijs'];
+        if ($actualPrice > $maxPrice) {
+            $maxPrice = $actualPrice;
+        }
+    }
+    return $maxPrice;
 }
 
 function sortAlpha($array, $numberOfPages, $numberOfProducts) {
@@ -98,8 +112,6 @@ if ($pageNumber >= $numberOfPages) {
     $pageNumber = $numberOfPages - 1;
 }
 
-$minPrice = findMinPrice($producten);
-
 $pages = splitIntoPages($producten, $numberOfPages, $numberOfProducts);
 
 switch ($sort) {
@@ -122,7 +134,7 @@ switch ($sort) {
     <div class="filters">
         <div>
             <div class="slidecontainer">
-                <input type="range" class="slider" min="<?=$minPrice;?>" max="1000" value="<?=$filterValue;?>" onchange="priceSlider(<?=$categoryID;?>, <?=$pageNumber;?>, <?=$sort;?>, <?=$numberOfProducts;?>, 1, this.value);">
+                <input type="range" class="slider" min="<?=floor($minPrice);?>" max="<?=floor($maxPrice);?>" value="<?=$filterValue;?>" onchange="priceSlider(<?=$categoryID;?>, <?=$pageNumber;?>, <?=$sort;?>, <?=$numberOfProducts;?>, 1, this.value);">
             </div>
             <input type="text" class="sliderValue" value="<?=$filterValue;?>">
             <select class="productAmount" id="productAmount">
