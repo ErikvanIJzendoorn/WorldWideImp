@@ -1,8 +1,8 @@
 <?php 
 function connect(){
 	$db ="mysql:host=localhost;dbname=wideworldimporters;port=3306";
-	$user = "root";
-	$pass = "";
+	$user = "wwi";
+	$pass = "test";
 	$pdo = new PDO($db, $user, $pass);
 	return $pdo;
 }
@@ -47,9 +47,10 @@ if(!function_exists('getProductsByCategory')){
     function getProductsByCategory($category) {
         try {
             $pdo = connect();
-            $stmt = $pdo->prepare("SELECT SI.StockItemID id, StockItemName naam, UnitPrice prijs FROM StockItems SI "
-                    . "JOIN StockItemStockGroups SISG ON SI.StockItemID = SISG.StockItemID "
-                    . "WHERE StockGroupID = ?");
+            $stmt = $pdo->prepare("SELECT SI.StockItemID id, StockItemName naam, UnitPrice prijs, QuantityOnHand voorraad FROM StockItems SI 
+                JOIN StockItemStockGroups SISG ON SI.StockItemID = SISG.StockItemID 
+                JOIN stockitemholdings SH ON SI.StockItemID = SH.StockItemID
+                WHERE StockGroupID = ?");
             
             $stmt->execute(array($category));
             return $stmt;

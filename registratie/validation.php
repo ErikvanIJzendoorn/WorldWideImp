@@ -11,23 +11,34 @@ if($_GET['login'] == 'y'){
 } 
 
 function AttemptLogin() {
+    echo "test";
     if (isset($_POST['user'])) {
         $user = $_POST['user'];
         $pass = $_POST['pass'];
 
         $stmt = Login($user);
 
-        while($row = $stmt->fetch()) {
-            if(password_verify($pass, $row['CustomerPassword'])) {
-                 header("Location: ../betalen/index.php");
-            } else {
-                header("Location: login.php?try=fail&user=$user");
-            }
+        if($stmt) {
+            echo "1";
+            while($row = $stmt->fetch()) {
+                echo "5";
+                if(password_verify($pass, $row['CustomerPassword'])) {
+                    header("Location: ../betalen/index.php");
+                    break;
+                } else {
+                    echo "2";
+                }
 
-            $_SESSION['id'] = $row['CustomerID'];
-            $_SESSION['email'] = $row['CustomerEmail'];
-            $_SESSION['login'] = 'done';
+                $_SESSION['id'] = $row['CustomerID'];
+                $_SESSION['email'] = $row['CustomerEmail'];
+                $_SESSION['login'] = 'done';
+            }
+            header("Location: login.php?try=fail&user=$user");
+        } else {
+            echo '3';
         }
+    } else {
+        echo "4";
     }
 }
 

@@ -11,8 +11,11 @@ $stmt = getProductsByCategory($categoryID);
 
 $producten = array();
 while($row = $stmt->fetch()) {
-    $producten[$row["id"]] = array("naam" => $row["naam"], "prijs" => $row["prijs"]);
+    $producten[$row["id"]] = array("naam" => $row["naam"], "prijs" => $row["prijs"], "voorraad" => $row["voorraad"]);
 }
+
+$minPrice = findMinPrice($producten);
+$maxPrice = findMaxPrice($producten);
 
 function splitIntoPages($producten, $numberOfPages, $numberOfProducts) {
     $pages = array();
@@ -31,6 +34,17 @@ function findMinPrice($array) {
         }        
     }
     return $minPrice;
+}
+
+function findMaxPrice($array) {
+    $maxPrice = PHP_INT_MIN;
+    foreach ($array as $product) {
+        $actualPrice = $product['prijs'];
+        if ($actualPrice > $maxPrice) {
+            $maxPrice = $actualPrice;
+        }
+    }
+    return $maxPrice;
 }
 
 function sortAlpha($array, $numberOfPages, $numberOfProducts) {
@@ -98,8 +112,6 @@ if ($pageNumber >= $numberOfPages) {
     $pageNumber = $numberOfPages - 1;
 }
 
-$minPrice = findMinPrice($producten);
-
 $pages = splitIntoPages($producten, $numberOfPages, $numberOfProducts);
 
 switch ($sort) {
@@ -134,15 +146,25 @@ switch ($sort) {
 
              <span id="product-text">Show:</span>   
             <select class="productAmount" name="productAmount">
+
+                <input type="range" class="slider" min="<?=floor($minPrice);?>" max="<?=floor($maxPrice);?>" value="<?=$filterValue;?>" onchange="priceSlider(<?=$categoryID;?>, <?=$pageNumber;?>, <?=$sort;?>, <?=$numberOfProducts;?>, 1, this.value);">
+            </div>
+            <input type="text" class="sliderValue" value="<?=$filterValue;?>">
+            <select class="productAmount" id="productAmount">
+
                 <option value="<?="$categoryID,$pageNumber,$sort,$filter,$filterValue";?>,9" <?php if ($numberOfProducts === "9") {echo "selected";}?>>9</option>
                 <option value="<?="$categoryID,$pageNumber,$sort,$filter,$filterValue";?>,15" <?php if ($numberOfProducts === "15") {echo "selected";}?>>15</option>
                 <option value="<?="$categoryID,$pageNumber,$sort,$filter,$filterValue";?>,30" <?php if ($numberOfProducts === "30") {echo "selected";}?>>30</option>
                 <option value="<?="$categoryID,$pageNumber,$sort,$filter,$filterValue";?>,45" <?php if ($numberOfProducts === "45") {echo "selected";}?>>45</option>
             </select>
+
         
             <span id="sort-text">Sort by: </span>
 
             <select class="sort" name="sort">
+
+            <select class="sort" id="sort">
+
                 <option value="<?="$categoryID,$numberOfProducts,$pageNumber,$filter,$filterValue";?>,0" <?php if ($sort === "0") {echo "selected";}?>>Unsorted</option>
                 <option value="<?="$categoryID,$numberOfProducts,$pageNumber,$filter,$filterValue";?>,1" <?php if ($sort === "1") {echo "selected";}?>>A to Z</option>
                 <option value="<?="$categoryID,$numberOfProducts,$pageNumber,$filter,$filterValue";?>,2" <?php if ($sort === "2") {echo "selected";}?>>Z to A</option>
@@ -190,9 +212,16 @@ switch ($sort) {
         echo '<div class="image-border">';
         echo "<img src='$productimg$imgindex.jpg' alt='Productimg'><p>";
         echo $gegevens["naam"];
-        echo '</p><p>€ ';
+        echo '</p><div>€ ';
         echo $gegevens["prijs"];
-        echo '</p></div>';
+        if($gegevens['voorraad'] >= 100) {
+            echo '<div style="background: green; border-radius: 100%; width: 15px; height: 15px; float: right;"></div>';
+        } else if ($gegevens['voorraad'] < 100 && $gegevens['voorraad'] > 10) {
+            echo '<div style="background: orange; border-radius: 100%; width: 15px; height: 15px; float: right;"></div>';
+        } else {
+            echo '<div style="background: red; border-radius: 100%; width: 15px; height: 15px; float: right;"></div>';
+        }  
+        echo '</div></div>';
     }
     ?>
 </div>

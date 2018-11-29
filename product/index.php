@@ -96,7 +96,6 @@
     </a>
   </div>
 </div>
-
     </div>
     <div class="product-description">
         <form action="../winkelwagen/cart.php?func=add" method="get">
@@ -110,11 +109,26 @@
             <?="€" . $prijs; ?>
             </p>
             <div id="bestelamnt">
-                <input type="number" name="aantal" value="1">
+                <input type="number" name="aantal" value="1" min="1" max="<?=$voorraad;?>">
             </div> 
-            <p id="available">
+            <?php if($voorraad >= 100) {
+                ?>
+                    <p id="available" style="background-color: green; color: white;">
+                    <?="There is enough supply availlable"?>
+
+                <?php
+            } else if ($voorraad < 100 && $voorraad > 10) {
+                ?>
+                   <p id="available" style="background-color: orange; color: white;">
+                   <?="There is enough supply availlable"?>
+                <?php
+            } else {
+                ?>
+                   <p id="available" style="background-color: red; color: white;">
+                   <?="There are currently $voorraad items availlable"?>
+                <?php 
+            } ?> 
             <!-- Product voorraad -->
-            <?="De voorraad is: " . $voorraad; ?>
             </p>
 
             <input type="hidden" name="func" value="add">
