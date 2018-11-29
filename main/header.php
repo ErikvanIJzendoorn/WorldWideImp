@@ -12,7 +12,7 @@
 		?>
 			<a href="../registratie/login.php?func=logout" class="log-in">
 				<div class="fas fa-user cart">
-					<h5>Logout</h5>
+					<h5 style="font-family: 'Roboto'">Logout</h5>
 		    	</div>
 			</a>
 		<?php
