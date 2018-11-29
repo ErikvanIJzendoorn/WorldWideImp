@@ -133,38 +133,24 @@ switch ($sort) {
 <div class="outer-div">
     <div class="filters">  
         <button onclick="showFilter()" class="filter-btn"><i class="fas fa-stream"></i></button>
-
         <div id="display-filter" class="display-filter">
             <h4>Filters</h4><br>
-        <p>Max/min costs</p>
+            <p>Max/min costs</p>
             <div class="slidecontainer">
                 <input type="range" class="slider" min="<?=$minPrice;?>" max="1000" value="<?=$filterValue;?>" onchange="priceSlider(<?=$categoryID;?>, <?=$pageNumber;?>, <?=$sort;?>, <?=$numberOfProducts;?>, 1, this.value);">
-            
             </div>
             <input type="text" class="sliderValue" value="<?=$filterValue;?>">
         </div>
-
-             <span id="product-text">Show:</span>   
-            <select class="productAmount" name="productAmount">
-
-                <input type="range" class="slider" min="<?=floor($minPrice);?>" max="<?=floor($maxPrice);?>" value="<?=$filterValue;?>" onchange="priceSlider(<?=$categoryID;?>, <?=$pageNumber;?>, <?=$sort;?>, <?=$numberOfProducts;?>, 1, this.value);">
-            </div>
-            <input type="text" class="sliderValue" value="<?=$filterValue;?>">
+    </div>
+            <span id="product-text">Show:</span>   
             <select class="productAmount" id="productAmount">
-
                 <option value="<?="$categoryID,$pageNumber,$sort,$filter,$filterValue";?>,9" <?php if ($numberOfProducts === "9") {echo "selected";}?>>9</option>
                 <option value="<?="$categoryID,$pageNumber,$sort,$filter,$filterValue";?>,15" <?php if ($numberOfProducts === "15") {echo "selected";}?>>15</option>
                 <option value="<?="$categoryID,$pageNumber,$sort,$filter,$filterValue";?>,30" <?php if ($numberOfProducts === "30") {echo "selected";}?>>30</option>
                 <option value="<?="$categoryID,$pageNumber,$sort,$filter,$filterValue";?>,45" <?php if ($numberOfProducts === "45") {echo "selected";}?>>45</option>
             </select>
-
-        
             <span id="sort-text">Sort by: </span>
-
-            <select class="sort" name="sort">
-
             <select class="sort" id="sort">
-
                 <option value="<?="$categoryID,$numberOfProducts,$pageNumber,$filter,$filterValue";?>,0" <?php if ($sort === "0") {echo "selected";}?>>Unsorted</option>
                 <option value="<?="$categoryID,$numberOfProducts,$pageNumber,$filter,$filterValue";?>,1" <?php if ($sort === "1") {echo "selected";}?>>A to Z</option>
                 <option value="<?="$categoryID,$numberOfProducts,$pageNumber,$filter,$filterValue";?>,2" <?php if ($sort === "2") {echo "selected";}?>>Z to A</option>
