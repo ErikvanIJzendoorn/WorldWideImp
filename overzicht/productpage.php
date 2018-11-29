@@ -127,6 +127,8 @@ switch ($sort) {
             </select>
         </div>
     </div>
+</div>
+<div class="outer-div">
     <?php
 
     switch ($categoryID) {
