@@ -29,6 +29,8 @@
       <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
       <li data-target="#myCarousel" data-slide-to="1"></li>
       <li data-target="#myCarousel" data-slide-to="2"></li>
+      <li data-target="#myCarousel" data-slide-to="3"></li>
+
     </ol>
 
     <?php 
@@ -74,6 +76,12 @@
     
       <div class="item">
         <img src="<?=$productimg;?>3.jpg" height="400" width="400">
+      </div>
+
+      <div class="item">
+        <a href="https://www.youtube.com/watch?v=l6gz1oQVBkw">
+            <img src="../img/play.jpg" height="400" width="400">
+        </a>
       </div>
     </div>
 
