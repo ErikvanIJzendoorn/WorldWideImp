@@ -1,7 +1,7 @@
 .image-border {
     display: inline-block;
     padding: 10px;
-    margin: 15px;
+    margin: 15%;
 }
 
 .image-border p {
@@ -12,14 +12,13 @@
 
 .outer-div {
     display: flex;
-    justify-content: center;
     flex-wrap: wrap;
     position: relative;
     top: 100px;
 }
 
 .outer-div a {
-    width: 32%;
+    margin: 0 50px;
 }
 
 .bottom {
@@ -28,6 +27,10 @@
     position: relative;
     top: 70px;
     font-size: 1.2em;
+}
+
+.filters {
+    height: 75px;
 }
 
 .page-nav a {
@@ -46,12 +49,63 @@
 
 .page-nav a:hover:not(.active) {background-color: #ddd;}
 
-.avail-color {
-    height: 10px;
-    width: 10px;
-    background-color: red;
-    position: relative;
-    float: right;
-    top: -40px;
-    
+.slider {
+    background: red;
+}
+
+.productAmount {
+    position: absolute;
+    right: 60px;
+    top: 20px;
+    outline: none; 
+}
+
+#product-text {
+    width: 20px;
+    position: absolute;
+    right: 79px;
+    top: 0;
+}
+
+.sort {
+    position: absolute;
+    right: 160px;
+    top: 20px;
+    border: none;
+    border-bottom: 1px solid black;
+    outline: none;
+}
+
+#sort-text {
+    position: absolute;
+    right: 300px;
+    top: 20px;  
+}
+
+.show-filter {
+    display: block !important; 
+    position: absolute;
+    height: 500px;
+    background: white;
+    z-index: 1;
+    padding: 25px;
+    border-right: 1px solid #797979;
+    border-bottom: 1px solid #797979;
+}
+
+.display-filter {
+    display: none;
+}
+
+.outer-div h4 {
+    text-align: center;
+}
+
+.filter-btn {
+    background: none;
+    border: none;
+    font-size: 2em;
+    color: #00bcf2;
+    margin: 10px;
+    outline: none;
 }
