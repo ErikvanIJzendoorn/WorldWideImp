@@ -159,6 +159,7 @@ switch ($sort) {
             </select>
     </div>
 </div>
+<a href="#"  id="scroll-btn" style="display: none;"><span></span></a>
 <div class="outer-div">
     <?php
 
@@ -232,6 +233,21 @@ function showFilter() {
     var element = document.getElementById("display-filter");
     element.classList.toggle("show-filter");
 }
+
+
+$(document).ready(function(){ 
+    $(window).scroll(function(){ 
+        if ($(this).scrollTop() > 400) { 
+            $('#scroll-btn').fadeIn(); 
+        } else { 
+            $('#scroll-btn').fadeOut(); 
+        } 
+    }); 
+    $('#scroll-btn').click(function(){ 
+        $("html, body").animate({ scrollTop: 230 }, 600); 
+        return false; 
+    }); 
+});
 </script>
 </body>
 </html> 
