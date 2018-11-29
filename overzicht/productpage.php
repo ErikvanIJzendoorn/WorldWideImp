@@ -125,13 +125,13 @@ switch ($sort) {
                 <input type="range" class="slider" min="<?=$minPrice;?>" max="1000" value="<?=$filterValue;?>" onchange="priceSlider(<?=$categoryID;?>, <?=$pageNumber;?>, <?=$sort;?>, <?=$numberOfProducts;?>, 1, this.value);">
             </div>
             <input type="text" class="sliderValue" value="<?=$filterValue;?>">
-            <select class="productAmount" name="productAmount">
+            <select class="productAmount" id="productAmount">
                 <option value="<?="$categoryID,$pageNumber,$sort,$filter,$filterValue";?>,9" <?php if ($numberOfProducts === "9") {echo "selected";}?>>9</option>
                 <option value="<?="$categoryID,$pageNumber,$sort,$filter,$filterValue";?>,15" <?php if ($numberOfProducts === "15") {echo "selected";}?>>15</option>
                 <option value="<?="$categoryID,$pageNumber,$sort,$filter,$filterValue";?>,30" <?php if ($numberOfProducts === "30") {echo "selected";}?>>30</option>
                 <option value="<?="$categoryID,$pageNumber,$sort,$filter,$filterValue";?>,45" <?php if ($numberOfProducts === "45") {echo "selected";}?>>45</option>
             </select>
-            <select class="sort" name="sort">
+            <select class="sort" id="sort">
                 <option value="<?="$categoryID,$numberOfProducts,$pageNumber,$filter,$filterValue";?>,0" <?php if ($sort === "0") {echo "selected";}?>>Unsorted</option>
                 <option value="<?="$categoryID,$numberOfProducts,$pageNumber,$filter,$filterValue";?>,1" <?php if ($sort === "1") {echo "selected";}?>>A to Z</option>
                 <option value="<?="$categoryID,$numberOfProducts,$pageNumber,$filter,$filterValue";?>,2" <?php if ($sort === "2") {echo "selected";}?>>Z to A</option>
