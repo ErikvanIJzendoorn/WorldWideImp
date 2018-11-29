@@ -109,7 +109,7 @@
             <?="€" . $prijs; ?>
             </p>
             <div id="bestelamnt">
-                <input type="number" name="aantal" value="1">
+                <input type="number" name="aantal" value="1" min="1" max="<?=$voorraad;?>">
             </div> 
             <?php if($voorraad >= 100) {
                 ?>
