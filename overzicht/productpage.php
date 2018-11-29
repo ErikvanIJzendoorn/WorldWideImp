@@ -11,7 +11,7 @@ $stmt = getProductsByCategory($categoryID);
 
 $producten = array();
 while($row = $stmt->fetch()) {
-    $producten[$row["id"]] = array("naam" => $row["naam"], "prijs" => $row["prijs"]);
+    $producten[$row["id"]] = array("naam" => $row["naam"], "prijs" => $row["prijs"], "voorraad" => $row["voorraad"]);
 }
 
 function splitIntoPages($producten, $numberOfPages, $numberOfProducts) {
@@ -178,9 +178,16 @@ switch ($sort) {
         echo '<div class="image-border">';
         echo "<img src='$productimg$imgindex.jpg' alt='Productimg'><p>";
         echo $gegevens["naam"];
-        echo '</p><p>€ ';
+        echo '</p><div>€ ';
         echo $gegevens["prijs"];
-        echo '</p></div>';
+        if($gegevens['voorraad'] >= 100) {
+            echo '<div style="background: green; border-radius: 100%; width: 15px; height: 15px; float: right;"></div>';
+        } else if ($gegevens['voorraad'] < 100 && $gegevens['voorraad'] > 10) {
+            echo '<div style="background: orange; border-radius: 100%; width: 15px; height: 15px; float: right;"></div>';
+        } else {
+            echo '<div style="background: red; border-radius: 100%; width: 15px; height: 15px; float: right;"></div>';
+        }  
+        echo '</div></div>';
     }
     ?>
 </div>

@@ -109,7 +109,7 @@
                     <?="There is enough supply availlable"?>
 
                 <?php
-            } else if ($voorraad < 100) {
+            } else if ($voorraad < 100 && $voorraad > 10) {
                 ?>
                    <p id="available" style="background-color: orange; color: white;">
                    <?="There is enough supply availlable"?>

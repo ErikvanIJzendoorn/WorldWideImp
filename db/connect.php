@@ -47,9 +47,10 @@ if(!function_exists('getProductsByCategory')){
     function getProductsByCategory($category) {
         try {
             $pdo = connect();
-            $stmt = $pdo->prepare("SELECT SI.StockItemID id, StockItemName naam, UnitPrice prijs FROM StockItems SI "
-                    . "JOIN StockItemStockGroups SISG ON SI.StockItemID = SISG.StockItemID "
-                    . "WHERE StockGroupID = ?");
+            $stmt = $pdo->prepare("SELECT SI.StockItemID id, StockItemName naam, UnitPrice prijs, QuantityOnHand voorraad FROM StockItems SI 
+                JOIN StockItemStockGroups SISG ON SI.StockItemID = SISG.StockItemID 
+                JOIN stockitemholdings SH ON SI.StockItemID = SH.StockItemID
+                WHERE StockGroupID = ?");
             
             $stmt->execute(array($category));
             return $stmt;
