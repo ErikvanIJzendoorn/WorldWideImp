@@ -1,8 +1,8 @@
 <?php 
 function connect(){
 	$db ="mysql:host=localhost;dbname=wideworldimporters;port=3306";
-	$user = "root";
-	$pass = "";
+	$user = "wwi";
+	$pass = "test";
 	$pdo = new PDO($db, $user, $pass);
 	return $pdo;
 }
