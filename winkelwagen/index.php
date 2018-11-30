@@ -85,8 +85,8 @@
                                             <div class="media">
                                                 <a class="thumbnail pull-left" href="#"> <img class="media-object" src="http://icons.iconarchive.com/icons/custom-icon-design/flatastic-2/72/product-icon.png" style="width: 72px; height: 72px;"> </a>
                                                 <div class="media-body">
-                                                <h4 class="media-heading"> <a href="../product/index.php?product=<?=$id?>"><?=$naam;?></a></h4>
-                                                <h5 class="media-heading"> category: <a href="../overzicht/productpage.php?category=<?=$id?>&pageNumber=0"><?=$category?></a></h5>
+                                                <h4 class="media-heading"> <a href="../product/index.php?product=<?=$id?>&category=<?=$id?>"><?=$naam;?></a></h4>
+                                                <h5 class="media-heading"> category: <a href="../overzicht/productpage.php?category=<?=$id?>&pageNumber=0&sort=0&productAmount=30&filter=0&filterValue=0"><?=$category?></a></h5>
                                                 </div>
                                             </div>
                                         </td>
