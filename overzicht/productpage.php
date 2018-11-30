@@ -127,10 +127,13 @@ switch ($sort) {
     case 4:
         $pages = sortRPrice($pages, $numberOfPages, $numberOfProducts);
         break;
+    default:
+        $pages = sortAlpha($pages, $numberOfPages, $numberOfProducts);
+        break;
 }
 ?>
 
-<div class="outer-div">
+<div class="outer-div top-div">
     <div class="filters">  
         <button onclick="showFilter()" class="filter-btn"><i class="fas fa-stream"></i></button>
         <div id="display-filter" class="display-filter">
@@ -151,15 +154,15 @@ switch ($sort) {
             </select>
             <span id="sort-text">Sort by: </span>
             <select class="sort" id="sort">
-                <option value="<?="$categoryID,$numberOfProducts,$pageNumber,$filter,$filterValue";?>,0" <?php if ($sort === "0") {echo "selected";}?>>Unsorted</option>
-                <option value="<?="$categoryID,$numberOfProducts,$pageNumber,$filter,$filterValue";?>,1" <?php if ($sort === "1") {echo "selected";}?>>A to Z</option>
-                <option value="<?="$categoryID,$numberOfProducts,$pageNumber,$filter,$filterValue";?>,2" <?php if ($sort === "2") {echo "selected";}?>>Z to A</option>
-                <option value="<?="$categoryID,$numberOfProducts,$pageNumber,$filter,$filterValue";?>,3" <?php if ($sort === "3") {echo "selected";}?>>Price Ascending</option>
-                <option value="<?="$categoryID,$numberOfProducts,$pageNumber,$filter,$filterValue";?>,4" <?php if ($sort === "4") {echo "selected";}?>>Price Descending</option>
+                <option value="<?="$categoryID,$numberOfProducts,$pageNumber,$filter,$filterValue";?>,1" <?php if ($sort === "1") {echo "selected";}?>>Name A - Z</option>
+                <option value="<?="$categoryID,$numberOfProducts,$pageNumber,$filter,$filterValue";?>,2" <?php if ($sort === "2") {echo "selected";}?>>Name Z - A</option>
+                <option value="<?="$categoryID,$numberOfProducts,$pageNumber,$filter,$filterValue";?>,3" <?php if ($sort === "3") {echo "selected";}?>>Price low - high</option>
+                <option value="<?="$categoryID,$numberOfProducts,$pageNumber,$filter,$filterValue";?>,4" <?php if ($sort === "4") {echo "selected";}?>>Price high - low</option>
             </select>
     </div>
 </div>
-<div class="outer-div">
+<a href="#"  id="scroll-btn" style="display: none;"><span></span></a>
+<div class="outer-div bottom-div">
     <?php
 
     switch ($categoryID) {
@@ -194,7 +197,7 @@ switch ($sort) {
     
     foreach ($pages[$pageNumber] as $id => $gegevens){
         $imgindex = rand(1,3);
-        echo "<a href='../product/index.php?product=$id&category=$categoryID' style='color: black; text-decoration: none;'>";
+        echo "<a href='../product/index.php?product=$id&category=$categoryID'>";
         echo '<div class="image-border">';
         echo "<img src='$productimg$imgindex.jpg' alt='Productimg'><p>";
         echo $gegevens["naam"];
@@ -232,6 +235,21 @@ function showFilter() {
     var element = document.getElementById("display-filter");
     element.classList.toggle("show-filter");
 }
+
+
+$(document).ready(function(){ 
+    $(window).scroll(function(){ 
+        if ($(this).scrollTop() > 400) { 
+            $('#scroll-btn').fadeIn(); 
+        } else { 
+            $('#scroll-btn').fadeOut(); 
+        } 
+    }); 
+    $('#scroll-btn').click(function(){ 
+        $("html, body").animate({ scrollTop: 230 }, 600); 
+        return false; 
+    }); 
+});
 </script>
 </body>
 </html> 

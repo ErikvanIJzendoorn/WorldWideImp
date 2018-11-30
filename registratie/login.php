@@ -11,10 +11,19 @@
     <?php 
         if(isset($_GET['func']) == 'logout') {
             $_SESSION['login'] = null;
+            $_SESSION['id'] = null;
+            $_SESSION['attempts'] = null;
+            $_SESSION['email'] = null;
         } else if (isset($_SESSION['login']) == 'done') {
             header("Location: ../betalen/index.php");
-        } else{
-
+        } else if (isset($_GET['login']) == 'no'){
+            ?>
+                <script type="text/javascript">
+                    window.onload = function() {
+                        swal("Login Failed", "You made to many attempts Wait untill: <?=$_SESSION['allowed'];?>", "error");
+                    }
+                </script>
+            <?php
         }
     ?>
     
@@ -60,7 +69,7 @@
                 ?>
                     <script type="text/javascript">
                         window.onload = function() {
-                            swal("Login Failed", "The combination wasn't found!", "error");
+                            swal("Login Failed", "The combination wasn't found!  <?=$_SESSION['attempts'];?>", "error");
                         }
                     </script>
                 <?php

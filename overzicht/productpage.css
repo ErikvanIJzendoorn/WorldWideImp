@@ -1,7 +1,6 @@
 .image-border {
     display: inline-block;
     padding: 10px;
-    margin: 15%;
 }
 
 .image-border p {
@@ -18,7 +17,22 @@
 }
 
 .outer-div a {
-    margin: 0 50px;
+    margin: 15px 50px;
+    color: black; 
+    text-decoration: none;
+    position: relative;
+    flex: auto;
+    max-width: 350px;
+    left: 25px;
+}
+
+.top-div {
+
+
+}
+
+.bottom-div {
+    margin-bottom: 100px;
 }
 
 .bottom {
@@ -88,7 +102,7 @@
     height: 500px;
     background: white;
     z-index: 1;
-    padding: 25px;
+    padding: 40px;
     border-right: 1px solid #797979;
     border-bottom: 1px solid #797979;
 }
@@ -108,4 +122,37 @@
     color: #00bcf2;
     margin: 10px;
     outline: none;
+}
+
+
+#scroll-btn {
+    position:fixed;
+    right:10px;
+    bottom:10px;
+    cursor:pointer;
+    width:50px;
+    height:50px;
+    z-index: 1;
+    background-color:#00bcf2;
+    text-indent:-9999px;
+    display:none;
+    -webkit-border-radius:60px;
+    -moz-border-radius:60px;
+    border-radius:60px
+}
+#scroll-btn span {
+    position:absolute;
+    top:50%;
+    left:50%;
+    margin-left:-8px;
+    margin-top:-12px;
+    height:0;
+    width:0;
+    border:8px solid transparent;
+    border-bottom-color:#ffffff;
+}
+#scroll-btn:hover {
+    background-color:#797979;
+    opacity:1;filter:"alpha(opacity=100)";
+    -ms-filter:"alpha(opacity=100)";
 }
