@@ -141,8 +141,37 @@
             </button>
         </form>
     </div>
-</div>
-<div class="try"></div>
+
+    <div class="row">
+        <div class="recommended col-md-12" style="margin-top: -150px; margin-left: 100px;">
+        <h1>Maybe you want this instead?</h1>
+                <?php 
+            $i=0;
+            $recommended = [];
+            $imgindex = 1;
+            $stmt = getProductsByCategory($categorieID);
+            while($row = $stmt->fetch()) {
+                $recommend = array('id' => $row['id'], 'naam' => $row['naam'], 'prijs' => $row['prijs']);
+                array_push($recommended, $recommend);
+                $i++;
+            }
+            shuffle($recommended);
+
+            for ($i=0; $i < 3; $i++) { 
+                $imgindex = rand(1,3);
+                ?>
+                <div class="col-md-4">
+                    <a href="../product/index.php?product=<?=$ItemID;?>&category=<?=$categorieID;?>">
+                        <img src='<?php echo $productimg . $imgindex;?>.jpg' alt='Productimg' heigt='200px' width='200px'>
+                        <p><?=$recommended[$i]['naam'];?></p>
+                        <p><?=$recommended[$i]['prijs'];?></p>
+                    </a>
+                </div>
+                <?php
+            }
+        ?>
+        </div>
+    </div>
     <?php require "../main/footer.php"; ?>
 </body>
 </html> 
