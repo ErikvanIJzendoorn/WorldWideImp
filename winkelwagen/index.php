@@ -78,13 +78,42 @@
                                     $i++;
                                     $prijs = ($unit * $aantal); 
                                     $prijs = round($prijs, 3);
-                                ?>      
-
+                                ?>    
                                 <tr>
                                 <form action="index.php" method="get">
                                         <td class="col-sm-8 col-md-6">
                                             <div class="media">
-                                                <a class="thumbnail pull-left" href="#"> <img class="media-object" src="http://icons.iconarchive.com/icons/custom-icon-design/flatastic-2/72/product-icon.png" style="width: 72px; height: 72px;"> </a>
+                                                <?php switch ($categoryID) {
+                                                    case 1:
+                                                        $productimg = "../img/products/Novelty";
+                                                        break;
+                                                    case 2:
+                                                    $productimg = "../img/products/Hoodie";
+                                                        break;
+                                                    case 3:
+                                                        $productimg = "../img/products/Mug";
+                                                        break;
+                                                    case 4:
+                                                        $productimg = "../img/products/T-shirt";
+                                                        break;
+                                                    case 6:
+                                                        $productimg = "../img/products/Mug";
+                                                        break;
+                                                    case 7:
+                                                        $productimg = "../img/products/Usb";
+                                                        break;
+                                                    case 8:
+                                                        $productimg = "../img/products/Slippers";
+                                                        break;
+                                                    case 9:
+                                                        $productimg = "../img/products/Toy";
+                                                        break;
+                                                    case 10:
+                                                        $productimg = "../img/products/Materials";
+                                                        break; }
+                                                        $imgindex = rand(1,3);
+                                                        ?>
+                                                <a class="thumbnail pull-left" href="../product/index.php?product=<?=$id?>&category=<?=$categoryID?>"> <?php echo("<img class='media-object' src='$productimg$imgindex.jpg' alt='Productimg' style='width: 72px; height: 72px'>")?></a>
                                                 <div class="media-body">
                                                 <h4 class="media-heading"> <a href="../product/index.php?product=<?=$id?>&category=<?=$categoryID?>"><?=$naam;?></a></h4>
                                                 <h5 class="media-heading"> category: <a href="../overzicht/productpage.php?category=<?=$id?>&pageNumber=0&sort=0&productAmount=30&filter=0&filterValue=0"><?=$category?></a></h5>
