@@ -2,7 +2,8 @@
 <html>
 <head>
 <title>Productpagina</title>
-    <!--header&navbar-->
+<link rel="shortcut icon" type="image/png" href="../img/favicon.ico"/>
+<!--header&navbar-->
     <?php require "../main/meta.php"; ?>
     <?php require "../main/header.php"; ?>
     <?php require "../main/nav.php"; ?>
