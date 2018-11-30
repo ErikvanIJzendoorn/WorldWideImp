@@ -4,6 +4,7 @@
     <title>Productoverzicht</title>
     <?php require '../main/meta.php'; ?>
     <link rel="stylesheet" href="productpage.css">
+    <link rel="shortcut icon" type="image/png" href="../img/favicon.ico"/>
     <script>
         $(function(){
             $('#sort').on('change', function() {

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="../../../../favicon.ico">
+    <link rel="shortcut icon" type="image/png" href="../img/favicon.ico"/>
     <title>Registration form</title>
     <!-- Bootstrap core CSS -->
     <link href="bootstrap.min.css" rel="stylesheet">
