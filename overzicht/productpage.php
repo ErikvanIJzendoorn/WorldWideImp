@@ -130,7 +130,7 @@ switch ($sort) {
 }
 ?>
 
-<div class="outer-div">
+<div class="outer-div top-div">
     <div class="filters">  
         <button onclick="showFilter()" class="filter-btn"><i class="fas fa-stream"></i></button>
         <div id="display-filter" class="display-filter">
@@ -160,7 +160,7 @@ switch ($sort) {
     </div>
 </div>
 <a href="#"  id="scroll-btn" style="display: none;"><span></span></a>
-<div class="outer-div">
+<div class="outer-div bottom-div">
     <?php
 
     switch ($categoryID) {
@@ -195,7 +195,7 @@ switch ($sort) {
     
     foreach ($pages[$pageNumber] as $id => $gegevens){
         $imgindex = rand(1,3);
-        echo "<a href='../product/index.php?product=$id&category=$categoryID' style='color: black; text-decoration: none;'>";
+        echo "<a href='../product/index.php?product=$id&category=$categoryID'>";
         echo '<div class="image-border">';
         echo "<img src='$productimg$imgindex.jpg' alt='Productimg'><p>";
         echo $gegevens["naam"];
