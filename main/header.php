@@ -8,7 +8,7 @@
   </a>  
 
   <?php 
-	if(isset($_SESSION['login']) == 'done') {
+	if(isset($_SESSION['login'])) {
 		?>
 			<a href="../registratie/login.php?func=logout" class="log-in">
 				<div class="fas fa-user cart">
