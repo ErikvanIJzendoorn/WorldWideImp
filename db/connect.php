@@ -9,7 +9,7 @@ function connect(){
 
 // Get a single product from the DB
 if(!function_exists("getProduct")){
-    function getProduct($productID, $categoryID) {
+    function getProduct($productID) {
             try{
                 $pdo = connect();
                 $stmt = $pdo->prepare("
@@ -25,20 +25,33 @@ if(!function_exists("getProduct")){
     }
 }
 
-function getCategory(){
-	try {
-		$pdo = connect();
-		$stmt = $pdo->prepare("
-			SELECT SG.StockGroupName naam, SG.StockGroupID id
-			FROM StockGroups SG
-			JOIN stockitemstockgroups USING(StockGroupID)
-			JOIN StockItems S USING(StockItemID)
-			GROUP BY SG.StockGroupID
-            ORDER BY SG.StockGroupName ASC");
+function getCategoryFromProduct($productID) {
+    try {
+            $pdo = connect();
+            $stmt = $pdo->prepare("
+                SELECT StockGroupID FROM StockGroups WHERE StockItemID = ?");
 
-			$stmt->execute();
-			return $stmt;
-	}catch (PDOException $e)
+            $stmt->execute(array($productID));
+            return $stmt;
+    }catch (PDOException $e) {
+        return $e;
+    }
+}
+
+function getCategory(){
+    try {
+            $pdo = connect();
+            $stmt = $pdo->prepare("
+                    SELECT SG.StockGroupName naam, SG.StockGroupID id
+                    FROM StockGroups SG
+                    JOIN stockitemstockgroups USING(StockGroupID)
+                    JOIN StockItems S USING(StockItemID)
+                    GROUP BY SG.StockGroupID
+        ORDER BY SG.StockGroupName ASC");
+
+                    $stmt->execute();
+                    return $stmt;
+    }catch (PDOException $e)
     {
         return $e;
     }
