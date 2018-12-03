@@ -181,5 +181,19 @@ function CreateList($item, $aantal, $category) {
     } catch (Exception $e) {
         return $e;
     }
+
+    function updateSupply($aantal, $id) {
+        try {                   
+            $pdo = connect();
+            $stmt = $pdo->prepare("UPDATE stockitemholdings SET QuantityOnHand = QuantityOnHand - :aantal WHERE StockItemID = :id");
+            $stmt->bindValue(':aantal', $aantal);
+            $stmt->bindValue(':id', $id);
+
+            $stmt->execute();
+            return $stmt;
+        } catch (Exception $e) {
+            return $e;
+        }
+    }
     
 }
