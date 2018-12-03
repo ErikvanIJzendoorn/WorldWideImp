@@ -23,7 +23,7 @@
     position: relative;
     flex: auto;
     max-width: 350px;
-    left: 25px;
+    text-align: center;
 }
 
 .top-div {
@@ -72,6 +72,8 @@
     right: 60px;
     top: 20px;
     outline: none; 
+    border: none;
+    border-bottom: 1px solid black;
 }
 
 #product-text {

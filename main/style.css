@@ -210,8 +210,9 @@ body {
 	LANDINGHEADER 
 \*----------------------------*/
 
-/*#banner-img {
-}*/
+#banner-img {
+max-width: -webkit-fill-available;
+}
 
 #logo-img-landing {
 	position: absolute;
