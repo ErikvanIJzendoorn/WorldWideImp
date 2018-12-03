@@ -35,7 +35,7 @@ body {
 #logo-img {
 	padding:17px;
 	position: absolute;
-	left: 36%;
+	left: 39%;
 }
 
 .log-in {
@@ -70,7 +70,7 @@ body {
   color: white;
   font-size: 1em;
   text-align: center;
-  padding: 15px;
+  padding: 15px 0;
   text-decoration: none;
   width: 10.7%;
 }
@@ -208,7 +208,8 @@ body {
 \*----------------------------*/
 
 #banner-img {
-max-width: -webkit-fill-available;
+max-width: 100%;
+min-width: 100%;
 }
 
 #logo-img-landing {
@@ -227,5 +228,5 @@ max-width: -webkit-fill-available;
 	font-size: 2em;
 	position: absolute;
   top: 400px;
-	left: 43%;
+	left: 29%;
 }

@@ -57,7 +57,7 @@
                         $i = 0;
                         if ($_SESSION['cart'] != null) {
                             foreach ($_SESSION['cart'] as $key => $value) {
-                                $stmt = getProduct($value['id'], $value['category']);
+                                $stmt = getProduct($value['id']);
                                 if ($row = $stmt->fetch()) {
                                     $id = $value['id'];
                                     $naam = $row['naam'];
