@@ -25,8 +25,6 @@ function AttemptLogin() {
             while($row = $stmt->fetch()) {
                 if(password_verify($pass, $row['CustomerPassword'])){
                     // als wachtwoord klopt
-
-                    $_SESSION['attempts'] = $attempts;
                     $_SESSION['id'] = $row['CustomerID'];
                     $_SESSION['email'] = $row['CustomerEmail'];
                     $_SESSION['login'] = 'done';
