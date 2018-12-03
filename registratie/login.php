@@ -24,7 +24,7 @@
                     }
                 </script>
             <?php
-        }
+        } 
     ?>
     
     <?php require "../main/header.php"; ?>
