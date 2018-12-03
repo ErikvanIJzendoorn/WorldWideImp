@@ -11,82 +11,75 @@ if($_GET['login'] == 'y'){
 } 
 
 function AttemptLogin() {
-    if(!isset($_SESSION['attempts'])) {
-        $attempts = 0;
-    } else {
-        $attempts = $_SESSION['attempts'];
-    }
-
-    if(!isset($login)) {
-        $login = TRUE;
-    }
-
-    if(!isset($allowed)) {
-        $allowed = date("H:i:s");
-    } else {
-        $allowed = $_SESSION['allowed'];
-    }
-    
-    $current = date("H:i:s");
-    
-    if (isset($_POST['user'])) {
+    //$_SESSION['attempts'] = 0;
+    if($_SESSION['attempts'] <= 5) {
+        // als je niet over het limiet heen bent
+        
         $user = $_POST['user'];
         $pass = $_POST['pass'];
-
         $stmt = Login($user);
+        if($row = $stmt->fetch()) {
+            // als username bestaat
+            
+            $stmt = Login($user);
+            while($row = $stmt->fetch()) {
+                if(password_verify($pass, $row['CustomerPassword'])){
+                    // als wachtwoord klopt
 
-        if($attempts < 5 || ($current >= $allowed)) {
-            if(($row = $stmt->fetch()) && $login) {
-                $stmt = Login($user);
-                echo "1.1";
-                while($row = $stmt->fetch()) {
-                    echo "1.2";
-                    if(password_verify($pass, $row['CustomerPassword'])) {
-                        $_SESSION['attempts'] = $attempts;
-                        $_SESSION['id'] = $row['CustomerID'];
-                        $_SESSION['email'] = $row['CustomerEmail'];
-                        $_SESSION['login'] = 'done';
-                        $_POST = null;
-                        header("Location: ../betalen/index.php");
-                    } else {
-                       if($attempts < 5) {
-                            $attempts++;
-                            $_SESSION['attempts'] = $attempts;
-                            echo "no";
-                            header("Location: login.php?try=fail&user=$user");
-                        } else if ($attempts > 5 && ($current > $allowed)) {
-                            $attempts = 0;
-                            $_SESSION['attempts'] = $attempts;
-                            $_SESSION['current'] = null;
-                            $_SESSION['allowed'] = null;
-                            $login = TRUE;
-                            echo "fail";
-                        } else if ($current < $allowed) {
-                            echo "1";
-                            header("Location: login.php?login=no");
-                        } else {
-                            $_SESSION['wait_time'] = $current - $allowed;
-                            $login = FALSE;
-                            $_SESSION['current'] = date("H:i:s");
-                            $_SESSION['allowed'] = date("H:i:s",strtotime(date("H:i:s")." +10 minutes"));
-                            echo "2";
-                            header("Location: login.php?login=no");
-                        }
-                    }
-                    echo "5";
+                    $_SESSION['attempts'] = $attempts;
+                    $_SESSION['id'] = $row['CustomerID'];
+                    $_SESSION['email'] = $row['CustomerEmail'];
+                    $_SESSION['login'] = 'done';
+                    $_POST = null;
+                    //header("Location: ../betalen/index.php");
+                } else {
+                    fail("wrong");
                 }
+            }
+        }else {
+            // als username niet bestaat
+            fail("wrong");
+        }
+    } else if($_SESSION['attempts'] == 20) {
+        fail("denied");
+    } else {
+        fail("no");
+    }
+}
+
+function fail($type)
+{
+    if($type == "wrong") {
+        $_SESSION['attempts'] = $_SESSION['attempts'] + 1;
+        
+        if($_SESSION['attempts'] <= 5) {
+            header("Location: login.php?try=fail");
+        } else {
+            $_SESSION['attemtps'] = 20;
+            fail("denied");
+        }
+    } else if($type == "denied") {
+        $_SESSION['current'] = date("H:i:s");
+        $_SESSION['allowed'] = date("H:i:s", strtotime(date("H:i:s")." +10 seconds"));
+        $_SESSION['attempts'] = 19;
+        header("Location: login.php?login=no");
+        echo "no 1 " . $_SESSION['attempts'];
+    } else {
+        
+        if($_SESSION['attempts'] == 19) {
+            $_SESSION['current'] = date("H:i:s");
+            
+            if($_SESSION['current'] > $_SESSION['allowed']) {
+                $_SESSION['attempts'] = 0;
+                AttemptLogin();
             } else {
-                $attempts++;
-                $_SESSION['attempts'] = $attempts;
-                echo "fail 2";
-                header("Location: login.php?try=fail&user=$user");
+                header("Location: login.php?login=no");
+                echo "no 2 " . $_SESSION['attempts'];
+                echo "<br> " . $_SESSION['current'] . " " . $_SESSION['allowed'];
             }
         } else {
-            echo "3" . "<br>";
-            echo $current . "<br>";
-            echo $allowed . "<br>";
-            echo $attempts . "<br>";
-            header("Location: login.php?login=no");
+            //header("Location: login.php?login=no");
+            echo "no 3 " . $_SESSION['attempts'];
         }
     }
 }
