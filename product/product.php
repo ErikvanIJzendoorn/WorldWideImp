@@ -1,13 +1,13 @@
 <?php
 
 $productID = filter_input(INPUT_GET, 'product', FILTER_SANITIZE_NUMBER_INT);
-$categoryID = filter_input(INPUT_GET, 'category', FILTER_SANITIZE_NUMBER_INT);
 
-$stmt = getProduct($productID, $categoryID);
+$stmt = getProduct($productID);
 
 while($row = $stmt->fetch()) {
 	$naam = $row['naam'];
 	$categorie = $row['categorie'];
+        $categoryID = $row['categoryID'];
 	$herkomst = $row['herkomst'];
 	$verpakking = $row['verpakking'];
 	$kleur = $row['kleur'];

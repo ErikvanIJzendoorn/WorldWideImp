@@ -197,7 +197,7 @@ switch ($sort) {
     
     foreach ($pages[$pageNumber] as $id => $gegevens){
         $imgindex = rand(1,3);
-        echo "<a href='../product/index.php?product=$id&category=$categoryID'>";
+        echo "<a href='../product/index.php?product=$id'>";
         echo '<div class="image-border">';
         echo "<img src='$productimg$imgindex.jpg' alt='Productimg'><p>";
         echo $gegevens["naam"];
