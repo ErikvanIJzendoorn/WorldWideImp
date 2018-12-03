@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Productoverzicht</title>
+    <title>Products</title>
     <?php require '../main/meta.php'; ?>
     <link rel="stylesheet" href="productpage.css">
     <link rel="shortcut icon" type="image/png" href="../img/favicon.ico"/>
