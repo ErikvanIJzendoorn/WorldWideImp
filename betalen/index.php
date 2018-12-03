@@ -28,27 +28,3 @@
 </body>
 <?php require '../main/footer.php'; ?>
 </html>
-
-<!-- 
-
-
-Box
-IDEAL
-
-dropdown
-- Rabonbank
-- ING
-- etc...
-
-Bankrekeningnummer
-Pasnummer
-
-
-
-Kortingscode???
-
-
-
-
-
- -->
