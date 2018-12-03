@@ -198,7 +198,7 @@ function CreateList($item, $aantal) {
 }
 
 function updateSupply($aantal, $id) {
-    try { x                  
+    try {                  
         $pdo = connect();
         $stmt = $pdo->prepare("UPDATE stockitemholdings SET QuantityOnHand = QuantityOnHand - :aantal WHERE StockItemID = :id");
         $stmt->bindValue(':aantal', $aantal);
