@@ -209,6 +209,7 @@ body {
 
 #banner-img {
 max-width: -webkit-fill-available;
+min-width: 100%;
 }
 
 #logo-img-landing {
