@@ -123,7 +123,7 @@
               </div>
               <div class="col-md-3 mb-3">
                 <label for="cc-expiration">Card Number</label>
-                <input type="text" autocomplete="off" name="cc-number" placeholder="" required>
+                <input type="number" autocomplete="off" name="cc-number" placeholder="" required>
                 <div class="invalid-feedback">
                   Expiration date required
                 </div>

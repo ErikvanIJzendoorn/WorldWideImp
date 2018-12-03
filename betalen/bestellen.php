@@ -8,7 +8,7 @@ function order(){
 	var_dump($_SESSION);
 	CreateOrder();
 	foreach ($items as $key => $value) {
-		CreateList($value['id'], $value['aantal'], $value['category']);
+		CreateList($value['id'], $value['aantal']);
 		updateSupply($value['aantal'], $value['id']);
 	}
 }
