@@ -149,14 +149,14 @@
             <?php echo '<input type="hidden" name="page" value="' . $ItemID . '">'; ?>
             <?php echo '<input type="hidden" name="cat" value="' . $categoryID . '">'; ?>
             <button style="margin-top: 50px;" id="bestelbtn" type="submit">
-            Bestel
+            Add to cart
             </button>
         </form>
     </div>
     </div>
 
-    <div class="row">
-        <div class="recommended col-md-12" style="margin-top: -250px; margin-left: 100px;">
+    <div>
+        <div class="recommended col-md-11" style="margin-top: -200px; margin-left: 100px; margin-bottom: 50px;">
         <h1>Maybe you want this instead?</h1>
             <?php 
             $i=0;
