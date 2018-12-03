@@ -13,12 +13,18 @@ while($row = $stmt->fetch()) {
 	$kleur = $row['kleur'];
 	$prijs = $row['prijs'];
 	$btw = $row['btw'];
+	$comments = $row['comments'];
+	$weight = $row['weight'];
+	$tags = $row['tags'];
 	$voorraad = $row['voorraad'];
 	$ItemID = $row['itemID'];
 	$categorieID = $row['categorieID'];
 	$kleurID = $row['kleurID'];
 	$verpakkingID = $row['verpakkingID'];
 }
+
+$tags = str_replace(array('"', "{", "}", "[", "]", "-", ":"), "", $tags);
+$tags = explode(",", $tags);
 
 $herkomst = str_replace(array('"', "{", "}", "[", "]", "-", ":", ","), "", $herkomst);
 $herkomst = explode(" ", $herkomst);
