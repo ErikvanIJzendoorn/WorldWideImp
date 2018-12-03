@@ -25,3 +25,7 @@
   top: 150px !important;
   left: 30% !important;	
 }
+
+.row {
+	margin-top: -10%;
+}
