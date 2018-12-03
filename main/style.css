@@ -117,7 +117,6 @@ body {
 \*-----------------*/
 #available {
   position: relative;
-  top: 115px;
   width: 50%;
   text-align: center;
   float: right;
@@ -133,7 +132,6 @@ body {
 	height: 45px;
 	width: 90%;
 	position: absolute;
-	top: 325px;
 	outline: none;
 	
 }

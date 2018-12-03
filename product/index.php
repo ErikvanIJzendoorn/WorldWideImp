@@ -15,14 +15,6 @@
 
 <?php require "product.php"; ?>
 <div class="content">
-    <div class="product-name">
-        <p>
-        <!-- Productnaam -->
-        <?=$naam; ?>
-        </p>
-
-</div>
-    
 <div class="outer-slide-container">
   <div id="myCarousel" class="carousel slide slider-container" data-ride="carousel">
     <!-- Indicators -->
@@ -97,59 +89,81 @@
     </a>
   </div>
 </div>
-    </div>
+
     <div class="product-description">
         <form action="../winkelwagen/cart.php?func=add" method="get">
-            <p>
-            <!-- Productnaam -->
-            <?=$naam; ?>
-            </p>
-            <br>
-            <p class="product-price" name="prijs">
-            <!-- Productprijs -->
-            <?="€" . $prijs; ?>
-            </p>
-            <div id="bestelamnt">
-                <input type="number" name="aantal" value="1" min="1" max="<?=$voorraad;?>">
-            </div> 
-            <?php if($voorraad >= 100) {
-                ?>
-                    <p id="available" style="background-color: green; color: white;">
-                    <?="There is enough supply availlable"?>
+            
+            <div class="info row">
+                <p><h3><?=$naam?></h3></p>
+                <p><a href="../overzicht/productpage.php?category=<?=$categoryID?>&pageNumber=0&sort=0&productAmount=30&filter=0&filterValue=0"><?="Category: " . $categorie?></a>
+                    <?php 
+                    if($tags[0] != "") {
+                        echo "Tags: ";
+                        foreach ($tags as $key) {
+                            echo "<span> $key </span>";
+                        }
+                    }
+                    ?>
+                </p>
+                <?php if (isset($comments)) {
+                    ?>
+                        <p><?="Comments: " . $comments?></p>
+                    <?php
+                } ?>
+                <p><?="Made in: " . $herkomst[2]?></p>
+                <p><?="Weight: " . $weight . " kg"?></p>
+                <?php if (isset($color)) {
+                    ?>
+                        <p><?="Color: " . $kleur?></p>
+                    <?php
+                } ?>
+                <p><?="Packaged: " . $verpakking?></p>
+                <p><?="Price: $ " . $prijs?></p>
+            </div>
+            <div id="bestelamnt row">
+                <div>
+                    <input type="number" style="margin-left: -15px;" name="aantal" value="1" min="1" max="<?=$voorraad;?>">
+                    <?php if($voorraad >= 100) {
+                        ?>
+                            <p id="available" style="background-color: green; color: white;">
+                            <?="There is enough supply availlable"?>
 
-                <?php
-            } else if ($voorraad < 100 && $voorraad > 10) {
-                ?>
-                   <p id="available" style="background-color: orange; color: white;">
-                   <?="There is enough supply availlable"?>
-                <?php
-            } else {
-                ?>
-                   <p id="available" style="background-color: red; color: white;">
-                   <?="There are currently $voorraad items availlable"?>
-                <?php 
-            } ?> 
-            <!-- Product voorraad -->
-            </p>
+                        <?php
+                    } else if ($voorraad < 100 && $voorraad > 10) {
+                        ?>
+                           <p id="available" style="background-color: orange; color: white;">
+                           <?="There is enough supply availlable"?>
+                        <?php
+                    } else {
+                        ?>
+                           <p id="available" style="background-color: red; color: white;">
+                           <?="There are currently $voorraad items availlable"?>
+                        <?php 
+                    } ?> 
+                    <!-- Product voorraad -->
+                    </p>
+                </div>
+            </div> 
 
             <input type="hidden" name="func" value="add">
             <?php echo '<input type="hidden" name="id" value="' . $ItemID . '">'; ?>
             <?php echo '<input type="hidden" name="page" value="' . $ItemID . '">'; ?>
-            <?php echo '<input type="hidden" name="cat" value="' . $categorieID . '">'; ?>
-            <button id="bestelbtn" type="submit">
+            <?php echo '<input type="hidden" name="cat" value="' . $categoryID . '">'; ?>
+            <button style="margin-top: 50px;" id="bestelbtn" type="submit">
             Bestel
             </button>
         </form>
     </div>
+    </div>
 
     <div class="row">
-        <div class="recommended col-md-12" style="margin-top: -150px; margin-left: 100px;">
+        <div class="recommended col-md-12" style="margin-top: -250px; margin-left: 100px;">
         <h1>Maybe you want this instead?</h1>
-                <?php 
+            <?php 
             $i=0;
             $recommended = [];
             $imgindex = 1;
-            $stmt = getProductsByCategory($categorieID);
+            $stmt = getProductsByCategory($categoryID);
             while($row = $stmt->fetch()) {
                 $recommend = array('id' => $row['id'], 'naam' => $row['naam'], 'prijs' => $row['prijs']);
                 array_push($recommended, $recommend);
@@ -161,7 +175,7 @@
                 $imgindex = rand(1,3);
                 ?>
                 <div class="col-md-4">
-                    <a href="../product/index.php?product=<?=$recommended[$i]['id'];?>&category=<?=$categorieID;?>">
+                    <a href="../product/index.php?product=<?=$recommended[$i]['id'];?>&category=<?=$categoryID;?>">
                         <img src='<?php echo $productimg . $imgindex;?>.jpg' alt='Productimg' heigt='200px' width='200px'>
                         <p><?=$recommended[$i]['naam'];?></p>
                         <p><?=$recommended[$i]['prijs'];?></p>
