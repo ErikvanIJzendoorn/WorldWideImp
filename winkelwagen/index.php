@@ -97,7 +97,7 @@
                                                         $productimg = "../img/products/T-shirt";
                                                         break;
                                                     case 6:
-                                                        $productimg = "../img/products/Mug";
+                                                        $productimg = "../img/products/Novelty";
                                                         break;
                                                     case 7:
                                                         $productimg = "../img/products/Usb";

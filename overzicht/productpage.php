@@ -140,7 +140,7 @@ switch ($sort) {
             <h4>Filters</h4><br>
             <p>Max/min costs</p>
             <div class="slidecontainer">
-                <input type="range" class="slider" min="<?=$minPrice;?>" max="1000" value="<?=$filterValue;?>" onchange="priceSlider(<?=$categoryID;?>, <?=$pageNumber;?>, <?=$sort;?>, <?=$numberOfProducts;?>, 1, this.value);">
+                <input type="range" class="slider" min="<?=floor($minPrice);?>" max="<?=floor($maxPrice);?>" value="<?=$filterValue;?>" onchange="priceSlider(<?=$categoryID;?>, <?=$pageNumber;?>, <?=$sort;?>, <?=$numberOfProducts;?>, 1, this.value);">
             </div>
             <input type="text" class="sliderValue" value="<?=$filterValue;?>">
         </div>
