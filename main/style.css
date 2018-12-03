@@ -208,14 +208,15 @@ body {
 \*----------------------------*/
 
 #banner-img {
-max-width: 100%;
-min-width: 100%;
+	max-width: 100%;
+	min-width: 100%;
+	position: absolute;
+	clip: rect(0 2000px 600px 0);
 }
 
 #logo-img-landing {
-	position: absolute;
+	position: relative;
 	top: 200%;
-  right: 40%;
 }
 
 .image-header {
@@ -226,7 +227,7 @@ min-width: 100%;
 
 #slogan {
 	font-size: 2em;
-	position: absolute;
-  top: 400px;
-	left: 29%;
+	position: relative;
+  top: 375px;
+  text-align: center;
 }
