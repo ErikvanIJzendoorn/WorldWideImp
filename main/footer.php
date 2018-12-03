@@ -11,7 +11,8 @@
 	<div class="main-footer">
 		<div id="aboutus">
 			<h4>About us</h4>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas, ducimus repellendus ex reprehenderit animi placeat amet. Tempore quibusdam maxime, esse mollitia non ipsa sunt labore nisi optio animi omnis facere!</p>
+			<p>We are WWI. We are proud of our products and believe in the quality of it. In every house our products will feel like home. Despite our size, customers see us as small-scale and
+concerned. Personal customer contact is our top priority. "</p>
                 <h4>Follow us on</h4>
                 <ul class="social-icons">
                     <li><a href="https://nl-nl.facebook.com/login/" target="_blank" class="social-icon"> <i class="fa fa-facebook"></i></a></li>
