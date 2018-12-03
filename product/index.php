@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Productpagina</title>
+<title>Productpage</title>
 <link rel="shortcut icon" type="image/png" href="../img/favicon.ico"/>
 <!--header&navbar-->
     <?php require "../main/meta.php"; ?>

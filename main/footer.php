@@ -24,12 +24,12 @@ concerned. Personal customer contact is our top priority.</p>
             </div>
 		<div id="contact-info">
 			<h4>Contact Info</h4>
-		 <p> World Wide Importers</p>
+		 <p> Wide World Importers</p>
 		 <p> Campus 2-6</p>
 		 <p> 8017 CA</p>
 		 <p> Zwolle</p>
 		 <br>
-		 <p>Telefoon: 038-123456</p>
+		 <p>Phone: 038-123456</p>
 		 <p>Email: info@wwi.com</p>
 		</div>
 		<div id="map"></div>
@@ -53,7 +53,7 @@ var map = L.mapbox.map('map', 'mapbox.streets')
         ]
     },
     properties: {
-        title: 'WorldWideImporters',
+        title: 'WideWorldImporters',
         description: 'Temporary adress',
         // one can customize markers by adding simplestyle properties
         // https://www.mapbox.com/guides/an-open-platform/#simplestyle
