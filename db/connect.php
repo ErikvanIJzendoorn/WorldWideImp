@@ -33,7 +33,8 @@ function getCategory(){
 			FROM StockGroups SG
 			JOIN stockitemstockgroups USING(StockGroupID)
 			JOIN StockItems S USING(StockItemID)
-			GROUP BY SG.StockGroupID");
+			GROUP BY SG.StockGroupID
+            ORDER BY SG.StockGroupName ASC");
 
 			$stmt->execute();
 			return $stmt;
