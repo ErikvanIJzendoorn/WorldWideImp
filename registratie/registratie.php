@@ -128,7 +128,7 @@
               </div>
               <div class="col-md-3 mb-3">
                 <label for="cc-expiration">Card Number</label>
-                <input type="text" class="form-control" name="cc-number" placeholder="" required>
+                <input type="number" class="form-control" name="cc-number" placeholder="" required>
                 <div class="invalid-feedback">
                   Expiration date required
                 </div>

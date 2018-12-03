@@ -149,7 +149,7 @@
             <?php echo '<input type="hidden" name="page" value="' . $ItemID . '">'; ?>
             <?php echo '<input type="hidden" name="cat" value="' . $categoryID . '">'; ?>
             <button style="margin-top: 50px;" id="bestelbtn" type="submit">
-            Bestel
+            Add to cart
             </button>
         </form>
     </div>
