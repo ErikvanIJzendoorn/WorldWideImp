@@ -178,7 +178,7 @@ function CreateList($item, $aantal) {
 
     $stmt = getProduct($item);
     if ($row = $stmt->fetch()) { 
-        $prijs = $row['prijs']
+        $prijs = $row['prijs'];
     }
     try {                   
             $pdo = connect();
@@ -198,7 +198,7 @@ function CreateList($item, $aantal) {
 }
 
 function updateSupply($aantal, $id) {
-    try {                   
+    try { x                  
         $pdo = connect();
         $stmt = $pdo->prepare("UPDATE stockitemholdings SET QuantityOnHand = QuantityOnHand - :aantal WHERE StockItemID = :id");
         $stmt->bindValue(':aantal', $aantal);
