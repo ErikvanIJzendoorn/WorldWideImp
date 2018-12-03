@@ -5,7 +5,6 @@ session_start();
 
 function order(){
 	$items = $_SESSION['cart'];
-	var_dump($_SESSION);
 	CreateOrder();
 	foreach ($items as $key => $value) {
 		CreateList($value['id'], $value['aantal'], $value['category']);

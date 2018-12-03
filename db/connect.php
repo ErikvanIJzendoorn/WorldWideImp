@@ -178,7 +178,7 @@ function CreateList($item, $aantal, $category) {
 
     $stmt = getProduct($item, $category);
     if ($row = $stmt->fetch()) { 
-        $prijs = $row['prijs'];
+        $prijs = $row['prijs']
     }
     try {                   
             $pdo = connect();
@@ -194,20 +194,19 @@ function CreateList($item, $aantal, $category) {
         
     } catch (Exception $e) {
         return $e;
-    }
+    }    
+}
 
-    function updateSupply($aantal, $id) {
-        try {                   
-            $pdo = connect();
-            $stmt = $pdo->prepare("UPDATE stockitemholdings SET QuantityOnHand = QuantityOnHand - :aantal WHERE StockItemID = :id");
-            $stmt->bindValue(':aantal', $aantal);
-            $stmt->bindValue(':id', $id);
+function updateSupply($aantal, $id) {
+    try {                   
+        $pdo = connect();
+        $stmt = $pdo->prepare("UPDATE stockitemholdings SET QuantityOnHand = QuantityOnHand - :aantal WHERE StockItemID = :id");
+        $stmt->bindValue(':aantal', $aantal);
+        $stmt->bindValue(':id', $id);
 
-            $stmt->execute();
-            return $stmt;
-        } catch (Exception $e) {
-            return $e;
-        }
+        $stmt->execute();
+        return $stmt;
+    } catch (Exception $e) {
+        return $e;
     }
-    
 }
