@@ -61,7 +61,6 @@ function fail($type)
         $_SESSION['allowed'] = date("H:i:s", strtotime(date("H:i:s")." +10 seconds"));
         $_SESSION['attempts'] = 19;
         header("Location: login.php?login=no");
-        echo "no 1 " . $_SESSION['attempts'];
     } else {
         
         if($_SESSION['attempts'] == 19) {
@@ -72,12 +71,9 @@ function fail($type)
                 AttemptLogin();
             } else {
                 header("Location: login.php?login=no");
-                echo "no 2 " . $_SESSION['attempts'];
-                echo "<br> " . $_SESSION['current'] . " " . $_SESSION['allowed'];
             }
         } else {
-            //header("Location: login.php?login=no");
-            echo "no 3 " . $_SESSION['attempts'];
+            header("Location: login.php?login=no");
         }
     }
 }
