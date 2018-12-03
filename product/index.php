@@ -95,7 +95,7 @@
             
             <div class="info row">
                 <p><h3><?=$naam?></h3></p>
-                <p><a href="../overzicht/productpage.php?category=<?=$categorieID?>&pageNumber=0&sort=0&productAmount=30&filter=0&filterValue=0"><?="Category: " . $categorie?></a>
+                <p><a href="../overzicht/productpage.php?category=<?=$categoryID?>&pageNumber=0&sort=0&productAmount=30&filter=0&filterValue=0"><?="Category: " . $categorie?></a>
                     <?php 
                     if($tags[0] != "") {
                         echo "Tags: ";
@@ -148,7 +148,7 @@
             <input type="hidden" name="func" value="add">
             <?php echo '<input type="hidden" name="id" value="' . $ItemID . '">'; ?>
             <?php echo '<input type="hidden" name="page" value="' . $ItemID . '">'; ?>
-            <?php echo '<input type="hidden" name="cat" value="' . $categorieID . '">'; ?>
+            <?php echo '<input type="hidden" name="cat" value="' . $categoryID . '">'; ?>
             <button style="margin-top: 50px;" id="bestelbtn" type="submit">
             Bestel
             </button>
@@ -163,7 +163,7 @@
             $i=0;
             $recommended = [];
             $imgindex = 1;
-            $stmt = getProductsByCategory($categorieID);
+            $stmt = getProductsByCategory($categoryID);
             while($row = $stmt->fetch()) {
                 $recommend = array('id' => $row['id'], 'naam' => $row['naam'], 'prijs' => $row['prijs']);
                 array_push($recommended, $recommend);
@@ -175,7 +175,7 @@
                 $imgindex = rand(1,3);
                 ?>
                 <div class="col-md-4">
-                    <a href="../product/index.php?product=<?=$recommended[$i]['id'];?>&category=<?=$categorieID;?>">
+                    <a href="../product/index.php?product=<?=$recommended[$i]['id'];?>&category=<?=$categoryID;?>">
                         <img src='<?php echo $productimg . $imgindex;?>.jpg' alt='Productimg' heigt='200px' width='200px'>
                         <p><?=$recommended[$i]['naam'];?></p>
                         <p><?=$recommended[$i]['prijs'];?></p>
