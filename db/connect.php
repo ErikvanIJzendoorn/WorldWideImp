@@ -33,7 +33,8 @@ function getCategory(){
 			FROM StockGroups SG
 			JOIN stockitemstockgroups USING(StockGroupID)
 			JOIN StockItems S USING(StockItemID)
-			GROUP BY SG.StockGroupID");
+			GROUP BY SG.StockGroupID
+            ORDER BY SG.StockGroupName ASC");
 
 			$stmt->execute();
 			return $stmt;
@@ -180,6 +181,20 @@ function CreateList($item, $aantal, $category) {
         
     } catch (Exception $e) {
         return $e;
+    }
+
+    function updateSupply($aantal, $id) {
+        try {                   
+            $pdo = connect();
+            $stmt = $pdo->prepare("UPDATE stockitemholdings SET QuantityOnHand = QuantityOnHand - :aantal WHERE StockItemID = :id");
+            $stmt->bindValue(':aantal', $aantal);
+            $stmt->bindValue(':id', $id);
+
+            $stmt->execute();
+            return $stmt;
+        } catch (Exception $e) {
+            return $e;
+        }
     }
     
 }

@@ -9,6 +9,7 @@ function order(){
 	CreateOrder();
 	foreach ($items as $key => $value) {
 		CreateList($value['id'], $value['aantal'], $value['category']);
+		updateSupply($value['aantal'], $value['id']);
 	}
 }
 

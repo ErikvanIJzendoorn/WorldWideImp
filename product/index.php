@@ -161,7 +161,7 @@
                 $imgindex = rand(1,3);
                 ?>
                 <div class="col-md-4">
-                    <a href="../product/index.php?product=<?=$ItemID;?>&category=<?=$categorieID;?>">
+                    <a href="../product/index.php?product=<?=$recommended[$i]['id'];?>&category=<?=$categorieID;?>">
                         <img src='<?php echo $productimg . $imgindex;?>.jpg' alt='Productimg' heigt='200px' width='200px'>
                         <p><?=$recommended[$i]['naam'];?></p>
                         <p><?=$recommended[$i]['prijs'];?></p>
