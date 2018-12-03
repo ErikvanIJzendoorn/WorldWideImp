@@ -168,7 +168,7 @@ function GetOrderID(){
     }
 }
 
-function CreateList($item, $aantal, $category) {
+function CreateList($item, $aantal) {
     $stmt = GetOrderID();
     if($row = $stmt->fetch()) {
         $order = $row['id'];
@@ -176,7 +176,7 @@ function CreateList($item, $aantal, $category) {
         // geef error
     }
 
-    $stmt = getProduct($item, $category);
+    $stmt = getProduct($item);
     if ($row = $stmt->fetch()) { 
         $prijs = $row['prijs'];
     }
