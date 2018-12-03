@@ -91,8 +91,6 @@
 </div>
 
     <div class="product-description">
-        <form action="../winkelwagen/cart.php?func=add" method="get">
-            
             <div class="info row">
                 <p><h3><?=$naam?></h3></p>
                 <p><a href="../overzicht/productpage.php?category=<?=$categoryID?>&pageNumber=0&sort=0&productAmount=30&filter=0&filterValue=0"><?="Category: " . $categorie?></a>
@@ -120,6 +118,7 @@
                 <p><?="Packaged: " . $verpakking?></p>
                 <p><?="Price: $ " . $prijs?></p>
             </div>
+            <form action="../winkelwagen/cart.php?func=add" method="get">
             <div id="bestelamnt row">
                 <div>
                     <input type="number" style="margin-left: -15px;" name="aantal" value="1" min="1" max="<?=$voorraad;?>">
@@ -156,8 +155,8 @@
     </div>
     </div>
 
-    <div class="row">
-        <div class="recommended col-md-12" style="margin-top: -250px; margin-left: 100px;">
+    <div>
+        <div class="recommended col-md-11" style="margin-top: -200px; margin-left: 100px; margin-bottom: 50px;">
         <h1>Maybe you want this instead?</h1>
             <?php 
             $i=0;
