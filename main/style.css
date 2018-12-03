@@ -208,7 +208,7 @@ body {
 \*----------------------------*/
 
 #banner-img {
-max-width: -webkit-fill-available;
+max-width: 100%;
 min-width: 100%;
 }
 
@@ -228,5 +228,5 @@ min-width: 100%;
 	font-size: 2em;
 	position: absolute;
   top: 400px;
-	left: 43%;
+	left: 29%;
 }
