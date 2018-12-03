@@ -29,7 +29,7 @@ function AttemptLogin() {
                     $_SESSION['email'] = $row['CustomerEmail'];
                     $_SESSION['login'] = 'done';
                     $_POST = null;
-                    //header("Location: ../betalen/index.php");
+                    header("Location: ../betalen/index.php");
                 } else {
                     fail("wrong");
                 }
