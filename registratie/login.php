@@ -15,7 +15,7 @@
             $_SESSION['attempts'] = null;
             $_SESSION['email'] = null;
         } else if (isset($_SESSION['login']) == 'done') {
-            header("Location: ../betalen/index.php");
+            header("Location: ../betalen/overzicht.php");
         } else if (isset($_GET['login']) == 'no'){
             ?>
                 <script type="text/javascript">

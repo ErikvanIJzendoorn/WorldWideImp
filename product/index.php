@@ -125,18 +125,18 @@
                     <?php if($voorraad >= 100) {
                         ?>
                             <p id="available" style="background-color: green; color: white;">
-                            <?="There is enough supply availlable"?>
+                            <?="There is enough supply available"?>
 
                         <?php
                     } else if ($voorraad < 100 && $voorraad > 10) {
                         ?>
                            <p id="available" style="background-color: orange; color: white;">
-                           <?="There is enough supply availlable"?>
+                           <?="There is limited supply available"?>
                         <?php
                     } else {
                         ?>
                            <p id="available" style="background-color: red; color: white;">
-                           <?="There are currently $voorraad items availlable"?>
+                           <?="There are currently $voorraad items available"?>
                         <?php 
                     } ?> 
                     <!-- Product voorraad -->

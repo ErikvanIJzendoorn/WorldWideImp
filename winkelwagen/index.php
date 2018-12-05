@@ -181,10 +181,26 @@
                 <?php
                     } ?>
                 <tr>
-                    <td><a href="cart.php?func=empty" class="btn btn-warning">Empty</a></td>
+                    <?php if($_SESSION['cart'] != null) {
+                        ?>
+                            <td><a href="cart.php?func=empty" class="btn btn-warning">Empty</a></td>
+                        <?php
+                    } else {
+                        ?>
+                            <td></td>
+                        <?php
+                    } ?>
                     <td></td>
                     <td></td>
-                    <td><a class="btn btn-info" href="../registratie/login.php">Payment</a></td>
+                    <?php if($_SESSION['cart'] != null) {
+                        ?>
+                            <td><a class="btn btn-info" href="../registratie/login.php">Payment</a></td>
+                        <?php
+                    } else {
+                        ?>
+                            <td></td>
+                        <?php
+                    } ?>
                     <td><a class="btn btn-success" href="../landing/index.php">Continue shopping</a></td>
                     <td></td>
                 </tr>
