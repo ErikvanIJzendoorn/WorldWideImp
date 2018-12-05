@@ -103,7 +103,7 @@
                     }
                     ?>
                 </p>
-                <?php if (isset($comments)) {
+                <?php if($comments != "") {
                     ?>
                         <p><?="Comments: " . $comments?></p>
                     <?php
