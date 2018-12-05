@@ -2,13 +2,15 @@
 require '../main/meta.php';
 
 if(!isset($_GET['func'])){
-
 	} else {
 		if($_GET['func'] == 'add') {
 			checkIfExists();
 		} else if ($_GET['func'] == 'del') {
 			delete();
-		} else if ($_GET['func'] == 'empty') {
+		} else if ($_GET['func'] == 'empty' && $_GET['order'] == 'y') {
+			leeg();
+			header("Location: ../landing/index.php");
+		} else if ($_GET['func'] == 'empty' && $_GET['order'] != 'y') {
 			leeg();
 		}
 	}

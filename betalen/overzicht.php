@@ -76,7 +76,7 @@
                             <th>
                                 City:
                             </th>
-                            <td><?$city?></td>
+                            <td><?=$city?></td>
                         </tr>
                     </table>
                     <?php 

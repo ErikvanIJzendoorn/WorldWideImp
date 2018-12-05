@@ -39,7 +39,7 @@ function order(){
 			?>
 				<script type="text/javascript">
 					window.onload = function() {
-					    swal("Succesfully sent in the order").then((value) => window.location.replace("../winkelwagen/cart.php?func=empty"));
+					    swal("Succesfully sent in the order").then((value) => window.location.replace("../winkelwagen/cart.php?func=empty&order=y"));
 					}
 				</script>
 			<?php
