@@ -210,3 +210,16 @@ function updateSupply($aantal, $id) {
         return $e;
     }
 }
+
+function getCustomer() {
+    try {                  
+        $pdo = connect();
+        $stmt = $pdo->prepare("SELECT CustomerName naam, Email email, DeliveryAddressLine1 adres, DeliveryPostalCode zip, City, city FROM customers WHERE Email = :email");
+        $stmt->bindValue(':email', $_SESSION['email']);
+
+        $stmt->execute();
+        return $stmt;
+    } catch (Exception $e) {
+        return $e;
+    }
+}

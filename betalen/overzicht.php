@@ -38,12 +38,21 @@
                             <th>Personal Information</th>
                         </tr>
                     </thead>
-                    <?php var_dump($_SESSION); ?>
+                    <?php 
+                        $stmt = getCustomer();
+                        while ($row = $stmt->fetch()) {
+                            $naam = $row['naam'];
+                            $email = $row['email'];
+                            $adres = $row['adres'];
+                            $zip = $row['zip'];
+                            $city = $row['city'];
+                        }
+                    ?>
                         <tr>
                             <th>
                                 Name:
                             </th>
-                            <td>Erik van IJzendoorn</td>
+                            <td><?=$naam?></td>
                         </tr>
                         <tr>
                             <th>
@@ -55,19 +64,19 @@
                             <th>
                                 Adress:
                             </th>
-                            <td>Nijenheim 6317</td>
+                            <td><?=$adres?></td>
                         </tr>
                         <tr>
                             <th>
                                 Zipcode:
                             </th>
-                            <td>3704BL</td>
+                            <td><?=$zip?></td>
                         </tr>
                         <tr>
                             <th>
                                 City:
                             </th>
-                            <td>Zeist</td>
+                            <td><?$city?></td>
                         </tr>
                     </table>
                     <table class="table">
