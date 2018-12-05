@@ -48,7 +48,7 @@
 							  text: "Your payment was received",
 							  icon: "success",
 							  button: true,
-							}).then((value) => window.location.replace("bestellen.php?paid=y"));
+							}).then((value) => window.location.replace("order.php?paid=y"));
 					      break;
 					 
 					    default:

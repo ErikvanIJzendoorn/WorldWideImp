@@ -69,7 +69,7 @@
                 ?>
                     <script type="text/javascript">
                         window.onload = function() {
-                            swal("Login Failed", "The combination wasn't found!  <?=$_SESSION['attempts'];?>", "error");
+                            swal("Login Failed", "The combination wasn't found! You have  <?php $i = 5; echo $i - $_SESSION['attempts'];?> attempts left!", "error");
                         }
                     </script>
                 <?php

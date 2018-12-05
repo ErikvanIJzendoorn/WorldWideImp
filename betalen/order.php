@@ -22,13 +22,23 @@ function order(){
 	<!--header&navbar-->
 	<?php require "../main/header.php"; ?>
 </head>
-<body>
-    <div class="container">
-    	<div class="col-md-6 offset-md-4">
-    		<p class="col-md-9">Welcome to IDEAL, WE ARE LEGIT :)</p>
-    		<a class="btn btn-primary col-md-3 offset-md-1" href="betalen.php?paid=y">Pay</a>
-    	</div>
-    </div>
-</body>
+
+
+<?php 
+
+	if(isset($_GET['paid'])) {
+		if($_GET['paid'] == 'y') {
+			order();
+			?>
+				<script type="text/javascript">
+					window.onload = function() {
+					    swal("Succesfully sent in the order").then((value) => window.location.replace("../winkelwagen/cart.php?func=empty&order=y"));
+					}
+				</script>
+			<?php
+		}
+	}
+?>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 </html> 

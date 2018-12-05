@@ -83,7 +83,6 @@ if(!isset($_GET['func'])){
 	function leeg() {
 		$_SESSION['cart'] = null;
 		$_SESSION['id'] = null;
-		$_SESSION['email'] = null;
 		$_SESSION['gast'] = null;
 		var_dump($_SESSION);
 		echo "empty";

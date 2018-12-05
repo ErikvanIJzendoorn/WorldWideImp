@@ -143,7 +143,6 @@ function Login($user){
 }
 
 function CreateOrder(){
-    var_dump($_SESSION['id']);
     $datum = date("Y/m/d");
     try {
             $pdo = connect();
@@ -211,11 +210,11 @@ function updateSupply($aantal, $id) {
     }
 }
 
-function getCustomer() {
+function getCustomer($email) {
     try {                  
         $pdo = connect();
         $stmt = $pdo->prepare("SELECT CustomerName naam, Email email, DeliveryAddressLine1 adres, DeliveryPostalCode zip, City, city FROM customers WHERE Email = :email");
-        $stmt->bindValue(':email', $_SESSION['email']);
+        $stmt->bindValue(':email', $email);
 
         $stmt->execute();
         return $stmt;

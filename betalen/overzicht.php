@@ -39,14 +39,14 @@
                         </tr>
                     </thead>
                     <?php 
-                        $stmt = getCustomer();
+                        $stmt = getCustomer($_SESSION['email']);
                         while ($row = $stmt->fetch()) {
                             $naam = $row['naam'];
                             $email = $row['email'];
                             $adres = $row['adres'];
                             $zip = $row['zip'];
                             $city = $row['city'];
-                        
+                        }
                     ?>
                         <tr>
                             <th>
@@ -79,8 +79,6 @@
                             <td><?=$city?></td>
                         </tr>
                     </table>
-                    <?php 
-                    } ?>
                     <table class="table">
                         <thead>
                             <tr>
