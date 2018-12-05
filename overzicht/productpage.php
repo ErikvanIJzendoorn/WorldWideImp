@@ -7,6 +7,9 @@ $sort = filter_input(INPUT_GET, 'sort', FILTER_SANITIZE_NUMBER_INT);
 $filter = filter_input(INPUT_GET, 'filter', FILTER_SANITIZE_NUMBER_INT);
 $filterValue = filter_input(INPUT_GET, 'filterValue', FILTER_SANITIZE_NUMBER_INT);
 
+
+// $categoryName = ("SELECT StockGroupName FROM stockgroups WHERE StockGroupID = '$categoryID'");
+
 $stmt = getProductsByCategory($categoryID);
 
 $producten = array();
@@ -144,6 +147,9 @@ switch ($sort) {
             </div>
             <input type="text" class="sliderValue" value="<?=$filterValue;?>">
         </div>
+    </div>
+    <div class="category-name">
+        <h5><?php echo $categoryID ?></h5>
     </div>
             <span id="product-text">Show:</span>   
             <select class="productAmount" id="productAmount">

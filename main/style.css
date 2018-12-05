@@ -202,6 +202,19 @@ body {
   margin-left: 100px;
 }
 
+.carousel-indicators {
+	z-index: 1;
+}
+
+.carousel-indicators li {
+  border: 1px solid #00000075;
+}
+
+.carousel-indicators .active {
+  background-color: #00000075;
+}
+
+
 
 /*----------------------------*\
 	LANDINGHEADER 
@@ -231,3 +244,6 @@ body {
   top: 375px;
   text-align: center;
 }
+
+
+

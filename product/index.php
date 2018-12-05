@@ -72,7 +72,7 @@
       </div>
 
       <div class="item">
-        <a href="https://www.youtube.com/watch?v=l6gz1oQVBkw">
+        <a href="https://www.youtube.com/watch?v=l6gz1oQVBkw" target="_blank">
             <img src="../img/play.jpg" height="400" width="400">
         </a>
       </div>

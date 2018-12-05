@@ -1,8 +1,8 @@
  <?php 
 $con = MySQLi_connect(
    "localhost",
-   "root",
-   "", 
+   "wwi",
+   "test", 
    "wideworldimporters" 
 );
  

@@ -2,3 +2,16 @@
 	border-color: #ccc !important;
 	background: #ccc !important;
 }
+
+.table-hover tbody tr:hover {
+	background-color: white !important;
+}
+
+.name-header {
+	text-align: center;
+}
+
+.row h1 {
+	font-weight: 2em;
+
+}

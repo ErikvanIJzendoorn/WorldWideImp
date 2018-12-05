@@ -2,6 +2,20 @@
 	margin-top: 40px;
 }
 
+.cart-landing {
+  font-size: 2.5em;
+  position: relative;
+	float: right;
+  top: -190px;
+  color: black;
+  padding: 10px;
+  right: 20px;
+}
+
+.cart-landing h5 {
+	font-family: 'Roboto';
+}
+
 .container {
 	position: relative;
 	top: 500px;

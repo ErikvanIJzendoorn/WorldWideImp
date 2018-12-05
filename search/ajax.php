@@ -25,7 +25,7 @@ if (isset($_POST['search'])) {
       
         <a href='../product/index.php?product=" . 
         $Result['StockItemID'] . "'>
-        <div class='search-span'>";
+        <div>";
         echo  "<span>".$Result['StockItemName']."</span>"; 
         echo  "<span class='search-p-price'>"."$".$Result['UnitPrice']."</span>";
         echo "
