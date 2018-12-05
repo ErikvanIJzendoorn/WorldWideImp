@@ -46,7 +46,7 @@
                             $adres = $row['adres'];
                             $zip = $row['zip'];
                             $city = $row['city'];
-                        }
+                        
                     ?>
                         <tr>
                             <th>
@@ -79,6 +79,8 @@
                             <td><?$city?></td>
                         </tr>
                     </table>
+                    <?php 
+                    } ?>
                     <table class="table">
                         <thead>
                             <tr>
@@ -197,8 +199,8 @@
                     } ?>
                     <tr>
                         <td></td>
-                        <td><a class="btn btn-warning" href="../landing/index.php">Cancel</a></td>
-                        <td><a class="btn btn-success" href="../landing/index.php">Confirm</a></td>
+                        <td><a class="btn btn-warning" href="../winkelwagen/index.php">Cancel</a></td>
+                        <td><a class="btn btn-success" href="index.php">Confirm</a></td>
                     </tr>
             </tbody>
         </table>
