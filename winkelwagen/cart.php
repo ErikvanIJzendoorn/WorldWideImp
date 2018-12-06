@@ -79,6 +79,7 @@ if(!isset($_GET['func'])){
 			unset($items[$_GET['id']]);
 		}
 		$_SESSION['cart'] = $items;
+		$_SESSION['cart_item'] = "remove";
 		header("Location: index.php");
 	}
 

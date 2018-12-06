@@ -57,6 +57,20 @@
                             <?php
                             $_SESSION['cart_item'] = null;
                         }
+
+                        if($_SESSION['cart_item'] == "remove") {
+                            ?>
+                                <script type="text/javascript">
+                                    window.onload = function() {
+                                       swal("Item sucessfully removed from your cart!", {
+                                          buttons: false,
+                                          timer: 1500,
+                                        });
+                                    }
+                                </script>
+                            <?php
+                            $_SESSION['cart_item'] = null;
+                        }
                         if($_SESSION['cart'] != null) {
                             $cart = $_SESSION['cart'];
                         } else {
