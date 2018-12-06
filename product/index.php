@@ -157,7 +157,7 @@
 
     <div>
         <div class="recommended col-md-11" style="margin-top: -200px; margin-left: 100px; margin-bottom: 50px;">
-        <h1>Maybe you want this instead?</h1>
+        <h2>Perhaps you are also interested in:</h2>
             <?php 
             $i=0;
             $recommended = [];
