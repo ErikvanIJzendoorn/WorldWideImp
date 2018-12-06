@@ -20,7 +20,7 @@
         <link rel="shortcut icon" type="image/png" href="../img/favicon.ico"/>
         <title> Cart </title>
     </head>
-    <body>
+    <body onLoad="window.scroll(0, 250)">
         <?php 
             require 'cart.php';
             require '../main/nav.php';
@@ -121,7 +121,7 @@
                                             </div>
                                         </td>
                                         <td class="col-sm-1 col-md-1" style="text-align: center">
-                                            <input type="number" min="1" max="<?=$voorraad?>" class="form-control" name="aantal" value="<?=$aantal?>">
+                                            <input type="number" min="1" max="<?=$voorraad?>" class="form-control" id="form" name="aantal" value="<?=$aantal?>" onblur="inputBlurred(event, <?=$aantal?>, <?=$id?>)">
                                             <input type="hidden" name="id" value="<?=$id?>">
                                         </td>
                                         <td class="col-sm-1 col-md-1 text-center"><strong><?php printf('$%.2f', $unit);?></strong></td>
@@ -130,13 +130,31 @@
                                         <td><a href="cart.php?func=del&id=<?php echo $key; ?>">Remove</a></td>
                                 </form>
                                 </tr>
+
+                                <script language="javascript">
+                                    function inputBlurred(event, oldValue, id) {
+                                        console.log(event, oldValue, id)
+                                        let newValue = event.target.value;
+                                        if(!newValue) { newValue = 0; }
+                                        console.log(newValue);
+                                        url = window.location.href;
+                                        let startOfParams = url.indexOf('?');
+                                        let route = url.substring(0, startOfParams);
+                                        let idParam = 'id=' + id;
+                                        let amountParam = 'aantal=' + newValue;
+                                        let newParams = '?' + amountParam + '&' + idParam;
+                                        let newUrl = route + newParams;
+                                        window.location.replace(newUrl);
+                                    }
+
+                                </script>
                             <?php }
-                            $btwPrijs = ($prijs * 21) / 121;
-                            $btwPrijs = round($btwPrijs, 2);
-                            $totaalBtw = $totaalBtw + $btwPrijs;
-                            $Subtotal = $Subtotal + ($prijs - $btwPrijs);
-                            $totaal = $Subtotal + $totaalBtw;
-                            $totaal = round($totaal, 2);
+                                $btwPrijs = ($prijs * 21) / 121;
+                                $btwPrijs = round($btwPrijs, 2);
+                                $totaalBtw = $totaalBtw + $btwPrijs;
+                                $Subtotal = $Subtotal + ($prijs - $btwPrijs);
+                                $totaal = $Subtotal + $totaalBtw;
+                                $totaal = round($totaal, 2);
                             }
                             ?>
                                 <tr>
