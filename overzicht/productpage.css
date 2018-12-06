@@ -77,15 +77,14 @@
 }
 
 #product-text {
-    width: 20px;
     position: absolute;
-    right: 79px;
-    top: 0;
+    right: 120px;
+    top: 20px;
 }
 
 .sort {
     position: absolute;
-    right: 160px;
+    right: 220px;
     top: 20px;
     border: none;
     border-bottom: 1px solid black;
@@ -94,7 +93,7 @@
 
 #sort-text {
     position: absolute;
-    right: 300px;
+    right: 360px;
     top: 20px;  
 }
 
@@ -158,3 +157,30 @@
     opacity:1;filter:"alpha(opacity=100)";
     -ms-filter:"alpha(opacity=100)";
 }
+
+#noProductMessage {
+    position: inherit;
+    left: 40%;
+    margin-top: 50px;
+    margin-bottom: 200px;
+    text-decoration: underline;
+}
+
+.floatleft {
+  float: left;
+  width:33.33333%;
+  text-align:left;
+}
+.floatcenter {
+  float: left; 
+  width:33.33333%;
+  text-align:center;
+  color: blue;
+}
+
+.floatright {
+ float: left;
+ width:33.33333%;
+ text-align:right;
+}​
+

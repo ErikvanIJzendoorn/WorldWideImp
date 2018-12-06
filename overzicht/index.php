@@ -13,7 +13,6 @@
                 window.location = "../overzicht/productpage.php?category=" + params[0] + "&productAmount=" + params[1] +
                         "&pageNumber=" + params[2] + "&filter=" + params[3] + "&filterValue=" + params[4] + "&sort=" + params[5];
             });
-            
             $('#productAmount').on('change', function() {
                 var productAmount = $(this).val();
                 var params = productAmount.split(",");

@@ -108,28 +108,30 @@ switch ($filter) {
 
 $numberOfPages = ceil(count($producten) / $numberOfProducts);
 
-if ($pageNumber >= $numberOfPages) {
+if ($pageNumber >= $numberOfPages && $pageNumber > 0) {
     $pageNumber = $numberOfPages - 1;
 }
 
 $pages = splitIntoPages($producten, $numberOfPages, $numberOfProducts);
 
-switch ($sort) {
-    case 1:
-        $pages = sortAlpha($pages, $numberOfPages, $numberOfProducts);
-        break;
-    case 2:
-        $pages = sortRAlpha($pages, $numberOfPages, $numberOfProducts);
-        break;
-    case 3:
-        $pages = sortPrice($pages, $numberOfPages, $numberOfProducts);
-        break;
-    case 4:
-        $pages = sortRPrice($pages, $numberOfPages, $numberOfProducts);
-        break;
-    default:
-        $pages = sortAlpha($pages, $numberOfPages, $numberOfProducts);
-        break;
+if (count($pages) > 0) {
+    switch ($sort) {
+        case 1:
+            $pages = sortAlpha($pages, $numberOfPages, $numberOfProducts);
+            break;
+        case 2:
+            $pages = sortRAlpha($pages, $numberOfPages, $numberOfProducts);
+            break;
+        case 3:
+            $pages = sortPrice($pages, $numberOfPages, $numberOfProducts);
+            break;
+        case 4:
+            $pages = sortRPrice($pages, $numberOfPages, $numberOfProducts);
+            break;
+        default:
+            $pages = sortAlpha($pages, $numberOfPages, $numberOfProducts);
+            break;
+    }  
 }
 ?>
 
@@ -138,11 +140,19 @@ switch ($sort) {
         <button onclick="showFilter()" class="filter-btn"><i class="fas fa-stream"></i></button>
         <div id="display-filter" class="display-filter">
             <h4>Filters</h4><br>
-            <p>Max/min costs</p>
+            <p>Max price</p>
             <div class="slidecontainer">
-                <input type="range" class="slider" min="<?=floor($minPrice);?>" max="<?=floor($maxPrice);?>" value="<?=$filterValue;?>" onchange="priceSlider(<?=$categoryID;?>, <?=$pageNumber;?>, <?=$sort;?>, <?=$numberOfProducts;?>, 1, this.value);">
+                <input type="range" id="priceSlider" class="slider" min="0" max="<?=floor($maxPrice);?>" value="<?=$filterValue;?>" onmouseup="priceSlider(<?=$categoryID;?>, <?=$pageNumber;?>, <?=$sort;?>, <?=$numberOfProducts;?>, 1, this.value);">
             </div>
-            <input type="text" class="sliderValue" value="<?=$filterValue;?>">
+            <label class="floatleft">0</label>
+            <label class="floatcenter" id="sliderValue"><?=$filterValue;?></label>
+            <label class="floatright"><?=floor($maxPrice);?></label>
+            <script>
+            document.getElementById('priceSlider').addEventListener("mousemove", function () {
+                console.log("run");
+                document.getElementById('sliderValue').innerHTML = this.value;
+            });
+            </script>
         </div>
     </div>
             <span id="product-text">Show:</span>   
@@ -194,27 +204,33 @@ switch ($sort) {
             $productimg = "../img/products/Materials";
             break;
     }
-    
-    foreach ($pages[$pageNumber] as $id => $gegevens){
-        $imgindex = rand(1,3);
-        echo "<a href='../product/index.php?product=$id'>";
-        echo '<div class="image-border">';
-        echo "<img src='$productimg$imgindex.jpg' alt='Productimg'><p>";
-        echo $gegevens["naam"];
-        echo '</p><div>€ ';
-        echo $gegevens["prijs"];
-        if($gegevens['voorraad'] >= 100) {
-            echo '<div style="background: green; border-radius: 100%; width: 15px; height: 15px; float: right;"></div>';
-        } else if ($gegevens['voorraad'] < 100 && $gegevens['voorraad'] > 10) {
-            echo '<div style="background: orange; border-radius: 100%; width: 15px; height: 15px; float: right;"></div>';
-        } else {
-            echo '<div style="background: red; border-radius: 100%; width: 15px; height: 15px; float: right;"></div>';
-        }  
-        echo '</div></div>';
+    if (count($pages) > 0) {
+        foreach ($pages[$pageNumber] as $id => $gegevens){
+            $imgindex = rand(1,3);
+            echo "<a href='../product/index.php?product=$id'>";
+            echo '<div class="image-border">';
+            echo "<img src='$productimg$imgindex.jpg' alt='Productimg'><p>";
+            echo $gegevens["naam"];
+            echo '</p><div>€ ';
+            echo $gegevens["prijs"];
+            if($gegevens['voorraad'] >= 100) {
+                echo '<div style="background: green; border-radius: 100%; width: 15px; height: 15px; float: right;"></div>';
+            } else if ($gegevens['voorraad'] < 100 && $gegevens['voorraad'] > 10) {
+                echo '<div style="background: orange; border-radius: 100%; width: 15px; height: 15px; float: right;"></div>';
+            } else {
+                echo '<div style="background: red; border-radius: 100%; width: 15px; height: 15px; float: right;"></div>';
+            }  
+            echo '</div></div>';
+        }
+    } else {
+        echo '<p id="noProductMessage">Sorry, no products available under given price!</p>';
     }
     ?>
 </div>
 
+<?php
+if (count($pages) > 0) {
+?>
 <div class="bottom">
     <div class="page-nav">
         <a href="../overzicht/productpage.php?category=<?=$categoryID;?>&pageNumber=<?php if($pageNumber > 0) {$pageNumber--;} echo $pageNumber;?>$sort=<?=$sort;?>&productAmount=<?=$numberOfProducts;?>&filter=<?=$filter;?>&filterValue=<?=$filterValue;?>">&laquo;</a>
@@ -227,8 +243,11 @@ switch ($sort) {
         <a href="../overzicht/productpage.php?category=<?=$categoryID;?>&pageNumber=<?php if($pageNumber < $numberOfPages) {$pageNumber++;} echo $pageNumber;?>&sort=<?=$sort;?>&productAmount=<?=$numberOfProducts;?>&filter=<?=$filter;?>&filterValue=<?=$filterValue;?>">&raquo;</a>
     </div>
 </div>
-    
-<?php require "../main/footer.php"; ?>
+<?php
+}
+
+require "../main/footer.php"; 
+?>
 
 <script>
 function showFilter() {

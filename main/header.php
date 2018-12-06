@@ -4,9 +4,9 @@
 	</a>
 	<a href="../winkelwagen/index.php">
     <div class="fas fa-shopping-cart cart">
+        <h5>Cart</h5>
     </div>
-  </a>  
-
+  </a> 
   <?php 
 	if(isset($_SESSION['login'])) {
 		?>
