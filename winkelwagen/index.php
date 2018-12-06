@@ -44,6 +44,19 @@
                         </thead>
                         <tbody> 
                         <?php
+                        if($_SESSION['cart_item'] == "added") {
+                            ?>
+                                <script type="text/javascript">
+                                    window.onload = function() {
+                                       swal("Item sucessfully added to your cart!", {
+                                          buttons: false,
+                                          timer: 1500,
+                                        });
+                                    }
+                                </script>
+                            <?php
+                            $_SESSION['cart_item'] = null;
+                        }
                         if($_SESSION['cart'] != null) {
                             $cart = $_SESSION['cart'];
                         } else {
@@ -183,7 +196,7 @@
                 <tr>
                     <?php if($_SESSION['cart'] != null) {
                         ?>
-                            <td><a href="cart.php?func=empty" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a></td>
+                            <td><button class="btn btn-danger" id="empty" onclick="empty();"><i class="fas fa-trash-alt"></i></button></td>
                         <?php
                     } else {
                         ?>
@@ -210,5 +223,31 @@
         </div>
     </div>
     <?php require '../main/footer.php' ?>
+    <script>
+        document.getElementById("empty").onclick = function() {empty()};
+
+        function empty() {
+            swal("Are you sure you want to do this?", {
+                  buttons: {
+                    cancel: "Cancel",
+                    catch: {
+                      text: "Confirm",
+                      value: "catch",
+                    }
+                  },
+                })
+                .then((value) => {
+                  switch (value) {
+                 
+                    case "catch":
+                      window.location.replace("cart.php?func=empty");
+                      break;
+                 
+                    default:
+                  }
+                });
+        };
+    </script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     </body>
 </html>

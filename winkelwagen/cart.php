@@ -21,11 +21,13 @@ if(!isset($_GET['func'])){
 			$item = array('id' => $_GET['id'], 'aantal' => $_GET['aantal'], 'category' => $_GET['cat']);
 			array_push($items, $item);
 			$_SESSION['cart'] = $items;
+			$_SESSION['cart_item'] = "added";
 			header("Location: index.php");
 		}else{
 			$item = array('id' => $_GET['id'], 'aantal' => $_GET['aantal'], 'category' => $_GET['cat']);
 			$items = array(0 => $item);
 			$_SESSION['cart'] = $items;
+			$_SESSION['cart_item'] = "added";
 			header("Location: index.php");
 		}
 	}
