@@ -158,3 +158,24 @@
     opacity:1;filter:"alpha(opacity=100)";
     -ms-filter:"alpha(opacity=100)";
 }
+
+#noProductMessage {
+    position: relative;
+}
+
+.floatleft {
+  float: left;
+  width:33.33333%;
+  text-align:left;
+}
+.floatcenter {
+  float: left;
+  width:33.33333%;
+  text-align:center;
+}
+.floatright {
+ float: left;
+ width:33.33333%;
+ text-align:right;
+}​
+
