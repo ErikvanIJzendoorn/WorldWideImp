@@ -183,7 +183,7 @@
                 <tr>
                     <?php if($_SESSION['cart'] != null) {
                         ?>
-                            <td><a href="cart.php?func=empty" class="btn btn-warning">Empty</a></td>
+                            <td><a href="cart.php?func=empty" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a></td>
                         <?php
                     } else {
                         ?>
