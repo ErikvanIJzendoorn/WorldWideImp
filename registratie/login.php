@@ -34,6 +34,7 @@
                     }
                 </script>
             <?php
+            $_SESSION['reg_type'] = null;
         } 
     ?>
     

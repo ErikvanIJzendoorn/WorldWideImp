@@ -140,10 +140,10 @@
                                                         break; }
                                                         $imgindex = rand(1,3);
                                                         ?>
-                                                <a class="thumbnail pull-left" href="../product/index.php?product=<?=$id?>&category=<?=$categoryID?>"> <?php echo("<img class='media-object' src='$productimg$imgindex.jpg' alt='Productimg' style='width: 72px; height: 72px'>")?></a>
+                                                <a class="thumbnail pull-left" href="../product/index.php?product=<?=$id?>&category=<?=$categoryID?>"> <?php echo("<img class='media-object' src='$productimg$imgindex.jpg' alt='Productimg' style='width: 72px; height: 72px;'>")?></a>
                                                 <div class="media-body">
-                                                <h4 class="media-heading"> <a href="../product/index.php?product=<?=$id?>&category=<?=$categoryID?>"><?=$naam;?></a></h4>
-                                                <h5 class="media-heading"> category: <a href="../overzicht/productpage.php?category=<?=$categoryID?>&pageNumber=0&sort=0&productAmount=30&filter=0&filterValue=0"><?=$category?></a></h5>
+                                                <h4 class="media-heading" style="margin-left: 10px;" > <a href="../product/index.php?product=<?=$id?>&category=<?=$categoryID?>"><?=$naam;?></a></h4>
+                                                <h5 style="margin-left: 10px;" class="media-heading"> category: <a href="../overzicht/productpage.php?category=<?=$categoryID?>&pageNumber=0&sort=0&productAmount=30&filter=0&filterValue=0"><?=$category?></a></h5>
                                                 </div>
                                             </div>
                                         </td>
@@ -154,7 +154,7 @@
                                         <td class="col-sm-1 col-md-1 text-center"><strong><?php printf('$%.2f', $unit);?></strong></td>
                                         <td class="col-sm-1 col-md-1 text-center"><strong><?php printf('$%.2f', $prijs);?></strong></td>
                                         <td class="col-sm-1 col-md-1">
-                                        <td><a href="cart.php?func=del&id=<?php echo $key; ?>">Remove</a></td>
+                                        <td><a class="btn btn-warning" style="background-color: #ec971f !important; border-color: #985f0d !important;" href="cart.php?func=del&id=<?php echo $key; ?>"><i class="fas fa-trash-alt"></i></a></td>
                                 </form>
                                 </tr>
                             <?php }
@@ -210,7 +210,7 @@
                 <tr>
                     <?php if($_SESSION['cart'] != null) {
                         ?>
-                            <td><button class="btn btn-danger" id="empty" onclick="empty();"><i class="fas fa-trash-alt"></i></button></td>
+                            <td><button class="btn btn-danger" id="empty" onclick="empty();">Empty</button></td>
                         <?php
                     } else {
                         ?>
