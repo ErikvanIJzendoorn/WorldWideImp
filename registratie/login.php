@@ -43,6 +43,7 @@
 </head>
 <body> 
     <div class="container">
+        <div class="header-name"><h1>Login</h1></div>
     	<form action="validation.php?login=y" method="post" class="form">
 			<div class="item row">
     			<span class="col-md-2 offset-md-3">Email:</span>

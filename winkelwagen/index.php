@@ -30,7 +30,8 @@
 
         <link href="../winkelwagen/cart.css" type="text/css" rel="stylesheet">
         <div class="container" style="margin-top: 70px;">
-            <div class="row">
+            <div class="row name-header">
+                <h1>Cart</h1>
                 <div class="col-sm-12 col-md-10 col-md-offset-1" style="margin-top: 70px;">
                     <table class="table table-hover">
                         <thead>
@@ -237,6 +238,7 @@
                     } ?>
                     <td></td>
                     <td></td>
+                    <td><a class="btn btn-success" href="../landing/index.php">Continue shopping</a></td>
                     <?php if($_SESSION['cart'] != null) {
                         ?>
                             <td><a class="btn btn-info" href="../registratie/login.php">Payment</a></td>
@@ -246,7 +248,7 @@
                             <td></td>
                         <?php
                     } ?>
-                    <td><a class="btn btn-success" href="../landing/index.php">Continue shopping</a></td>
+                    
                     <td></td>
                 </tr>
             </tbody>
