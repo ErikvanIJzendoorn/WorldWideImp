@@ -44,7 +44,7 @@
                         </thead>
                         <tbody> 
                         <?php
-                        if($_SESSION['cart_item'] == "added") {
+                        if(isset($_SESSION['cart_item']) && $_SESSION['cart_item'] == "added") {
                             ?>
                                 <script type="text/javascript">
                                     window.onload = function() {
@@ -58,7 +58,7 @@
                             $_SESSION['cart_item'] = null;
                         }
 
-                        if($_SESSION['cart_item'] == "remove") {
+                        if(isset($_SESSION['cart_item']) && $_SESSION['cart_item'] == "remove") {
                             ?>
                                 <script type="text/javascript">
                                     window.onload = function() {
