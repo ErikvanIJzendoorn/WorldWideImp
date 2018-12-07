@@ -29,10 +29,16 @@ function order(){
 	if(isset($_GET['paid'])) {
 		if($_GET['paid'] == 'y') {
 			order();
+			$stmt = GetOrderID();
+		    if($row = $stmt->fetch()) {
+		        $order = $row['id'];
+		    } else {
+		        // geef error
+		    }
 			?>
 				<script type="text/javascript">
 					window.onload = function() {
-					    swal("Succesfully sent in the order").then((value) => window.location.replace("../winkelwagen/cart.php?func=empty&order=y"));
+					    swal("Succesfully sent in the order", "You can trace the package using this code: <?=$order?>").then((value) => window.location.replace("../winkelwagen/cart.php?func=empty&order=y"));
 					}
 				</script>
 			<?php
