@@ -26,7 +26,7 @@
             <?php
         } 
 
-        if ($_SESSION['reg_type'] == 'cust'){
+        if(isset($_SESSION['reg_type']) && $_SESSION['reg_type'] == 'cust'){
             ?>
                 <script type="text/javascript">
                     window.onload = function() {
