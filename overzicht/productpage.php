@@ -143,23 +143,20 @@ if (count($pages) > 0) {
         <button onclick="showFilter()" class="filter-btn"><i class="fas fa-stream"></i></button>
         <div id="display-filter" class="display-filter">
             <h4>Filters</h4><br>
-            <p>Max price</p>
+            <p>Max price ($)</p>
             <div class="slidecontainer">
                 <input type="range" id="priceSlider" class="slider" min="0" max="<?=floor($maxPrice);?>" value="<?=$filterValue;?>" onmouseup="priceSlider(<?=$categoryID;?>, <?=$pageNumber;?>, <?=$sort;?>, <?=$numberOfProducts;?>, 1, this.value);">
             </div>
-            <label class="floatleft">$ 0</label>
-            <label class="floatcenter" id="sliderValue">$ <?=$filterValue;?></label>
-            <label class="floatright">$ <?=floor($maxPrice);?></label>
+            <label class="floatleft">0</label>
+            <label class="floatcenter" id="sliderValue"><?=$filterValue;?></label>
+            <label class="floatright"><?=floor($maxPrice);?></label>
             <script>
             document.getElementById('priceSlider').addEventListener("mousemove", function () {
                 console.log("run");
-                document.getElementById('sliderValue').innerHTML = "$ " + this.value;
+                document.getElementById('sliderValue').innerHTML = this.value;
             });
             </script>
         </div>
-    </div>
-    <div class="category-name">
-        <h5><?php echo $categoryID ?></h5>
     </div>
             <span id="product-text">Show:</span>   
             <select class="productAmount" id="productAmount">
