@@ -178,7 +178,7 @@
 </div>
 
     <div>
-        <div style="width: 100%; margin-top: 150px">        
+        <div style="margin-top: 200px">        
             <h2>Perhaps you are also interested in:</h2>
         </div>
         <div class="recommended">
