@@ -41,20 +41,13 @@
                 </div>
               </div>
             </div>
-
             <div class="mb-3">
-              <label for="email">Email ( used for login )</label>
+              <label for="email">Email</label>
               <input type="email" class="form-control" name="email" placeholder="you@example.com" required>
               <div class="invalid-feedback">
                 Please enter a valid email address for shipping updates.
               </div>
             </div>
-
-            <div class="mb-3">
-              <label for="pass">Password</label>
-              <input type="password" class="form-control" name="pass" placeholder="abc123" required>
-            </div>
-
             <div class="row">
               <div class="col-md-6 mb-6">
               <label for="address">Address</label>
