@@ -7,6 +7,9 @@ $sort = filter_input(INPUT_GET, 'sort', FILTER_SANITIZE_NUMBER_INT);
 $filter = filter_input(INPUT_GET, 'filter', FILTER_SANITIZE_NUMBER_INT);
 $filterValue = filter_input(INPUT_GET, 'filterValue', FILTER_SANITIZE_NUMBER_INT);
 
+
+// $categoryName = ("SELECT StockGroupName FROM stockgroups WHERE StockGroupID = '$categoryID'");
+
 $stmt = getProductsByCategory($categoryID);
 
 $producten = array();
@@ -144,16 +147,19 @@ if (count($pages) > 0) {
             <div class="slidecontainer">
                 <input type="range" id="priceSlider" class="slider" min="0" max="<?=floor($maxPrice);?>" value="<?=$filterValue;?>" onmouseup="priceSlider(<?=$categoryID;?>, <?=$pageNumber;?>, <?=$sort;?>, <?=$numberOfProducts;?>, 1, this.value);">
             </div>
-            <label class="floatleft">0</label>
-            <label class="floatcenter" id="sliderValue"><?=$filterValue;?></label>
-            <label class="floatright"><?=floor($maxPrice);?></label>
+            <label class="floatleft">$ 0</label>
+            <label class="floatcenter" id="sliderValue">$ <?=$filterValue;?></label>
+            <label class="floatright">$ <?=floor($maxPrice);?></label>
             <script>
             document.getElementById('priceSlider').addEventListener("mousemove", function () {
                 console.log("run");
-                document.getElementById('sliderValue').innerHTML = this.value;
+                document.getElementById('sliderValue').innerHTML = "$ " + this.value;
             });
             </script>
         </div>
+    </div>
+    <div class="category-name">
+        <h5><?php echo $categoryID ?></h5>
     </div>
             <span id="product-text">Show:</span>   
             <select class="productAmount" id="productAmount">
@@ -211,7 +217,7 @@ if (count($pages) > 0) {
             echo '<div class="image-border">';
             echo "<img src='$productimg$imgindex.jpg' alt='Productimg'><p>";
             echo $gegevens["naam"];
-            echo '</p><div>€ ';
+            echo '</p><div>$ ';
             echo $gegevens["prijs"];
             if($gegevens['voorraad'] >= 100) {
                 echo '<div style="background: green; border-radius: 100%; width: 15px; height: 15px; float: right;"></div>';

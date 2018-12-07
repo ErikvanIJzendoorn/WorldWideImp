@@ -102,8 +102,9 @@ function regCustomer() {
         RegisterLogin($user, $hashedpass);
         $fetch = GetLastID();
         $_SESSION['id'] = $fetch->fetch(PDO::FETCH_ASSOC);
+        $_SESSION['reg_type'] = "cust";
 
-        header("Location: login.php?login=n");
+        header("Location: login.php");
     }
 }
 
@@ -129,7 +130,7 @@ function regGuest(){
 
         $fetch = GetLastID();
         $_SESSION['id'] = $fetch->fetch(PDO::FETCH_ASSOC);
-        header("Location: ../betalen/index.php?login=n");
+        header("Location: ../betalen/overzicht.php");
     }
 }
 

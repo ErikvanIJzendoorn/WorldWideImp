@@ -20,7 +20,7 @@
         <link rel="shortcut icon" type="image/png" href="../img/favicon.ico"/>
         <title> Cart </title>
     </head>
-    <body>
+    <body onLoad="window.scroll(0, 250)">
         <?php 
             require 'cart.php';
             require '../main/nav.php';
@@ -30,7 +30,8 @@
 
         <link href="../winkelwagen/cart.css" type="text/css" rel="stylesheet">
         <div class="container" style="margin-top: 70px;">
-            <div class="row">
+            <div class="row name-header">
+                <h1>Cart</h1>
                 <div class="col-sm-12 col-md-10 col-md-offset-1" style="margin-top: 70px;">
                     <table class="table table-hover">
                         <thead>
@@ -44,6 +45,33 @@
                         </thead>
                         <tbody> 
                         <?php
+                        if(isset($_SESSION['cart_item']) && $_SESSION['cart_item'] == "added") {
+                            ?>
+                                <script type="text/javascript">
+                                    window.onload = function() {
+                                       swal("Item sucessfully added to your cart!", {
+                                          buttons: false,
+                                          timer: 1500,
+                                        });
+                                    }
+                                </script>
+                            <?php
+                            $_SESSION['cart_item'] = null;
+                        }
+
+                        if(isset($_SESSION['cart_item']) && $_SESSION['cart_item'] == "remove") {
+                            ?>
+                                <script type="text/javascript">
+                                    window.onload = function() {
+                                       swal("Item sucessfully removed from your cart!", {
+                                          buttons: false,
+                                          timer: 1500,
+                                        });
+                                    }
+                                </script>
+                            <?php
+                            $_SESSION['cart_item'] = null;
+                        }
                         if($_SESSION['cart'] != null) {
                             $cart = $_SESSION['cart'];
                         } else {
@@ -113,30 +141,48 @@
                                                         break; }
                                                         $imgindex = rand(1,3);
                                                         ?>
-                                                <a class="thumbnail pull-left" href="../product/index.php?product=<?=$id?>&category=<?=$categoryID?>"> <?php echo("<img class='media-object' src='$productimg$imgindex.jpg' alt='Productimg' style='width: 72px; height: 72px'>")?></a>
+                                                <a class="thumbnail pull-left" href="../product/index.php?product=<?=$id?>&category=<?=$categoryID?>"> <?php echo("<img class='media-object' src='$productimg$imgindex.jpg' alt='Productimg' style='width: 72px; height: 72px;'>")?></a>
                                                 <div class="media-body">
-                                                <h4 class="media-heading"> <a href="../product/index.php?product=<?=$id?>&category=<?=$categoryID?>"><?=$naam;?></a></h4>
-                                                <h5 class="media-heading"> category: <a href="../overzicht/productpage.php?category=<?=$categoryID?>&pageNumber=0&sort=0&productAmount=30&filter=0&filterValue=0"><?=$category?></a></h5>
+                                                <h4 class="media-heading" style="margin-left: 10px;" > <a href="../product/index.php?product=<?=$id?>&category=<?=$categoryID?>"><?=$naam;?></a></h4>
+                                                <h5 style="margin-left: 10px;" class="media-heading"> category: <a href="../overzicht/productpage.php?category=<?=$categoryID?>&pageNumber=0&sort=0&productAmount=30&filter=0&filterValue=0"><?=$category?></a></h5>
                                                 </div>
                                             </div>
                                         </td>
                                         <td class="col-sm-1 col-md-1" style="text-align: center">
-                                            <input type="number" min="1" max="<?=$voorraad?>" class="form-control" name="aantal" value="<?=$aantal?>">
+                                            <input type="number" min="1" max="<?=$voorraad?>" class="form-control" id="form" name="aantal" value="<?=$aantal?>" onblur="inputBlurred(event, <?=$aantal?>, <?=$id?>)">
                                             <input type="hidden" name="id" value="<?=$id?>">
                                         </td>
                                         <td class="col-sm-1 col-md-1 text-center"><strong><?php printf('$%.2f', $unit);?></strong></td>
                                         <td class="col-sm-1 col-md-1 text-center"><strong><?php printf('$%.2f', $prijs);?></strong></td>
                                         <td class="col-sm-1 col-md-1">
-                                        <td><a href="cart.php?func=del&id=<?php echo $key; ?>">Remove</a></td>
+                                        <td><a class="btn btn-warning" style="background-color: #ec971f !important; border-color: #985f0d !important;" href="cart.php?func=del&id=<?php echo $key; ?>"><i class="fas fa-trash-alt"></i></a></td>
                                 </form>
                                 </tr>
+
+                                <script language="javascript">
+                                    function inputBlurred(event, oldValue, id) {
+                                        console.log(event, oldValue, id)
+                                        let newValue = event.target.value;
+                                        if(!newValue) { newValue = 0; }
+                                        console.log(newValue);
+                                        url = window.location.href;
+                                        let startOfParams = url.indexOf('?');
+                                        let route = url.substring(0, startOfParams);
+                                        let idParam = 'id=' + id;
+                                        let amountParam = 'aantal=' + newValue;
+                                        let newParams = '?' + amountParam + '&' + idParam;
+                                        let newUrl = route + newParams;
+                                        window.location.replace(newUrl);
+                                    }
+
+                                </script>
                             <?php }
-                            $btwPrijs = ($prijs * 21) / 121;
-                            $btwPrijs = round($btwPrijs, 2);
-                            $totaalBtw = $totaalBtw + $btwPrijs;
-                            $Subtotal = $Subtotal + ($prijs - $btwPrijs);
-                            $totaal = $Subtotal + $totaalBtw;
-                            $totaal = round($totaal, 2);
+                                $btwPrijs = ($prijs * 21) / 121;
+                                $btwPrijs = round($btwPrijs, 2);
+                                $totaalBtw = $totaalBtw + $btwPrijs;
+                                $Subtotal = $Subtotal + ($prijs - $btwPrijs);
+                                $totaal = $Subtotal + $totaalBtw;
+                                $totaal = round($totaal, 2);
                             }
                             ?>
                                 <tr>
@@ -183,7 +229,7 @@
                 <tr>
                     <?php if($_SESSION['cart'] != null) {
                         ?>
-                            <td><a href="cart.php?func=empty" class="btn btn-warning">Empty</a></td>
+                            <td><button class="btn btn-danger" id="empty" onclick="empty();">Empty</button></td>
                         <?php
                     } else {
                         ?>
@@ -192,6 +238,7 @@
                     } ?>
                     <td></td>
                     <td></td>
+                    <td><a class="btn btn-success" href="../landing/index.php">Continue shopping</a></td>
                     <?php if($_SESSION['cart'] != null) {
                         ?>
                             <td><a class="btn btn-info" href="../registratie/login.php">Payment</a></td>
@@ -201,7 +248,7 @@
                             <td></td>
                         <?php
                     } ?>
-                    <td><a class="btn btn-success" href="../landing/index.php">Continue shopping</a></td>
+                    
                     <td></td>
                 </tr>
             </tbody>
@@ -210,5 +257,31 @@
         </div>
     </div>
     <?php require '../main/footer.php' ?>
+    <script>
+        document.getElementById("empty").onclick = function() {empty()};
+
+        function empty() {
+            swal("Are you sure you want to do this?", {
+                  buttons: {
+                    cancel: "Cancel",
+                    catch: {
+                      text: "Confirm",
+                      value: "catch",
+                    }
+                  },
+                })
+                .then((value) => {
+                  switch (value) {
+                 
+                    case "catch":
+                      window.location.replace("cart.php?func=empty");
+                      break;
+                 
+                    default:
+                  }
+                });
+        };
+    </script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     </body>
 </html>

@@ -25,6 +25,17 @@
                 </script>
             <?php
         } 
+
+        if(isset($_SESSION['reg_type']) && $_SESSION['reg_type'] == 'cust'){
+            ?>
+                <script type="text/javascript">
+                    window.onload = function() {
+                        swal("You have registered succesfully");
+                    }
+                </script>
+            <?php
+            $_SESSION['reg_type'] = null;
+        } 
     ?>
     
     <?php require "../main/header.php"; ?>
@@ -33,6 +44,7 @@
 </head>
 <body> 
     <div class="container">
+        <div class="header-name"><h1>Login</h1></div>
     	<form action="validation.php?login=y" method="post" class="form">
 			<div class="item row">
     			<span class="col-md-2 offset-md-3">Email:</span>
