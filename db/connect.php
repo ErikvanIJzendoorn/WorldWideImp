@@ -76,7 +76,7 @@ if(!function_exists('getProductsByCategory')){
 
 function Register($naam, $email, $address, $zip, $city, $method, $bank, $ccname, $cciban, $ccnumber, $type){
     try {
-            $pdo = connect();
+        $pdo = connect();
         $stmt = $pdo->prepare("INSERT INTO customers (CustomerName, Type, Email, DeliveryAddressLine1, DeliveryPostalCode, City, PaymentMethod, Bank, ccName, ccIban, ccNumber)
                 VALUES (:naam, :type, :email, :address, :zip , :city, :method, :bank, :ccname, :cciban, :ccnumber)");
             $stmt->bindValue(':naam', $naam);

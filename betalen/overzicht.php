@@ -39,6 +39,10 @@
                         </tr>
                     </thead>
                     <?php 
+                    if(isset($_SESSION['gast']['email']))
+                    {
+                        $_SESSION['email'] = $_SESSION['gast']['email'];
+                    } 
                         $stmt = getCustomer($_SESSION['email']);
                         while ($row = $stmt->fetch()) {
                             $naam = $row['naam'];
@@ -46,6 +50,8 @@
                             $adres = $row['adres'];
                             $zip = $row['zip'];
                             $city = $row['city'];
+
+
                         }
                     ?>
                         <tr>

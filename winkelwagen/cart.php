@@ -35,7 +35,6 @@ if(!isset($_GET['func'])){
 	function checkIfExists() {
 		$gevonden = FALSE;
 		$items = $_SESSION['cart'];
-		var_dump($items);
 		// check if empty
 		if (!empty($items)) {
 			// if not empty
@@ -43,32 +42,22 @@ if(!isset($_GET['func'])){
 				// check if item exists
 				if($_GET['id'] == $value['id']) {
 					// Current item exists
-					echo 'found it <br>';
 					$gevonden = TRUE;
 					break;
 				} else  {
 					// current item doesn't exist
-					echo "this isn't it <br>";
 					$gevonden = FALSE;
 				}
 			}
-
 			if($gevonden) {
-				echo "It was found, now change it <br>";
 				$items[$key]['aantal'] = $items[$key]['aantal'] += $_GET['aantal'];
 				$_SESSION['cart'] = $items;
-				echo "1";
-				header("Location: index.php");
-							
+				header("Location: index.php");			
 			} else {
-				echo "it wasn't found, now add it <br>";
 				addToCart();
 			}
-
-
 		} else {
 			// if empty
-			echo "4";
 			addToCart();
 		}
 	}
