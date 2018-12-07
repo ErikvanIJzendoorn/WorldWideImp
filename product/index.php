@@ -121,7 +121,8 @@
             <form action="../winkelwagen/cart.php?func=add" method="get">
             <div id="bestelamnt row">
                 <div>
-                    <input type="number" style="margin-left: -15px;" name="aantal" value="1" min="1" max="<?=$voorraad;?>">
+                    <span style="margin-left: -15px;">Aantal: </span>
+                    <input type="number" name="aantal" value="1" min="1" max="<?=$voorraad;?>">
                     <?php if($voorraad >= 100) {
                         ?>
                             <p id="available" style="background-color: green; color: white;">

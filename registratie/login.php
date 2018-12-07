@@ -25,6 +25,16 @@
                 </script>
             <?php
         } 
+
+        if ($_SESSION['reg_type'] == 'cust'){
+            ?>
+                <script type="text/javascript">
+                    window.onload = function() {
+                        swal("You have registered succesfully");
+                    }
+                </script>
+            <?php
+        } 
     ?>
     
     <?php require "../main/header.php"; ?>
