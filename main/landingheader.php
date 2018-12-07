@@ -11,6 +11,7 @@
 	<?php require '../search/search.php' ?>
 	<a href="../winkelwagen/index.php">
     <div class="fas fa-shopping-cart cart-landing">
+        <h5> Cart </h5>
     </div>
   </a>  
 
