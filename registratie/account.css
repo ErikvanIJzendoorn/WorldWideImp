@@ -5,3 +5,9 @@
 .form {
 	margin-top: 176px;
 }
+
+.header-name {
+	position: relative;
+  top: 80px;
+  text-align: center;
+}

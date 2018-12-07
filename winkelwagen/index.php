@@ -20,7 +20,7 @@
         <link rel="shortcut icon" type="image/png" href="../img/favicon.ico"/>
         <title> Cart </title>
     </head>
-    <body>
+    <body onLoad="window.scroll(0, 250)">
         <?php 
             require 'cart.php';
             require '../main/nav.php';
@@ -30,7 +30,8 @@
 
         <link href="../winkelwagen/cart.css" type="text/css" rel="stylesheet">
         <div class="container" style="margin-top: 70px;">
-            <div class="row">
+            <div class="row name-header">
+                <h1>Cart</h1>
                 <div class="col-sm-12 col-md-10 col-md-offset-1" style="margin-top: 70px;">
                     <table class="table table-hover">
                         <thead>
@@ -148,7 +149,7 @@
                                             </div>
                                         </td>
                                         <td class="col-sm-1 col-md-1" style="text-align: center">
-                                            <input type="number" min="1" max="<?=$voorraad?>" class="form-control" name="aantal" value="<?=$aantal?>">
+                                            <input type="number" min="1" max="<?=$voorraad?>" class="form-control" id="form" name="aantal" value="<?=$aantal?>" onblur="inputBlurred(event, <?=$aantal?>, <?=$id?>)">
                                             <input type="hidden" name="id" value="<?=$id?>">
                                         </td>
                                         <td class="col-sm-1 col-md-1 text-center"><strong><?php printf('$%.2f', $unit);?></strong></td>
@@ -157,13 +158,31 @@
                                         <td><a class="btn btn-warning" style="background-color: #ec971f !important; border-color: #985f0d !important;" href="cart.php?func=del&id=<?php echo $key; ?>"><i class="fas fa-trash-alt"></i></a></td>
                                 </form>
                                 </tr>
+
+                                <script language="javascript">
+                                    function inputBlurred(event, oldValue, id) {
+                                        console.log(event, oldValue, id)
+                                        let newValue = event.target.value;
+                                        if(!newValue) { newValue = 0; }
+                                        console.log(newValue);
+                                        url = window.location.href;
+                                        let startOfParams = url.indexOf('?');
+                                        let route = url.substring(0, startOfParams);
+                                        let idParam = 'id=' + id;
+                                        let amountParam = 'aantal=' + newValue;
+                                        let newParams = '?' + amountParam + '&' + idParam;
+                                        let newUrl = route + newParams;
+                                        window.location.replace(newUrl);
+                                    }
+
+                                </script>
                             <?php }
-                            $btwPrijs = ($prijs * 21) / 121;
-                            $btwPrijs = round($btwPrijs, 2);
-                            $totaalBtw = $totaalBtw + $btwPrijs;
-                            $Subtotal = $Subtotal + ($prijs - $btwPrijs);
-                            $totaal = $Subtotal + $totaalBtw;
-                            $totaal = round($totaal, 2);
+                                $btwPrijs = ($prijs * 21) / 121;
+                                $btwPrijs = round($btwPrijs, 2);
+                                $totaalBtw = $totaalBtw + $btwPrijs;
+                                $Subtotal = $Subtotal + ($prijs - $btwPrijs);
+                                $totaal = $Subtotal + $totaalBtw;
+                                $totaal = round($totaal, 2);
                             }
                             ?>
                                 <tr>
@@ -219,6 +238,7 @@
                     } ?>
                     <td></td>
                     <td></td>
+                    <td><a class="btn btn-success" href="../landing/index.php">Continue shopping</a></td>
                     <?php if($_SESSION['cart'] != null) {
                         ?>
                             <td><a class="btn btn-info" href="../registratie/login.php">Payment</a></td>
@@ -228,7 +248,7 @@
                             <td></td>
                         <?php
                     } ?>
-                    <td><a class="btn btn-success" href="../landing/index.php">Continue shopping</a></td>
+                    
                     <td></td>
                 </tr>
             </tbody>
