@@ -304,5 +304,17 @@ body {
   text-align: center;
 }
 
+h2 {
+    font-size: 30px;
+    text-align: center;
+    position: relative;
+    left: -235px;
+    width: 2000px;
+    margin-bottom: 30px;
+    margin-top: 300px;
+}
 
-
+b {
+    font-size: 30px;
+    color: blue;
+}

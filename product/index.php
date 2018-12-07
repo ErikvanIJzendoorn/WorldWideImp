@@ -179,7 +179,9 @@
 
     <div>
         <div style="margin-top: 200px">        
-            <h2>Perhaps you are also interested in:</h2>
+            <h2>Perhaps you are also interested in these items
+                <b>&#8595;</b>
+            </h2>
         </div>
         <div class="recommended">
             <?php 
