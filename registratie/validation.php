@@ -28,6 +28,7 @@ function AttemptLogin() {
                     $_SESSION['id'] = $row['CustomerID'];
                     $_SESSION['email'] = $row['CustomerEmail'];
                     $_SESSION['login'] = 'done';
+                    $_SESSION['gast'] = null;
                     $_POST = null;
                     header("Location: ../betalen/overzicht.php");
                 } else {
