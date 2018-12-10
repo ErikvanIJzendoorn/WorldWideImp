@@ -72,9 +72,7 @@
           </div>
 
           <div class="item">
-            <a href="https://www.youtube.com/embed/l6gz1oQVBkw?rel=o&autoplay=1" target="_blank">
-                <img src="../img/play.jpg" height="400" width="400">
-            </a>
+            <iframe width="400" height="394" src="http://www.youtube.com/embed/l6gz1oQVBkw?autoplay=1" frameborder="0"></iframe>
           </div>
         </div>
 

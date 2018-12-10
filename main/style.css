@@ -308,8 +308,7 @@ h2 {
     font-size: 30px;
     text-align: center;
     position: relative;
-    left: -235px;
-    width: 2000px;
+    width: auto;
     margin-bottom: 30px;
     margin-top: 300px;
 }
